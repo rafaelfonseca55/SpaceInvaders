@@ -19,12 +19,13 @@ object KBD {
 
     private fun getKeySerial(): Char {
         var key: Char = NONE
-        var dval = HAL.readBits(0x10)
+        var dVal = HAL.readBits(0x10)
 
-        if (dval != 0) {
+        if (dVal != 0) {
             key = HAL.readBits(0x0F).toChar()
+            HAL.writeBits(0x0F, 1)
         }
-        //Fazer resto do código
+
         return key
     }
 
