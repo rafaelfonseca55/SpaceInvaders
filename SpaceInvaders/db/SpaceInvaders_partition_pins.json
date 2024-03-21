@@ -1,0 +1,61 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "Columns[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Columns[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Columns[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Mclk",
+					"strict" : false
+				},
+				{
+					"name" : "Lines[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Lines[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Lines[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Lines[0]",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tms",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tck",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdi",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdo",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

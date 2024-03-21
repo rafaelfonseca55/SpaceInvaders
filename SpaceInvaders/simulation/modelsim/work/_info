@@ -1,0 +1,52 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/fonseca/Desktop/SpaceInvaders/simulation/modelsim
+Ekey_scan_tb
+Z1 w1709118161
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 0
+R0
+Z4 8C:/Users/fonseca/Desktop/SpaceInvaders/Key_Scan_tb.vhd
+Z5 FC:/Users/fonseca/Desktop/SpaceInvaders/Key_Scan_tb.vhd
+l0
+L4 1
+V;D=PM0GVOTXYPZTZ4igAV3
+!s100 eei[X=nf4Dl;`3WDa4a1Z1
+Z6 OV;C;2020.1;71
+32
+Z7 !s110 1709118738
+!i10b 1
+Z8 !s108 1709118738.000000
+Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/fonseca/Desktop/SpaceInvaders/Key_Scan_tb.vhd|
+!s107 C:/Users/fonseca/Desktop/SpaceInvaders/Key_Scan_tb.vhd|
+!i113 1
+Z10 o-work work -2002 -explicit
+Z11 tExplicit 1 CvgOpt 0
+Abehavioral
+R2
+R3
+DEx4 work 11 key_scan_tb 0 22 ;D=PM0GVOTXYPZTZ4igAV3
+!i122 0
+l33
+L7 177
+VTP;X@fgkBf?C9flXb2Mbj2
+!s100 >1:85QFk?Q;gV4MOLVSX<0
+R6
+32
+R7
+!i10b 1
+R8
+R9
+Z12 !s107 C:/Users/fonseca/Desktop/SpaceInvaders/Key_Scan_tb.vhd|
+!i113 1
+R10
+R11

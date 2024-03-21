@@ -1,0 +1,6 @@
+
+State Machine - |SpaceInvaders|Keyboard_Reader:U0|Key_Decode:U0|Key_Control:U1|currentState
+Name currentState.STATE_3 currentState.STATE_2 currentState.STATE_1 
+currentState.STATE_1 0 0 0 
+currentState.STATE_2 0 1 1 
+currentState.STATE_3 1 0 1 

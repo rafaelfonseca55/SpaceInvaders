@@ -1,0 +1,17 @@
+transcript on
+if {[file exists rtl_work]} {
+	vdel -lib rtl_work -all
+}
+vlib rtl_work
+vmap work rtl_work
+
+vcom -93 -work work {C:/Users/fonseca/Desktop/SpaceInvaders/FFD.vhd}
+vcom -93 -work work {C:/Users/fonseca/Desktop/SpaceInvaders/FA.vhd}
+vcom -93 -work work {C:/Users/fonseca/Desktop/SpaceInvaders/Somador.vhd}
+vcom -93 -work work {C:/Users/fonseca/Desktop/SpaceInvaders/Decoder.vhd}
+vcom -93 -work work {C:/Users/fonseca/Desktop/SpaceInvaders/REG.vhd}
+vcom -93 -work work {C:/Users/fonseca/Desktop/SpaceInvaders/Key_Scan.vhd}
+vcom -93 -work work {C:/Users/fonseca/Desktop/SpaceInvaders/MUX.vhd}
+vcom -93 -work work {C:/Users/fonseca/Desktop/SpaceInvaders/Counter_KeyScan.vhd}
+vcom -93 -work work {C:/Users/fonseca/Desktop/SpaceInvaders/CLKDIV.vhd}
+

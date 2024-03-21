@@ -1,0 +1,656 @@
+|SpaceInvaders
+Mclk => Keyboard_Reader:U0.Mclk
+reset => Keyboard_Reader:U0.reset
+ack => ~NO_FANOUT~
+Lines[0] => Keyboard_Reader:U0.Lines[0]
+Lines[1] => Keyboard_Reader:U0.Lines[1]
+Lines[2] => Keyboard_Reader:U0.Lines[2]
+Lines[3] => Keyboard_Reader:U0.Lines[3]
+Columns[0] <= Keyboard_Reader:U0.Columns[0]
+Columns[1] <= Keyboard_Reader:U0.Columns[1]
+Columns[2] <= Keyboard_Reader:U0.Columns[2]
+Dval <= Dval.DB_MAX_OUTPUT_PORT_TYPE
+ds[0] <= comb.DB_MAX_OUTPUT_PORT_TYPE
+ds[1] <= ds[1].DB_MAX_OUTPUT_PORT_TYPE
+ds[2] <= ds[2].DB_MAX_OUTPUT_PORT_TYPE
+ds[3] <= ds[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|Keyboard_Reader:U0
+Mclk => Key_Decode:U0.Mclk
+reset => Key_Decode:U0.reset
+Kack => Key_Decode:U0.Kack
+Lines[0] => Key_Decode:U0.Lines[0]
+Lines[1] => Key_Decode:U0.Lines[1]
+Lines[2] => Key_Decode:U0.Lines[2]
+Lines[3] => Key_Decode:U0.Lines[3]
+Columns[0] <= Key_Decode:U0.Columns[0]
+Columns[1] <= Key_Decode:U0.Columns[1]
+Columns[2] <= Key_Decode:U0.Columns[2]
+Dval <= Key_Decode:U0.Kval
+D[0] <= Key_Decode:U0.K[0]
+D[1] <= Key_Decode:U0.K[1]
+D[2] <= Key_Decode:U0.K[2]
+D[3] <= Key_Decode:U0.K[3]
+
+
+|SpaceInvaders|Keyboard_Reader:U0|Key_Decode:U0
+Mclk => Key_Scan:U0.Mclk
+Mclk => Key_Control:U1.clk
+reset => Key_Control:U1.reset
+Kack => Key_Control:U1.Kack
+Kval <= Key_Control:U1.Kval
+Lines[0] => Key_Scan:U0.Min_0
+Lines[1] => Key_Scan:U0.Min_1
+Lines[2] => Key_Scan:U0.Min_2
+Lines[3] => Key_Scan:U0.Min_3
+Columns[0] <= Key_Scan:U0.Dec_0
+Columns[1] <= Key_Scan:U0.Dec_1
+Columns[2] <= Key_Scan:U0.Dec_2
+K[0] <= Key_Scan:U0.K[0]
+K[1] <= Key_Scan:U0.K[1]
+K[2] <= Key_Scan:U0.K[2]
+K[3] <= Key_Scan:U0.K[3]
+
+
+|SpaceInvaders|Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0
+reset => Counter_KeyScan:U2.clr
+Mclk => Counter_KeyScan:U2.CLK
+Mclk => CLKDIV:U3.clk_in
+Kscan => Counter_KeyScan:U2.CE
+Min_0 => Mux:U1.I0
+Min_1 => Mux:U1.I1
+Min_2 => Mux:U1.I2
+Min_3 => Mux:U1.I3
+Dec_0 <= Decoder:U0.O0
+Dec_1 <= Decoder:U0.O1
+Dec_2 <= Decoder:U0.O2
+KPress <= Mux:U1.Y
+K[0] <= Counter_KeyScan:U2.Q[0]
+K[1] <= Counter_KeyScan:U2.Q[1]
+K[2] <= Counter_KeyScan:U2.Q[2]
+K[3] <= Counter_KeyScan:U2.Q[3]
+
+
+|SpaceInvaders|Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|Decoder:U0
+S[0] => O1.IN0
+S[0] => O3.IN0
+S[0] => O0.IN0
+S[0] => O2.IN0
+S[1] => O2.IN1
+S[1] => O3.IN1
+S[1] => O0.IN1
+S[1] => O1.IN1
+O0 <= O0.DB_MAX_OUTPUT_PORT_TYPE
+O1 <= O1.DB_MAX_OUTPUT_PORT_TYPE
+O2 <= O2.DB_MAX_OUTPUT_PORT_TYPE
+O3 <= O3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|Mux:U1
+I0 => Y.IN0
+I1 => Y.IN0
+I2 => Y.IN0
+I3 => Y.IN0
+S[0] => Y.IN1
+S[0] => Y.IN1
+S[0] => Y.IN1
+S[0] => Y.IN1
+S[1] => Y.IN1
+S[1] => Y.IN1
+S[1] => Y.IN1
+S[1] => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|Counter_KeyScan:U2
+CE => REG:U3.CE
+CLK => REG:U3.CLK
+clr => REG:U3.RESET
+Q[0] <= REG:U3.Q[0]
+Q[1] <= REG:U3.Q[1]
+Q[2] <= REG:U3.Q[2]
+Q[3] <= REG:U3.Q[3]
+
+
+|SpaceInvaders|Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|Counter_KeyScan:U2|Somador:U1
+A[0] => FA:U1.A
+A[1] => FA:U2.A
+A[2] => FA:U3.A
+A[3] => FA:U4.A
+B[0] => FA:U1.B
+B[1] => FA:U2.B
+B[2] => FA:U3.B
+B[3] => FA:U4.B
+Cin => FA:U1.Cin
+R[0] <= FA:U1.R
+R[1] <= FA:U2.R
+R[2] <= FA:U3.R
+R[3] <= FA:U4.R
+Cout <= FA:U4.Cout
+
+
+|SpaceInvaders|Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|Counter_KeyScan:U2|Somador:U1|FA:U1
+A => R.IN0
+A => Cout.IN0
+B => R.IN1
+B => Cout.IN1
+Cin => R.IN1
+Cin => Cout.IN1
+R <= R.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|Counter_KeyScan:U2|Somador:U1|FA:U2
+A => R.IN0
+A => Cout.IN0
+B => R.IN1
+B => Cout.IN1
+Cin => R.IN1
+Cin => Cout.IN1
+R <= R.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|Counter_KeyScan:U2|Somador:U1|FA:U3
+A => R.IN0
+A => Cout.IN0
+B => R.IN1
+B => Cout.IN1
+Cin => R.IN1
+Cin => Cout.IN1
+R <= R.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|Counter_KeyScan:U2|Somador:U1|FA:U4
+A => R.IN0
+A => Cout.IN0
+B => R.IN1
+B => Cout.IN1
+Cin => R.IN1
+Cin => Cout.IN1
+R <= R.DB_MAX_OUTPUT_PORT_TYPE
+Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|Counter_KeyScan:U2|REG:U3
+CLK => FFD:U1.CLK
+CLK => FFD:U2.CLK
+CLK => FFD:U3.CLK
+CLK => FFD:U4.CLK
+D[0] => FFD:U1.D
+D[1] => FFD:U2.D
+D[2] => FFD:U3.D
+D[3] => FFD:U4.D
+CE => FFD:U1.EN
+CE => FFD:U2.EN
+CE => FFD:U3.EN
+CE => FFD:U4.EN
+RESET => FFD:U1.RESET
+RESET => FFD:U2.RESET
+RESET => FFD:U3.RESET
+RESET => FFD:U4.RESET
+Q[0] <= FFD:U1.Q
+Q[1] <= FFD:U2.Q
+Q[2] <= FFD:U3.Q
+Q[3] <= FFD:U4.Q
+
+
+|SpaceInvaders|Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|Counter_KeyScan:U2|REG:U3|FFD:U1
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|Counter_KeyScan:U2|REG:U3|FFD:U2
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|Counter_KeyScan:U2|REG:U3|FFD:U3
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|Counter_KeyScan:U2|REG:U3|FFD:U4
+CLK => Q~reg0.CLK
+RESET => Q~reg0.ACLR
+RESET => Q.IN0
+SET => Q.IN1
+D => Q~reg0.DATAIN
+EN => Q~reg0.ENA
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|CLKDIV:U3
+clk_in => tmp.CLK
+clk_in => count[0].CLK
+clk_in => count[1].CLK
+clk_in => count[2].CLK
+clk_in => count[3].CLK
+clk_in => count[4].CLK
+clk_in => count[5].CLK
+clk_in => count[6].CLK
+clk_in => count[7].CLK
+clk_in => count[8].CLK
+clk_in => count[9].CLK
+clk_in => count[10].CLK
+clk_in => count[11].CLK
+clk_in => count[12].CLK
+clk_in => count[13].CLK
+clk_in => count[14].CLK
+clk_in => count[15].CLK
+clk_in => count[16].CLK
+clk_in => count[17].CLK
+clk_in => count[18].CLK
+clk_in => count[19].CLK
+clk_in => count[20].CLK
+clk_in => count[21].CLK
+clk_in => count[22].CLK
+clk_in => count[23].CLK
+clk_in => count[24].CLK
+clk_in => count[25].CLK
+clk_in => count[26].CLK
+clk_in => count[27].CLK
+clk_in => count[28].CLK
+clk_in => count[29].CLK
+clk_in => count[30].CLK
+clk_in => count[31].CLK
+clk_out <= tmp.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|Keyboard_Reader:U0|Key_Decode:U0|Key_Control:U1
+reset => currentState~3.DATAIN
+clk => currentState~1.DATAIN
+Kack => Selector2.IN2
+Kack => nextState.OUTPUTSELECT
+Kack => nextState.OUTPUTSELECT
+Kack => Selector1.IN1
+Kpress => nextState.DATAB
+Kpress => Selector1.IN2
+Kpress => Selector0.IN1
+Kpress => nextState.DATAB
+Kval <= Kval.DB_MAX_OUTPUT_PORT_TYPE
+Kscan <= Kscan.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SpaceInvaders|UsbPort:U1
+inputPort[0] => sld_virtual_jtag:b2v_inst.ir_out[0]
+inputPort[1] => sld_virtual_jtag:b2v_inst.ir_out[1]
+inputPort[2] => sld_virtual_jtag:b2v_inst.ir_out[2]
+inputPort[3] => sld_virtual_jtag:b2v_inst.ir_out[3]
+inputPort[4] => sld_virtual_jtag:b2v_inst.ir_out[4]
+inputPort[5] => sld_virtual_jtag:b2v_inst.ir_out[5]
+inputPort[6] => sld_virtual_jtag:b2v_inst.ir_out[6]
+inputPort[7] => sld_virtual_jtag:b2v_inst.ir_out[7]
+outputPort[0] <= sld_virtual_jtag:b2v_inst.ir_in[0]
+outputPort[1] <= sld_virtual_jtag:b2v_inst.ir_in[1]
+outputPort[2] <= sld_virtual_jtag:b2v_inst.ir_in[2]
+outputPort[3] <= sld_virtual_jtag:b2v_inst.ir_in[3]
+outputPort[4] <= sld_virtual_jtag:b2v_inst.ir_in[4]
+outputPort[5] <= sld_virtual_jtag:b2v_inst.ir_in[5]
+outputPort[6] <= sld_virtual_jtag:b2v_inst.ir_in[6]
+outputPort[7] <= sld_virtual_jtag:b2v_inst.ir_in[7]
+
+
+|SpaceInvaders|UsbPort:U1|sld_virtual_jtag:b2v_inst
+tck <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.tck
+tdi <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.tdi
+ir_in[0] <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.ir_in
+ir_in[1] <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.ir_in
+ir_in[2] <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.ir_in
+ir_in[3] <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.ir_in
+ir_in[4] <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.ir_in
+ir_in[5] <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.ir_in
+ir_in[6] <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.ir_in
+ir_in[7] <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.ir_in
+tdo => tdo.IN1
+ir_out[0] => ir_out[0].IN1
+ir_out[1] => ir_out[1].IN1
+ir_out[2] => ir_out[2].IN1
+ir_out[3] => ir_out[3].IN1
+ir_out[4] => ir_out[4].IN1
+ir_out[5] => ir_out[5].IN1
+ir_out[6] => ir_out[6].IN1
+ir_out[7] => ir_out[7].IN1
+virtual_state_cdr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.virtual_state_cdr
+virtual_state_sdr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.virtual_state_sdr
+virtual_state_e1dr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.virtual_state_e1dr
+virtual_state_pdr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.virtual_state_pdr
+virtual_state_e2dr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.virtual_state_e2dr
+virtual_state_udr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.virtual_state_udr
+virtual_state_cir <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.virtual_state_cir
+virtual_state_uir <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.virtual_state_uir
+tms <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.tms
+jtag_state_tlr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_tlr
+jtag_state_rti <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_rti
+jtag_state_sdrs <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_sdrs
+jtag_state_cdr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_cdr
+jtag_state_sdr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_sdr
+jtag_state_e1dr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_e1dr
+jtag_state_pdr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_pdr
+jtag_state_e2dr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_e2dr
+jtag_state_udr <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_udr
+jtag_state_sirs <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_sirs
+jtag_state_cir <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_cir
+jtag_state_sir <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_sir
+jtag_state_e1ir <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_e1ir
+jtag_state_pir <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_pir
+jtag_state_e2ir <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_e2ir
+jtag_state_uir <= sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst.jtag_state_uir
+
+
+|SpaceInvaders|UsbPort:U1|sld_virtual_jtag:b2v_inst|sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst
+tck <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_tck
+tdi <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_tdi
+ir_in[0] <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_ir_in
+ir_in[1] <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_ir_in
+ir_in[2] <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_ir_in
+ir_in[3] <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_ir_in
+ir_in[4] <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_ir_in
+ir_in[5] <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_ir_in
+ir_in[6] <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_ir_in
+ir_in[7] <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_ir_in
+tdo => tdo.IN1
+ir_out[0] => ir_out[0].IN1
+ir_out[1] => ir_out[1].IN1
+ir_out[2] => ir_out[2].IN1
+ir_out[3] => ir_out[3].IN1
+ir_out[4] => ir_out[4].IN1
+ir_out[5] => ir_out[5].IN1
+ir_out[6] => ir_out[6].IN1
+ir_out[7] => ir_out[7].IN1
+virtual_state_cdr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_virtual_state_cdr
+virtual_state_sdr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_virtual_state_sdr
+virtual_state_e1dr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_virtual_state_e1dr
+virtual_state_pdr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_virtual_state_pdr
+virtual_state_e2dr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_virtual_state_e2dr
+virtual_state_udr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_virtual_state_udr
+virtual_state_cir <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_virtual_state_cir
+virtual_state_uir <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_virtual_state_uir
+tms <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_tms
+jtag_state_tlr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_tlr
+jtag_state_rti <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_rti
+jtag_state_sdrs <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_sdrs
+jtag_state_cdr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_cdr
+jtag_state_sdr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_sdr
+jtag_state_e1dr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_e1dr
+jtag_state_pdr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_pdr
+jtag_state_e2dr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_e2dr
+jtag_state_udr <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_udr
+jtag_state_sirs <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_sirs
+jtag_state_cir <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_cir
+jtag_state_sir <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_sir
+jtag_state_e1ir <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_e1ir
+jtag_state_pir <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_pir
+jtag_state_e2ir <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_e2ir
+jtag_state_uir <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_uir
+
+
+|SpaceInvaders|UsbPort:U1|sld_virtual_jtag:b2v_inst|sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst
+usr_tck <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_tck
+usr_tdi <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_tdi
+usr_ir_in[0] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_ir_in
+usr_ir_in[1] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_ir_in
+usr_ir_in[2] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_ir_in
+usr_ir_in[3] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_ir_in
+usr_ir_in[4] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_ir_in
+usr_ir_in[5] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_ir_in
+usr_ir_in[6] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_ir_in
+usr_ir_in[7] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_ir_in
+usr_tdo => adapted_tdo.IN1
+usr_ir_out[0] => adapted_ir_out[0].IN1
+usr_ir_out[1] => adapted_ir_out[1].IN1
+usr_ir_out[2] => adapted_ir_out[2].IN1
+usr_ir_out[3] => adapted_ir_out[3].IN1
+usr_ir_out[4] => adapted_ir_out[4].IN1
+usr_ir_out[5] => adapted_ir_out[5].IN1
+usr_ir_out[6] => adapted_ir_out[6].IN1
+usr_ir_out[7] => adapted_ir_out[7].IN1
+usr_virtual_state_cdr <= virtual_state_cdr.DB_MAX_OUTPUT_PORT_TYPE
+usr_virtual_state_sdr <= virtual_state_sdr.DB_MAX_OUTPUT_PORT_TYPE
+usr_virtual_state_e1dr <= virtual_state_e1dr.DB_MAX_OUTPUT_PORT_TYPE
+usr_virtual_state_pdr <= virtual_state_pdr.DB_MAX_OUTPUT_PORT_TYPE
+usr_virtual_state_e2dr <= virtual_state_e2dr.DB_MAX_OUTPUT_PORT_TYPE
+usr_virtual_state_udr <= virtual_state_udr.DB_MAX_OUTPUT_PORT_TYPE
+usr_virtual_state_cir <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_cdr
+usr_virtual_state_uir <= virtual_state_uir.DB_MAX_OUTPUT_PORT_TYPE
+usr_tms <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_tms
+usr_jtag_state_tlr <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_tlr
+usr_jtag_state_rti <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_rti
+usr_jtag_state_sdrs <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_sdrs
+usr_jtag_state_cdr <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_cdr
+usr_jtag_state_sdr <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_sdr
+usr_jtag_state_e1dr <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_e1dr
+usr_jtag_state_pdr <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_pdr
+usr_jtag_state_e2dr <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_e2dr
+usr_jtag_state_udr <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_udr
+usr_jtag_state_sirs <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_sirs
+usr_jtag_state_cir <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_cir
+usr_jtag_state_sir <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_sir
+usr_jtag_state_e1ir <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_e1ir
+usr_jtag_state_pir <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_pir
+usr_jtag_state_e2ir <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_e2ir
+usr_jtag_state_uir <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_jtag_state_uir
+raw_tck => raw_tck.IN1
+raw_tms => raw_tms.IN1
+tdi => tdi.IN1
+jtag_state_tlr => jtag_state_tlr.IN1
+jtag_state_rti => jtag_state_rti.IN1
+jtag_state_sdrs => jtag_state_sdrs.IN1
+jtag_state_cdr => jtag_state_cdr.IN1
+jtag_state_sdr => jtag_state_sdr.IN1
+jtag_state_e1dr => jtag_state_e1dr.IN1
+jtag_state_pdr => jtag_state_pdr.IN1
+jtag_state_e2dr => jtag_state_e2dr.IN1
+jtag_state_udr => jtag_state_udr.IN1
+jtag_state_sirs => jtag_state_sirs.IN1
+jtag_state_cir => jtag_state_cir.IN1
+jtag_state_sir => jtag_state_sir.IN1
+jtag_state_e1ir => jtag_state_e1ir.IN1
+jtag_state_pir => jtag_state_pir.IN1
+jtag_state_e2ir => jtag_state_e2ir.IN1
+jtag_state_uir => jtag_state_uir.IN1
+usr1 => usr1.IN1
+clr => clr.IN1
+ena => ena.IN1
+ir_in[0] => ir_in[0].IN1
+ir_in[1] => ir_in[1].IN1
+ir_in[2] => ir_in[2].IN1
+ir_in[3] => ir_in[3].IN1
+ir_in[4] => ir_in[4].IN1
+ir_in[5] => ir_in[5].IN1
+ir_in[6] => ir_in[6].IN1
+ir_in[7] => ir_in[7].IN1
+tdo <= sld_jtag_endpoint_adapter:jtag_signal_adapter.tdo
+ir_out[0] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out
+ir_out[1] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out
+ir_out[2] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out
+ir_out[3] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out
+ir_out[4] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out
+ir_out[5] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out
+ir_out[6] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out
+ir_out[7] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out
+
+
+|SpaceInvaders|UsbPort:U1|sld_virtual_jtag:b2v_inst|sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst|sld_jtag_endpoint_adapter:jtag_signal_adapter
+raw_tck => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.raw_tck
+raw_tms => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.raw_tms
+tdi => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.tdi
+vir_tdi => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.vir_tdi
+jtag_state_tlr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_tlr
+jtag_state_rti => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_rti
+jtag_state_sdrs => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_sdrs
+jtag_state_cdr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_cdr
+jtag_state_sdr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_sdr
+jtag_state_e1dr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_e1dr
+jtag_state_pdr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_pdr
+jtag_state_e2dr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_e2dr
+jtag_state_udr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_udr
+jtag_state_sirs => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_sirs
+jtag_state_cir => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_cir
+jtag_state_sir => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_sir
+jtag_state_e1ir => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_e1ir
+jtag_state_pir => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_pir
+jtag_state_e2ir => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_e2ir
+jtag_state_uir => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.jtag_state_uir
+usr1 => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.usr1
+clr => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.clr
+ena => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ena
+ir_in[0] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[0]
+ir_in[1] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[1]
+ir_in[2] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[2]
+ir_in[3] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[3]
+ir_in[4] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[4]
+ir_in[5] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[5]
+ir_in[6] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[6]
+ir_in[7] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_in[7]
+tdo <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.tdo
+ir_out[0] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[0]
+ir_out[1] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[1]
+ir_out[2] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[2]
+ir_out[3] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[3]
+ir_out[4] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[4]
+ir_out[5] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[5]
+ir_out[6] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[6]
+ir_out[7] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.ir_out[7]
+adapted_tck <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_tck
+adapted_tms <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_tms
+adapted_tdi <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_tdi
+adapted_vir_tdi <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_vir_tdi
+adapted_jtag_state_tlr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_tlr
+adapted_jtag_state_rti <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_rti
+adapted_jtag_state_sdrs <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_sdrs
+adapted_jtag_state_cdr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_cdr
+adapted_jtag_state_sdr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_sdr
+adapted_jtag_state_e1dr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_e1dr
+adapted_jtag_state_pdr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_pdr
+adapted_jtag_state_e2dr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_e2dr
+adapted_jtag_state_udr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_udr
+adapted_jtag_state_sirs <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_sirs
+adapted_jtag_state_cir <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_cir
+adapted_jtag_state_sir <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_sir
+adapted_jtag_state_e1ir <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_e1ir
+adapted_jtag_state_pir <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_pir
+adapted_jtag_state_e2ir <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_e2ir
+adapted_jtag_state_uir <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_jtag_state_uir
+adapted_usr1 <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_usr1
+adapted_clr <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_clr
+adapted_ena <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ena
+adapted_ir_in[0] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[0]
+adapted_ir_in[1] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[1]
+adapted_ir_in[2] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[2]
+adapted_ir_in[3] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[3]
+adapted_ir_in[4] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[4]
+adapted_ir_in[5] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[5]
+adapted_ir_in[6] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[6]
+adapted_ir_in[7] <= sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_in[7]
+adapted_tdo => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_tdo
+adapted_ir_out[0] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[0]
+adapted_ir_out[1] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[1]
+adapted_ir_out[2] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[2]
+adapted_ir_out[3] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[3]
+adapted_ir_out[4] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[4]
+adapted_ir_out[5] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[5]
+adapted_ir_out[6] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[6]
+adapted_ir_out[7] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[7]
+
+
+|SpaceInvaders|UsbPort:U1|sld_virtual_jtag:b2v_inst|sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst|sld_jtag_endpoint_adapter:jtag_signal_adapter|sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst
+raw_tck => adapted_tck.DATAIN
+raw_tms => adapted_tms.DATAIN
+tdi => adapted_tdi.DATAIN
+vir_tdi => adapted_vir_tdi.DATAIN
+jtag_state_tlr => adapted_jtag_state_tlr.DATAIN
+jtag_state_rti => adapted_jtag_state_rti.DATAIN
+jtag_state_sdrs => adapted_jtag_state_sdrs.DATAIN
+jtag_state_cdr => adapted_jtag_state_cdr.DATAIN
+jtag_state_sdr => adapted_jtag_state_sdr.DATAIN
+jtag_state_e1dr => adapted_jtag_state_e1dr.DATAIN
+jtag_state_pdr => adapted_jtag_state_pdr.DATAIN
+jtag_state_e2dr => adapted_jtag_state_e2dr.DATAIN
+jtag_state_udr => adapted_jtag_state_udr.DATAIN
+jtag_state_sirs => adapted_jtag_state_sirs.DATAIN
+jtag_state_cir => adapted_jtag_state_cir.DATAIN
+jtag_state_sir => adapted_jtag_state_sir.DATAIN
+jtag_state_e1ir => adapted_jtag_state_e1ir.DATAIN
+jtag_state_pir => adapted_jtag_state_pir.DATAIN
+jtag_state_e2ir => adapted_jtag_state_e2ir.DATAIN
+jtag_state_uir => adapted_jtag_state_uir.DATAIN
+usr1 => adapted_usr1.DATAIN
+clr => adapted_clr.DATAIN
+ena => adapted_ena.DATAIN
+ir_in[0] => adapted_ir_in[0].DATAIN
+ir_in[1] => adapted_ir_in[1].DATAIN
+ir_in[2] => adapted_ir_in[2].DATAIN
+ir_in[3] => adapted_ir_in[3].DATAIN
+ir_in[4] => adapted_ir_in[4].DATAIN
+ir_in[5] => adapted_ir_in[5].DATAIN
+ir_in[6] => adapted_ir_in[6].DATAIN
+ir_in[7] => adapted_ir_in[7].DATAIN
+tdo <= adapted_tdo.DB_MAX_OUTPUT_PORT_TYPE
+ir_out[0] <= adapted_ir_out[0].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[1] <= adapted_ir_out[1].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[2] <= adapted_ir_out[2].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[3] <= adapted_ir_out[3].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[4] <= adapted_ir_out[4].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[5] <= adapted_ir_out[5].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[6] <= adapted_ir_out[6].DB_MAX_OUTPUT_PORT_TYPE
+ir_out[7] <= adapted_ir_out[7].DB_MAX_OUTPUT_PORT_TYPE
+adapted_tck <= raw_tck.DB_MAX_OUTPUT_PORT_TYPE
+adapted_tms <= raw_tms.DB_MAX_OUTPUT_PORT_TYPE
+adapted_tdi <= tdi.DB_MAX_OUTPUT_PORT_TYPE
+adapted_vir_tdi <= vir_tdi.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_tlr <= jtag_state_tlr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_rti <= jtag_state_rti.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_sdrs <= jtag_state_sdrs.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_cdr <= jtag_state_cdr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_sdr <= jtag_state_sdr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_e1dr <= jtag_state_e1dr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_pdr <= jtag_state_pdr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_e2dr <= jtag_state_e2dr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_udr <= jtag_state_udr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_sirs <= jtag_state_sirs.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_cir <= jtag_state_cir.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_sir <= jtag_state_sir.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_e1ir <= jtag_state_e1ir.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_pir <= jtag_state_pir.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_e2ir <= jtag_state_e2ir.DB_MAX_OUTPUT_PORT_TYPE
+adapted_jtag_state_uir <= jtag_state_uir.DB_MAX_OUTPUT_PORT_TYPE
+adapted_usr1 <= usr1.DB_MAX_OUTPUT_PORT_TYPE
+adapted_clr <= clr.DB_MAX_OUTPUT_PORT_TYPE
+adapted_ena <= ena.DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[0] <= ir_in[0].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[1] <= ir_in[1].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[2] <= ir_in[2].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[3] <= ir_in[3].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[4] <= ir_in[4].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[5] <= ir_in[5].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[6] <= ir_in[6].DB_MAX_OUTPUT_PORT_TYPE
+adapted_ir_in[7] <= ir_in[7].DB_MAX_OUTPUT_PORT_TYPE
+adapted_tdo => tdo.DATAIN
+adapted_ir_out[0] => ir_out[0].DATAIN
+adapted_ir_out[1] => ir_out[1].DATAIN
+adapted_ir_out[2] => ir_out[2].DATAIN
+adapted_ir_out[3] => ir_out[3].DATAIN
+adapted_ir_out[4] => ir_out[4].DATAIN
+adapted_ir_out[5] => ir_out[5].DATAIN
+adapted_ir_out[6] => ir_out[6].DATAIN
+adapted_ir_out[7] => ir_out[7].DATAIN
+
+
