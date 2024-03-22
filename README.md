@@ -3,9 +3,9 @@
       Guilherme Esteves 48313;
       Rafael Fonseca 48354.
 
-# Space Invaders Game Project
+# Space Invaders Game project
 
-This repository contains the project files for the Space Invaders Game developed as part of the Laboratory of Informatics and Computers course during the summer semester of 2023/2024.
+This project was developed as part of the Laboratory of Computers and Informatics course during the summer semester of 2023/24. Using Kotlin and hardware's description language VHDL.
 
 ## Hardware modules (SpaceInvaders folder)
 
