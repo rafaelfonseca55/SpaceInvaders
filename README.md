@@ -3,7 +3,7 @@
       Guilherme Esteves 48313;
       Rafael Fonseca 48354.
 
-# Space Invaders game project
+# About this project
 
 This project was developed as part of the Laboratory of Computers and Informatics course during the summer semester of 2023/24. Using Kotlin and hardware's description language VHDL.
 
