@@ -4,10 +4,7 @@ import isel.leic.utils.Time
 fun main(){
     KBD.init()
     while (true) {
-        val key = KBD.waitKey(100)
-        if (key!=0.toChar()){
-            println(key)
-        }
+        KBD.waitKey(100)
     }
 }
 
@@ -21,9 +18,13 @@ object KBD {
         var key: Char = NONE
         var dVal = HAL.readBits(0x10)
 
+        val keyboard = arrayOf('1','4','7','*','2','5','8','0', '3','6','9','#') //Index of the keys according the returned value when pressed
+
         if (dVal != 0) {
-            key = HAL.readBits(0x0F).toChar()
+            val idx = HAL.readBits(0x0F)
+            key = keyboard[idx]
             HAL.writeBits(0x0F, 1)
+            println("Key: $key")
         }
 
         return key
