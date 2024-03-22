@@ -23,7 +23,7 @@ object KBD {
 
         if (dVal != 0) {
             key = HAL.readBits(0x0F).toChar()
-            HAL.writeBits(0x0F, 1)
+            HAL.writeBits(0x0F, 1) //Ack = 1
         }
 
         return key
