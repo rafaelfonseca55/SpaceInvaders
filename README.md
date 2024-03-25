@@ -7,7 +7,7 @@
 
 This project was developed as part of the Laboratory of Computers and Informatics course during the summer semester of 2023/24. Using Kotlin and hardware's description language VHDL.
 
-## Hardware modules (SpaceInvaders folder)
+## Hardware modules (SpaceInvadersHW folder)
 
 - **Keyboard Reader**: Decodes keypresses from a 12-key keyboard matrix.
 
