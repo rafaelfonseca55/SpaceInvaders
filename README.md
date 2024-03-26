@@ -21,5 +21,5 @@ This project was developed as part of the Laboratory of Computers and Informatic
 
 ## TO DO:
 - **LCD registers**: --;
-- **Ring Buffer**: [Ring buffer description](https://github.com/rafaelfonseca55/SpaceInvaders/wiki#21-keyboard-reader); 
-- **Output Buffer**: [Output buffer description](https://github.com/rafaelfonseca55/SpaceInvaders/wiki#21-keyboard-reader).
+- **Ring Buffer**: [Ring buffer description in 2.1.2](https://github.com/rafaelfonseca55/SpaceInvaders/wiki#21-keyboard-reader); 
+- **Output Buffer**: [Output buffer description in 2.1.3](https://github.com/rafaelfonseca55/SpaceInvaders/wiki#21-keyboard-reader).
