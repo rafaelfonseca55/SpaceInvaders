@@ -18,3 +18,8 @@ This project was developed as part of the Laboratory of Computers and Informatic
 -  **LCD (LCD Display Interface)**: The LCD module effectively manages communication with the LCD by providing essential functions for initializing the display, writing characters and strings, positioning the cursor, and clearing the screen. By abstracting the complexities of interfacing with the LCD hardware, this module allows for easy integration into the game control logic.
 -  **Receiver**: The receiver module is an essential component that receives data from external peripherals, such as the LCD and score display. It comprises different blocks responsible for data reception, conversion from serial to parallel data, bit count tracking, and parity checking. This module is designed to ensure that communication with devices is always reliable, and it processes received data accurately for further use by the game control logic. It is an indispensable part of the system that guarantees the seamless operation of your game.
 -  **Serial Emitter**: The Serial Emitter module manages the transmission of serial data to external peripherals, such as the LCD and score display. It includes functions for initializing the serial communication interface and sending data packets to specific destinations. The module abstracts the transmission process, allowing the game control logic to communicate with external devices over a serial connection easily.
+
+## TO DO:
+- **LCD registers**: --;
+- **Ring Buffer**: [Ring buffer description](https://github.com/rafaelfonseca55/SpaceInvaders/wiki#21-keyboard-reader); 
+- **Output Buffer**: [Output buffer description](https://github.com/rafaelfonseca55/SpaceInvaders/wiki#21-keyboard-reader).
