@@ -1,5 +1,4 @@
 # Class 24D - Group 8
-      Pedro Correia 47264;
       Guilherme Esteves 48313;
       Rafael Fonseca 48354.
 
