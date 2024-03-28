@@ -1,5 +1,5 @@
 Analysis & Synthesis report for SpaceInvaders
-Wed Mar 20 10:10:47 2024
+Thu Mar 28 02:54:15 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -58,7 +58,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Mar 20 10:10:47 2024       ;
+; Analysis & Synthesis Status        ; Successful - Thu Mar 28 02:54:14 2024       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; SpaceInvaders                               ;
 ; Top-level Entity Name              ; SpaceInvaders                               ;
@@ -168,51 +168,51 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 8           ;
-; Maximum allowed            ; 4           ;
+; Number detected on machine ; 6           ;
+; Maximum allowed            ; 6           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 4           ;
+; Maximum used               ; 6           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.0%      ;
+;     Processors 2-6         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                        ;
-+--------------------------------------------------------------------+-----------------+----------------------------------------------+-----------------------------------------------------------------------------------------------------------+-------------+
-; File Name with User-Entered Path                                   ; Used in Netlist ; File Type                                    ; File Name with Absolute Path                                                                              ; Library     ;
-+--------------------------------------------------------------------+-----------------+----------------------------------------------+-----------------------------------------------------------------------------------------------------------+-------------+
-; UsbPort.vhd                                                        ; yes             ; User VHDL File                               ; C:/Users/fonseca/Desktop/SpaceInvaders/UsbPort.vhd                                                        ;             ;
-; FFD.vhd                                                            ; yes             ; User VHDL File                               ; C:/Users/fonseca/Desktop/SpaceInvaders/FFD.vhd                                                            ;             ;
-; FA.vhd                                                             ; yes             ; User VHDL File                               ; C:/Users/fonseca/Desktop/SpaceInvaders/FA.vhd                                                             ;             ;
-; Somador.vhd                                                        ; yes             ; User VHDL File                               ; C:/Users/fonseca/Desktop/SpaceInvaders/Somador.vhd                                                        ;             ;
-; Decoder.vhd                                                        ; yes             ; User VHDL File                               ; C:/Users/fonseca/Desktop/SpaceInvaders/Decoder.vhd                                                        ;             ;
-; REG.vhd                                                            ; yes             ; User VHDL File                               ; C:/Users/fonseca/Desktop/SpaceInvaders/REG.vhd                                                            ;             ;
-; Key_Decode.vhd                                                     ; yes             ; User VHDL File                               ; C:/Users/fonseca/Desktop/SpaceInvaders/Key_Decode.vhd                                                     ;             ;
-; Key_Scan.vhd                                                       ; yes             ; User VHDL File                               ; C:/Users/fonseca/Desktop/SpaceInvaders/Key_Scan.vhd                                                       ;             ;
-; Key_Control.vhd                                                    ; yes             ; User VHDL File                               ; C:/Users/fonseca/Desktop/SpaceInvaders/Key_Control.vhd                                                    ;             ;
-; MUX.vhd                                                            ; yes             ; User VHDL File                               ; C:/Users/fonseca/Desktop/SpaceInvaders/MUX.vhd                                                            ;             ;
-; Counter_KeyScan.vhd                                                ; yes             ; User VHDL File                               ; C:/Users/fonseca/Desktop/SpaceInvaders/Counter_KeyScan.vhd                                                ;             ;
-; CLKDIV.vhd                                                         ; yes             ; User VHDL File                               ; C:/Users/fonseca/Desktop/SpaceInvaders/CLKDIV.vhd                                                         ;             ;
-; Keyboard_Reader.vhd                                                ; yes             ; User VHDL File                               ; C:/Users/fonseca/Desktop/SpaceInvaders/Keyboard_Reader.vhd                                                ;             ;
-; SpaceInvaders.vhd                                                  ; yes             ; User VHDL File                               ; C:/Users/fonseca/Desktop/SpaceInvaders/SpaceInvaders.vhd                                                  ;             ;
-; sld_virtual_jtag.v                                                 ; yes             ; Megafunction                                 ; c:/quartusprime/quartus/libraries/megafunctions/sld_virtual_jtag.v                                        ;             ;
-; sld_virtual_jtag_basic.v                                           ; yes             ; Megafunction                                 ; c:/quartusprime/quartus/libraries/megafunctions/sld_virtual_jtag_basic.v                                  ;             ;
-; sld_jtag_endpoint_adapter.vhd                                      ; yes             ; Encrypted Megafunction                       ; c:/quartusprime/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter.vhd                             ;             ;
-; sld_jtag_endpoint_adapter_impl.sv                                  ; yes             ; Encrypted Megafunction                       ; c:/quartusprime/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter_impl.sv                         ;             ;
-; sld_hub.vhd                                                        ; yes             ; Encrypted Megafunction                       ; c:/quartusprime/quartus/libraries/megafunctions/sld_hub.vhd                                               ; altera_sld  ;
-; db/ip/sld25a986d0/alt_sld_fab.v                                    ; yes             ; Encrypted Auto-Found Verilog HDL File        ; C:/Users/fonseca/Desktop/SpaceInvaders/db/ip/sld25a986d0/alt_sld_fab.v                                    ; alt_sld_fab ;
-; db/ip/sld25a986d0/submodules/alt_sld_fab_alt_sld_fab.v             ; yes             ; Encrypted Auto-Found Verilog HDL File        ; C:/Users/fonseca/Desktop/SpaceInvaders/db/ip/sld25a986d0/submodules/alt_sld_fab_alt_sld_fab.v             ; alt_sld_fab ;
-; db/ip/sld25a986d0/submodules/alt_sld_fab_alt_sld_fab_ident.sv      ; yes             ; Auto-Found SystemVerilog HDL File            ; C:/Users/fonseca/Desktop/SpaceInvaders/db/ip/sld25a986d0/submodules/alt_sld_fab_alt_sld_fab_ident.sv      ; alt_sld_fab ;
-; db/ip/sld25a986d0/submodules/alt_sld_fab_alt_sld_fab_presplit.sv   ; yes             ; Encrypted Auto-Found SystemVerilog HDL File  ; C:/Users/fonseca/Desktop/SpaceInvaders/db/ip/sld25a986d0/submodules/alt_sld_fab_alt_sld_fab_presplit.sv   ; alt_sld_fab ;
-; db/ip/sld25a986d0/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd ; yes             ; Encrypted Auto-Found VHDL File               ; C:/Users/fonseca/Desktop/SpaceInvaders/db/ip/sld25a986d0/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd ; alt_sld_fab ;
-; db/ip/sld25a986d0/submodules/alt_sld_fab_alt_sld_fab_splitter.sv   ; yes             ; Encrypted Auto-Found SystemVerilog HDL File  ; C:/Users/fonseca/Desktop/SpaceInvaders/db/ip/sld25a986d0/submodules/alt_sld_fab_alt_sld_fab_splitter.sv   ; alt_sld_fab ;
-; sld_jtag_hub.vhd                                                   ; yes             ; Encrypted Megafunction                       ; c:/quartusprime/quartus/libraries/megafunctions/sld_jtag_hub.vhd                                          ;             ;
-; sld_rom_sr.vhd                                                     ; yes             ; Encrypted Megafunction                       ; c:/quartusprime/quartus/libraries/megafunctions/sld_rom_sr.vhd                                            ;             ;
-+--------------------------------------------------------------------+-----------------+----------------------------------------------+-----------------------------------------------------------------------------------------------------------+-------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                                      ;
++--------------------------------------------------------------------+-----------------+----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------+-------------+
+; File Name with User-Entered Path                                   ; Used in Netlist ; File Type                                    ; File Name with Absolute Path                                                                                            ; Library     ;
++--------------------------------------------------------------------+-----------------+----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------+-------------+
+; UsbPort.vhd                                                        ; yes             ; User VHDL File                               ; C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/UsbPort.vhd                                                        ;             ;
+; FFD.vhd                                                            ; yes             ; User VHDL File                               ; C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/FFD.vhd                                                            ;             ;
+; FA.vhd                                                             ; yes             ; User VHDL File                               ; C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/FA.vhd                                                             ;             ;
+; Somador.vhd                                                        ; yes             ; User VHDL File                               ; C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/Somador.vhd                                                        ;             ;
+; Decoder.vhd                                                        ; yes             ; User VHDL File                               ; C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/Decoder.vhd                                                        ;             ;
+; REG.vhd                                                            ; yes             ; User VHDL File                               ; C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/REG.vhd                                                            ;             ;
+; Key_Decode.vhd                                                     ; yes             ; User VHDL File                               ; C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/Key_Decode.vhd                                                     ;             ;
+; Key_Scan.vhd                                                       ; yes             ; User VHDL File                               ; C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/Key_Scan.vhd                                                       ;             ;
+; Key_Control.vhd                                                    ; yes             ; User VHDL File                               ; C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/Key_Control.vhd                                                    ;             ;
+; MUX.vhd                                                            ; yes             ; User VHDL File                               ; C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/MUX.vhd                                                            ;             ;
+; Counter_KeyScan.vhd                                                ; yes             ; User VHDL File                               ; C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/Counter_KeyScan.vhd                                                ;             ;
+; CLKDIV.vhd                                                         ; yes             ; User VHDL File                               ; C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/CLKDIV.vhd                                                         ;             ;
+; Keyboard_Reader.vhd                                                ; yes             ; User VHDL File                               ; C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/Keyboard_Reader.vhd                                                ;             ;
+; SpaceInvaders.vhd                                                  ; yes             ; User VHDL File                               ; C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/SpaceInvaders.vhd                                                  ;             ;
+; sld_virtual_jtag.v                                                 ; yes             ; Megafunction                                 ; p:/quartusprime/quartus/libraries/megafunctions/sld_virtual_jtag.v                                                      ;             ;
+; sld_virtual_jtag_basic.v                                           ; yes             ; Megafunction                                 ; p:/quartusprime/quartus/libraries/megafunctions/sld_virtual_jtag_basic.v                                                ;             ;
+; sld_jtag_endpoint_adapter.vhd                                      ; yes             ; Encrypted Megafunction                       ; p:/quartusprime/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter.vhd                                           ;             ;
+; sld_jtag_endpoint_adapter_impl.sv                                  ; yes             ; Encrypted Megafunction                       ; p:/quartusprime/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter_impl.sv                                       ;             ;
+; sld_hub.vhd                                                        ; yes             ; Encrypted Megafunction                       ; p:/quartusprime/quartus/libraries/megafunctions/sld_hub.vhd                                                             ; altera_sld  ;
+; db/ip/sld25a986d0/alt_sld_fab.v                                    ; yes             ; Encrypted Auto-Found Verilog HDL File        ; C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/db/ip/sld25a986d0/alt_sld_fab.v                                    ; alt_sld_fab ;
+; db/ip/sld25a986d0/submodules/alt_sld_fab_alt_sld_fab.v             ; yes             ; Encrypted Auto-Found Verilog HDL File        ; C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/db/ip/sld25a986d0/submodules/alt_sld_fab_alt_sld_fab.v             ; alt_sld_fab ;
+; db/ip/sld25a986d0/submodules/alt_sld_fab_alt_sld_fab_ident.sv      ; yes             ; Auto-Found SystemVerilog HDL File            ; C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/db/ip/sld25a986d0/submodules/alt_sld_fab_alt_sld_fab_ident.sv      ; alt_sld_fab ;
+; db/ip/sld25a986d0/submodules/alt_sld_fab_alt_sld_fab_presplit.sv   ; yes             ; Encrypted Auto-Found SystemVerilog HDL File  ; C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/db/ip/sld25a986d0/submodules/alt_sld_fab_alt_sld_fab_presplit.sv   ; alt_sld_fab ;
+; db/ip/sld25a986d0/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd ; yes             ; Encrypted Auto-Found VHDL File               ; C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/db/ip/sld25a986d0/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd ; alt_sld_fab ;
+; db/ip/sld25a986d0/submodules/alt_sld_fab_alt_sld_fab_splitter.sv   ; yes             ; Encrypted Auto-Found SystemVerilog HDL File  ; C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/db/ip/sld25a986d0/submodules/alt_sld_fab_alt_sld_fab_splitter.sv   ; alt_sld_fab ;
+; sld_jtag_hub.vhd                                                   ; yes             ; Encrypted Megafunction                       ; p:/quartusprime/quartus/libraries/megafunctions/sld_jtag_hub.vhd                                                        ;             ;
+; sld_rom_sr.vhd                                                     ; yes             ; Encrypted Megafunction                       ; p:/quartusprime/quartus/libraries/megafunctions/sld_rom_sr.vhd                                                          ;             ;
++--------------------------------------------------------------------+-----------------+----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------+-------------+
 
 
 +------------------------------------------------------------------------+
@@ -480,7 +480,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -490,83 +490,134 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Wed Mar 20 10:10:29 2024
+    Info: Processing started: Thu Mar 28 02:53:48 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SpaceInvaders -c SpaceInvaders
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file ringbuffer_tb.vhd
+    Info (12022): Found design unit 1: RingBuffer_TB-behavioral File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/RingBuffer_TB.vhd Line: 7
+    Info (12023): Found entity 1: RingBuffer_TB File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/RingBuffer_TB.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file ringbuffermux_tb.vhd
+    Info (12022): Found design unit 1: RingBufferMux_TB-behavioral File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/RingBufferMux_TB.vhd Line: 7
+    Info (12023): Found entity 1: RingBufferMux_TB File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/RingBufferMux_TB.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file ringbuffermux.vhd
+    Info (12022): Found design unit 1: RingBufferMux-structural File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/RingBufferMux.vhd Line: 17
+    Info (12023): Found entity 1: RingBufferMux File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/RingBufferMux.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file ringbuffercontrol_tb.vhd
+    Info (12022): Found design unit 1: RingBufferControl_TB-behavioral File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/RingBufferControl_TB.vhd Line: 7
+    Info (12023): Found entity 1: RingBufferControl_TB File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/RingBufferControl_TB.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file ringbuffercontrol.vhd
+    Info (12022): Found design unit 1: RingBufferControl-behavioral File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/RingBufferControl.vhd Line: 25
+    Info (12023): Found entity 1: RingBufferControl File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/RingBufferControl.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file ringbuffer.vhd
+    Info (12022): Found design unit 1: RingBuffer-structural File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/RingBuffer.vhd Line: 21
+    Info (12023): Found entity 1: RingBuffer File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/RingBuffer.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file ram.vhd
+    Info (12022): Found design unit 1: RAM-behavioral File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/RAM.vhd Line: 18
+    Info (12023): Found entity 1: RAM File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/RAM.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file memoryaddresscontrol_tb.vhd
+    Info (12022): Found design unit 1: MemoryAddressControl_TB-behavioral File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/MemoryAddressControl_TB.vhd Line: 7
+    Info (12023): Found entity 1: MemoryAddressControl_TB File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/MemoryAddressControl_TB.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file memoryaddresscontrol.vhd
+    Info (12022): Found design unit 1: MemoryAddressControl-structural File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/MemoryAddressControl.vhd Line: 21
+    Info (12023): Found entity 1: MemoryAddressControl File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/MemoryAddressControl.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file counterbuffer_tb.vhd
+    Info (12022): Found design unit 1: CounterBuffer_TB-behavioral File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/CounterBuffer_TB.vhd Line: 7
+    Info (12023): Found entity 1: CounterBuffer_TB File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/CounterBuffer_TB.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file counterbuffer.vhd
+    Info (12022): Found design unit 1: CounterBuffer-behavioral File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/CounterBuffer.vhd Line: 19
+    Info (12023): Found entity 1: CounterBuffer File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/CounterBuffer.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file outputregister_tb.vhd
+    Info (12022): Found design unit 1: OutputRegister_TB-behavioral File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/OutputRegister_TB.vhd Line: 7
+    Info (12023): Found entity 1: OutputRegister_TB File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/OutputRegister_TB.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file outputbuffer_tb.vhd
+    Info (12022): Found design unit 1: OutputBuffer_TB-behavioral File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/OutputBuffer_TB.vhd Line: 7
+    Info (12023): Found entity 1: OutputBuffer_TB File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/OutputBuffer_TB.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file buffercontrol_tb.vhd
+    Info (12022): Found design unit 1: BufferControl_TB-behavioral File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/BufferControl_TB.vhd Line: 7
+    Info (12023): Found entity 1: BufferControl_TB File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/BufferControl_TB.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file outputregister.vhd
+    Info (12022): Found design unit 1: OutputRegister-behavioral File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/OutputRegister.vhd Line: 18
+    Info (12023): Found entity 1: OutputRegister File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/OutputRegister.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file outputbuffer.vhd
+    Info (12022): Found design unit 1: OutputBuffer-structural File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/OutputBuffer.vhd Line: 21
+    Info (12023): Found entity 1: OutputBuffer File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/OutputBuffer.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file buffercontrol.vhd
+    Info (12022): Found design unit 1: BufferControl-behavioral File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/BufferControl.vhd Line: 21
+    Info (12023): Found entity 1: BufferControl File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/BufferControl.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file usbport.vhd
-    Info (12022): Found design unit 1: UsbPort-bdf_type File: C:/Users/fonseca/Desktop/SpaceInvaders/UsbPort.vhd Line: 33
-    Info (12023): Found entity 1: UsbPort File: C:/Users/fonseca/Desktop/SpaceInvaders/UsbPort.vhd Line: 25
+    Info (12022): Found design unit 1: UsbPort-bdf_type File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/UsbPort.vhd Line: 33
+    Info (12023): Found entity 1: UsbPort File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/UsbPort.vhd Line: 25
 Info (12021): Found 2 design units, including 1 entities, in source file key_scan_tb.vhd
-    Info (12022): Found design unit 1: Key_Scan_tb-behavioral File: C:/Users/fonseca/Desktop/SpaceInvaders/Key_Scan_tb.vhd Line: 7
-    Info (12023): Found entity 1: Key_Scan_tb File: C:/Users/fonseca/Desktop/SpaceInvaders/Key_Scan_tb.vhd Line: 4
+    Info (12022): Found design unit 1: Key_Scan_tb-behavioral File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/Key_Scan_tb.vhd Line: 7
+    Info (12023): Found entity 1: Key_Scan_tb File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/Key_Scan_tb.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file key_decode_tb.vhd
-    Info (12022): Found design unit 1: Key_Decode_tb-behavioral File: C:/Users/fonseca/Desktop/SpaceInvaders/Key_Decode_tb.vhd Line: 7
-    Info (12023): Found entity 1: Key_Decode_tb File: C:/Users/fonseca/Desktop/SpaceInvaders/Key_Decode_tb.vhd Line: 4
+    Info (12022): Found design unit 1: Key_Decode_tb-behavioral File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/Key_Decode_tb.vhd Line: 7
+    Info (12023): Found entity 1: Key_Decode_tb File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/Key_Decode_tb.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file keycontrol_tb.vhd
-    Info (12022): Found design unit 1: KeyControl_tb-behavioral File: C:/Users/fonseca/Desktop/SpaceInvaders/KeyControl_tb.vhd Line: 7
-    Info (12023): Found entity 1: KeyControl_tb File: C:/Users/fonseca/Desktop/SpaceInvaders/KeyControl_tb.vhd Line: 4
+    Info (12022): Found design unit 1: KeyControl_tb-behavioral File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/KeyControl_tb.vhd Line: 7
+    Info (12023): Found entity 1: KeyControl_tb File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/KeyControl_tb.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file ffd.vhd
-    Info (12022): Found design unit 1: FFD-logicFunction File: C:/Users/fonseca/Desktop/SpaceInvaders/FFD.vhd Line: 16
-    Info (12023): Found entity 1: FFD File: C:/Users/fonseca/Desktop/SpaceInvaders/FFD.vhd Line: 4
+    Info (12022): Found design unit 1: FFD-logicFunction File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/FFD.vhd Line: 16
+    Info (12023): Found entity 1: FFD File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/FFD.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file fa.vhd
-    Info (12022): Found design unit 1: FA-LogicFunction File: C:/Users/fonseca/Desktop/SpaceInvaders/FA.vhd Line: 16
-    Info (12023): Found entity 1: FA File: C:/Users/fonseca/Desktop/SpaceInvaders/FA.vhd Line: 3
+    Info (12022): Found design unit 1: FA-LogicFunction File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/FA.vhd Line: 16
+    Info (12023): Found entity 1: FA File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/FA.vhd Line: 3
 Info (12021): Found 2 design units, including 1 entities, in source file somador.vhd
-    Info (12022): Found design unit 1: Somador-structural File: C:/Users/fonseca/Desktop/SpaceInvaders/Somador.vhd Line: 15
-    Info (12023): Found entity 1: Somador File: C:/Users/fonseca/Desktop/SpaceInvaders/Somador.vhd Line: 3
+    Info (12022): Found design unit 1: Somador-structural File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/Somador.vhd Line: 15
+    Info (12023): Found entity 1: Somador File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/Somador.vhd Line: 3
 Info (12021): Found 2 design units, including 1 entities, in source file decoder.vhd
-    Info (12022): Found design unit 1: Decoder-LogicFunction File: C:/Users/fonseca/Desktop/SpaceInvaders/Decoder.vhd Line: 10
-    Info (12023): Found entity 1: Decoder File: C:/Users/fonseca/Desktop/SpaceInvaders/Decoder.vhd Line: 3
+    Info (12022): Found design unit 1: Decoder-LogicFunction File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/Decoder.vhd Line: 10
+    Info (12023): Found entity 1: Decoder File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/Decoder.vhd Line: 3
 Info (12021): Found 2 design units, including 1 entities, in source file reg.vhd
-    Info (12022): Found design unit 1: REG-Structure File: C:/Users/fonseca/Desktop/SpaceInvaders/REG.vhd Line: 15
-    Info (12023): Found entity 1: REG File: C:/Users/fonseca/Desktop/SpaceInvaders/REG.vhd Line: 4
+    Info (12022): Found design unit 1: REG-Structure File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/REG.vhd Line: 15
+    Info (12023): Found entity 1: REG File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/REG.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file key_decode.vhd
-    Info (12022): Found design unit 1: Key_Decode-Structure File: C:/Users/fonseca/Desktop/SpaceInvaders/Key_Decode.vhd Line: 17
-    Info (12023): Found entity 1: Key_Decode File: C:/Users/fonseca/Desktop/SpaceInvaders/Key_Decode.vhd Line: 4
+    Info (12022): Found design unit 1: Key_Decode-Structure File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/Key_Decode.vhd Line: 17
+    Info (12023): Found entity 1: Key_Decode File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/Key_Decode.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file key_scan.vhd
-    Info (12022): Found design unit 1: Key_Scan-Structure File: C:/Users/fonseca/Desktop/SpaceInvaders/Key_Scan.vhd Line: 15
-    Info (12023): Found entity 1: Key_Scan File: C:/Users/fonseca/Desktop/SpaceInvaders/Key_Scan.vhd Line: 3
+    Info (12022): Found design unit 1: Key_Scan-Structure File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/Key_Scan.vhd Line: 15
+    Info (12023): Found entity 1: Key_Scan File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/Key_Scan.vhd Line: 3
 Info (12021): Found 2 design units, including 1 entities, in source file key_control.vhd
-    Info (12022): Found design unit 1: Key_Control-behavorial File: C:/Users/fonseca/Desktop/SpaceInvaders/Key_Control.vhd Line: 15
-    Info (12023): Found entity 1: Key_Control File: C:/Users/fonseca/Desktop/SpaceInvaders/Key_Control.vhd Line: 3
-Warning (12090): Entity "Mux" obtained from "MUX.vhd" instead of from Quartus Prime megafunction library File: C:/Users/fonseca/Desktop/SpaceInvaders/MUX.vhd Line: 3
+    Info (12022): Found design unit 1: Key_Control-behavorial File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/Key_Control.vhd Line: 15
+    Info (12023): Found entity 1: Key_Control File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/Key_Control.vhd Line: 3
+Warning (12090): Entity "Mux" obtained from "MUX.vhd" instead of from Quartus Prime megafunction library File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/MUX.vhd Line: 3
 Info (12021): Found 2 design units, including 1 entities, in source file mux.vhd
-    Info (12022): Found design unit 1: Mux-LogicFunction File: C:/Users/fonseca/Desktop/SpaceInvaders/MUX.vhd Line: 11
-    Info (12023): Found entity 1: Mux File: C:/Users/fonseca/Desktop/SpaceInvaders/MUX.vhd Line: 3
+    Info (12022): Found design unit 1: Mux-LogicFunction File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/MUX.vhd Line: 11
+    Info (12023): Found entity 1: Mux File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/MUX.vhd Line: 3
 Info (12021): Found 2 design units, including 1 entities, in source file counter_keyscan.vhd
-    Info (12022): Found design unit 1: Counter_KeyScan-Structure File: C:/Users/fonseca/Desktop/SpaceInvaders/Counter_KeyScan.vhd Line: 12
-    Info (12023): Found entity 1: Counter_KeyScan File: C:/Users/fonseca/Desktop/SpaceInvaders/Counter_KeyScan.vhd Line: 3
+    Info (12022): Found design unit 1: Counter_KeyScan-Structure File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/Counter_KeyScan.vhd Line: 12
+    Info (12023): Found entity 1: Counter_KeyScan File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/Counter_KeyScan.vhd Line: 3
 Info (12021): Found 2 design units, including 1 entities, in source file clkdiv.vhd
-    Info (12022): Found design unit 1: CLKDIV-bhv File: C:/Users/fonseca/Desktop/SpaceInvaders/CLKDIV.vhd Line: 11
-    Info (12023): Found entity 1: CLKDIV File: C:/Users/fonseca/Desktop/SpaceInvaders/CLKDIV.vhd Line: 5
+    Info (12022): Found design unit 1: CLKDIV-bhv File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/CLKDIV.vhd Line: 11
+    Info (12023): Found entity 1: CLKDIV File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/CLKDIV.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file keyboard_reader.vhd
-    Info (12022): Found design unit 1: Keyboard_Reader-Structure File: C:/Users/fonseca/Desktop/SpaceInvaders/Keyboard_Reader.vhd Line: 17
-    Info (12023): Found entity 1: Keyboard_Reader File: C:/Users/fonseca/Desktop/SpaceInvaders/Keyboard_Reader.vhd Line: 4
+    Info (12022): Found design unit 1: Keyboard_Reader-Structure File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/Keyboard_Reader.vhd Line: 17
+    Info (12023): Found entity 1: Keyboard_Reader File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/Keyboard_Reader.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file spaceinvaders.vhd
-    Info (12022): Found design unit 1: SpaceInvaders-Structure File: C:/Users/fonseca/Desktop/SpaceInvaders/SpaceInvaders.vhd Line: 16
-    Info (12023): Found entity 1: SpaceInvaders File: C:/Users/fonseca/Desktop/SpaceInvaders/SpaceInvaders.vhd Line: 4
+    Info (12022): Found design unit 1: SpaceInvaders-Structure File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/SpaceInvaders.vhd Line: 16
+    Info (12023): Found entity 1: SpaceInvaders File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/SpaceInvaders.vhd Line: 4
 Info (12127): Elaborating entity "SpaceInvaders" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at SpaceInvaders.vhd(11): used implicit default value for signal "Dval" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/fonseca/Desktop/SpaceInvaders/SpaceInvaders.vhd Line: 11
-Warning (10541): VHDL Signal Declaration warning at SpaceInvaders.vhd(12): used implicit default value for signal "ds" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/fonseca/Desktop/SpaceInvaders/SpaceInvaders.vhd Line: 12
-Critical Warning (10920): VHDL Incomplete Partial Association warning at SpaceInvaders.vhd(47): port or argument "inputPort" has 3/8 unassociated elements File: C:/Users/fonseca/Desktop/SpaceInvaders/SpaceInvaders.vhd Line: 47
-Info (12128): Elaborating entity "Keyboard_Reader" for hierarchy "Keyboard_Reader:U0" File: C:/Users/fonseca/Desktop/SpaceInvaders/SpaceInvaders.vhd Line: 46
-Info (12128): Elaborating entity "Key_Decode" for hierarchy "Keyboard_Reader:U0|Key_Decode:U0" File: C:/Users/fonseca/Desktop/SpaceInvaders/Keyboard_Reader.vhd Line: 33
-Info (12128): Elaborating entity "Key_Scan" for hierarchy "Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0" File: C:/Users/fonseca/Desktop/SpaceInvaders/Key_Decode.vhd Line: 47
-Warning (10036): Verilog HDL or VHDL warning at Key_Scan.vhd(50): object "clk_signal" assigned a value but never read File: C:/Users/fonseca/Desktop/SpaceInvaders/Key_Scan.vhd Line: 50
-Info (12128): Elaborating entity "Decoder" for hierarchy "Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|Decoder:U0" File: C:/Users/fonseca/Desktop/SpaceInvaders/Key_Scan.vhd Line: 53
-Info (12128): Elaborating entity "Mux" for hierarchy "Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|Mux:U1" File: C:/Users/fonseca/Desktop/SpaceInvaders/Key_Scan.vhd Line: 54
-Info (12128): Elaborating entity "Counter_KeyScan" for hierarchy "Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|Counter_KeyScan:U2" File: C:/Users/fonseca/Desktop/SpaceInvaders/Key_Scan.vhd Line: 55
-Info (12128): Elaborating entity "Somador" for hierarchy "Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|Counter_KeyScan:U2|Somador:U1" File: C:/Users/fonseca/Desktop/SpaceInvaders/Counter_KeyScan.vhd Line: 41
-Info (12128): Elaborating entity "FA" for hierarchy "Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|Counter_KeyScan:U2|Somador:U1|FA:U1" File: C:/Users/fonseca/Desktop/SpaceInvaders/Somador.vhd Line: 34
-Info (12128): Elaborating entity "REG" for hierarchy "Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|Counter_KeyScan:U2|REG:U3" File: C:/Users/fonseca/Desktop/SpaceInvaders/Counter_KeyScan.vhd Line: 42
-Info (12128): Elaborating entity "FFD" for hierarchy "Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|Counter_KeyScan:U2|REG:U3|FFD:U1" File: C:/Users/fonseca/Desktop/SpaceInvaders/REG.vhd Line: 30
-Info (12128): Elaborating entity "CLKDIV" for hierarchy "Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|CLKDIV:U3" File: C:/Users/fonseca/Desktop/SpaceInvaders/Key_Scan.vhd Line: 56
-Info (12128): Elaborating entity "Key_Control" for hierarchy "Keyboard_Reader:U0|Key_Decode:U0|Key_Control:U1" File: C:/Users/fonseca/Desktop/SpaceInvaders/Key_Decode.vhd Line: 52
-Info (12128): Elaborating entity "UsbPort" for hierarchy "UsbPort:U1" File: C:/Users/fonseca/Desktop/SpaceInvaders/SpaceInvaders.vhd Line: 47
-Info (12128): Elaborating entity "sld_virtual_jtag" for hierarchy "UsbPort:U1|sld_virtual_jtag:b2v_inst" File: C:/Users/fonseca/Desktop/SpaceInvaders/UsbPort.vhd Line: 80
-Info (12130): Elaborated megafunction instantiation "UsbPort:U1|sld_virtual_jtag:b2v_inst" File: C:/Users/fonseca/Desktop/SpaceInvaders/UsbPort.vhd Line: 80
-Info (12133): Instantiated megafunction "UsbPort:U1|sld_virtual_jtag:b2v_inst" with the following parameter: File: C:/Users/fonseca/Desktop/SpaceInvaders/UsbPort.vhd Line: 80
+Warning (10541): VHDL Signal Declaration warning at SpaceInvaders.vhd(11): used implicit default value for signal "Dval" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/SpaceInvaders.vhd Line: 11
+Warning (10541): VHDL Signal Declaration warning at SpaceInvaders.vhd(12): used implicit default value for signal "ds" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/SpaceInvaders.vhd Line: 12
+Critical Warning (10920): VHDL Incomplete Partial Association warning at SpaceInvaders.vhd(47): port or argument "inputPort" has 3/8 unassociated elements File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/SpaceInvaders.vhd Line: 47
+Info (12128): Elaborating entity "Keyboard_Reader" for hierarchy "Keyboard_Reader:U0" File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/SpaceInvaders.vhd Line: 46
+Info (12128): Elaborating entity "Key_Decode" for hierarchy "Keyboard_Reader:U0|Key_Decode:U0" File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/Keyboard_Reader.vhd Line: 33
+Info (12128): Elaborating entity "Key_Scan" for hierarchy "Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0" File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/Key_Decode.vhd Line: 47
+Warning (10036): Verilog HDL or VHDL warning at Key_Scan.vhd(50): object "clk_signal" assigned a value but never read File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/Key_Scan.vhd Line: 50
+Info (12128): Elaborating entity "Decoder" for hierarchy "Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|Decoder:U0" File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/Key_Scan.vhd Line: 53
+Info (12128): Elaborating entity "Mux" for hierarchy "Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|Mux:U1" File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/Key_Scan.vhd Line: 54
+Info (12128): Elaborating entity "Counter_KeyScan" for hierarchy "Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|Counter_KeyScan:U2" File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/Key_Scan.vhd Line: 55
+Info (12128): Elaborating entity "Somador" for hierarchy "Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|Counter_KeyScan:U2|Somador:U1" File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/Counter_KeyScan.vhd Line: 41
+Info (12128): Elaborating entity "FA" for hierarchy "Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|Counter_KeyScan:U2|Somador:U1|FA:U1" File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/Somador.vhd Line: 34
+Info (12128): Elaborating entity "REG" for hierarchy "Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|Counter_KeyScan:U2|REG:U3" File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/Counter_KeyScan.vhd Line: 42
+Info (12128): Elaborating entity "FFD" for hierarchy "Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|Counter_KeyScan:U2|REG:U3|FFD:U1" File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/REG.vhd Line: 30
+Info (12128): Elaborating entity "CLKDIV" for hierarchy "Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|CLKDIV:U3" File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/Key_Scan.vhd Line: 56
+Info (12128): Elaborating entity "Key_Control" for hierarchy "Keyboard_Reader:U0|Key_Decode:U0|Key_Control:U1" File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/Key_Decode.vhd Line: 52
+Info (12128): Elaborating entity "UsbPort" for hierarchy "UsbPort:U1" File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/SpaceInvaders.vhd Line: 47
+Info (12128): Elaborating entity "sld_virtual_jtag" for hierarchy "UsbPort:U1|sld_virtual_jtag:b2v_inst" File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/UsbPort.vhd Line: 80
+Info (12130): Elaborated megafunction instantiation "UsbPort:U1|sld_virtual_jtag:b2v_inst" File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/UsbPort.vhd Line: 80
+Info (12133): Instantiated megafunction "UsbPort:U1|sld_virtual_jtag:b2v_inst" with the following parameter: File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/UsbPort.vhd Line: 80
     Info (12134): Parameter "lpm_type" = "sld_virtual_jtag"
     Info (12134): Parameter "sld_auto_instance_index" = "YES"
     Info (12134): Parameter "sld_instance_index" = "0"
@@ -574,14 +625,14 @@ Info (12133): Instantiated megafunction "UsbPort:U1|sld_virtual_jtag:b2v_inst" w
     Info (12134): Parameter "sld_sim_action" = "UNUSED"
     Info (12134): Parameter "sld_sim_n_scan" = "0"
     Info (12134): Parameter "sld_sim_total_length" = "0"
-Info (12128): Elaborating entity "sld_virtual_jtag_basic" for hierarchy "UsbPort:U1|sld_virtual_jtag:b2v_inst|sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst" File: c:/quartusprime/quartus/libraries/megafunctions/sld_virtual_jtag.v Line: 152
-Info (12131): Elaborated megafunction instantiation "UsbPort:U1|sld_virtual_jtag:b2v_inst|sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst", which is child of megafunction instantiation "UsbPort:U1|sld_virtual_jtag:b2v_inst" File: c:/quartusprime/quartus/libraries/megafunctions/sld_virtual_jtag.v Line: 152
-Info (12128): Elaborating entity "sld_virtual_jtag_impl" for hierarchy "UsbPort:U1|sld_virtual_jtag:b2v_inst|sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst" File: c:/quartusprime/quartus/libraries/megafunctions/sld_virtual_jtag_basic.v Line: 152
-Info (12131): Elaborated megafunction instantiation "UsbPort:U1|sld_virtual_jtag:b2v_inst|sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst", which is child of megafunction instantiation "UsbPort:U1|sld_virtual_jtag:b2v_inst" File: c:/quartusprime/quartus/libraries/megafunctions/sld_virtual_jtag_basic.v Line: 152
-Info (12128): Elaborating entity "sld_jtag_endpoint_adapter" for hierarchy "UsbPort:U1|sld_virtual_jtag:b2v_inst|sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst|sld_jtag_endpoint_adapter:jtag_signal_adapter" File: c:/quartusprime/quartus/libraries/megafunctions/sld_virtual_jtag_basic.v Line: 415
-Info (12128): Elaborating entity "sld_jtag_endpoint_adapter_impl" for hierarchy "UsbPort:U1|sld_virtual_jtag:b2v_inst|sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst|sld_jtag_endpoint_adapter:jtag_signal_adapter|sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst" File: c:/quartusprime/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter.vhd Line: 232
+Info (12128): Elaborating entity "sld_virtual_jtag_basic" for hierarchy "UsbPort:U1|sld_virtual_jtag:b2v_inst|sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst" File: p:/quartusprime/quartus/libraries/megafunctions/sld_virtual_jtag.v Line: 152
+Info (12131): Elaborated megafunction instantiation "UsbPort:U1|sld_virtual_jtag:b2v_inst|sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst", which is child of megafunction instantiation "UsbPort:U1|sld_virtual_jtag:b2v_inst" File: p:/quartusprime/quartus/libraries/megafunctions/sld_virtual_jtag.v Line: 152
+Info (12128): Elaborating entity "sld_virtual_jtag_impl" for hierarchy "UsbPort:U1|sld_virtual_jtag:b2v_inst|sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst" File: p:/quartusprime/quartus/libraries/megafunctions/sld_virtual_jtag_basic.v Line: 152
+Info (12131): Elaborated megafunction instantiation "UsbPort:U1|sld_virtual_jtag:b2v_inst|sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst", which is child of megafunction instantiation "UsbPort:U1|sld_virtual_jtag:b2v_inst" File: p:/quartusprime/quartus/libraries/megafunctions/sld_virtual_jtag_basic.v Line: 152
+Info (12128): Elaborating entity "sld_jtag_endpoint_adapter" for hierarchy "UsbPort:U1|sld_virtual_jtag:b2v_inst|sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst|sld_jtag_endpoint_adapter:jtag_signal_adapter" File: p:/quartusprime/quartus/libraries/megafunctions/sld_virtual_jtag_basic.v Line: 415
+Info (12128): Elaborating entity "sld_jtag_endpoint_adapter_impl" for hierarchy "UsbPort:U1|sld_virtual_jtag:b2v_inst|sld_virtual_jtag_basic:sld_virtual_jtag_basic_inst|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst|sld_jtag_endpoint_adapter:jtag_signal_adapter|sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst" File: p:/quartusprime/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter.vhd Line: 232
 Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
-Info (11172): 2024.03.20.10:10:40 Progress: Loading sld25a986d0/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2024.03.28.02:54:03 Progress: Loading sld25a986d0/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -592,38 +643,38 @@ Info (11172): Ident: "alt_sld_fab" instantiated altera_connection_identification
 Info (11172): Alt_sld_fab: Done "alt_sld_fab" with 6 modules, 6 files
 Info (11171): Finished IP generation for the debug fabric: alt_sld_fab.
 Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld25a986d0/alt_sld_fab.v
-    Info (12023): Found entity 1: alt_sld_fab File: C:/Users/fonseca/Desktop/SpaceInvaders/db/ip/sld25a986d0/alt_sld_fab.v Line: 9
+    Info (12023): Found entity 1: alt_sld_fab File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/db/ip/sld25a986d0/alt_sld_fab.v Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld25a986d0/submodules/alt_sld_fab_alt_sld_fab.v
-    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab File: C:/Users/fonseca/Desktop/SpaceInvaders/db/ip/sld25a986d0/submodules/alt_sld_fab_alt_sld_fab.v Line: 9
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/db/ip/sld25a986d0/submodules/alt_sld_fab_alt_sld_fab.v Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld25a986d0/submodules/alt_sld_fab_alt_sld_fab_ident.sv
-    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_ident File: C:/Users/fonseca/Desktop/SpaceInvaders/db/ip/sld25a986d0/submodules/alt_sld_fab_alt_sld_fab_ident.sv Line: 33
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_ident File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/db/ip/sld25a986d0/submodules/alt_sld_fab_alt_sld_fab_ident.sv Line: 33
 Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld25a986d0/submodules/alt_sld_fab_alt_sld_fab_presplit.sv
-    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_presplit File: C:/Users/fonseca/Desktop/SpaceInvaders/db/ip/sld25a986d0/submodules/alt_sld_fab_alt_sld_fab_presplit.sv Line: 3
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_presplit File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/db/ip/sld25a986d0/submodules/alt_sld_fab_alt_sld_fab_presplit.sv Line: 3
 Info (12021): Found 2 design units, including 1 entities, in source file db/ip/sld25a986d0/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd
-    Info (12022): Found design unit 1: alt_sld_fab_alt_sld_fab_sldfabric-rtl File: C:/Users/fonseca/Desktop/SpaceInvaders/db/ip/sld25a986d0/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd Line: 102
-    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_sldfabric File: C:/Users/fonseca/Desktop/SpaceInvaders/db/ip/sld25a986d0/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd Line: 11
+    Info (12022): Found design unit 1: alt_sld_fab_alt_sld_fab_sldfabric-rtl File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/db/ip/sld25a986d0/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd Line: 102
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_sldfabric File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/db/ip/sld25a986d0/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd Line: 11
 Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld25a986d0/submodules/alt_sld_fab_alt_sld_fab_splitter.sv
-    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_splitter File: C:/Users/fonseca/Desktop/SpaceInvaders/db/ip/sld25a986d0/submodules/alt_sld_fab_alt_sld_fab_splitter.sv Line: 3
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_splitter File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/db/ip/sld25a986d0/submodules/alt_sld_fab_alt_sld_fab_splitter.sv Line: 3
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "Dval" is stuck at GND File: C:/Users/fonseca/Desktop/SpaceInvaders/SpaceInvaders.vhd Line: 11
-    Warning (13410): Pin "ds[0]" is stuck at GND File: C:/Users/fonseca/Desktop/SpaceInvaders/SpaceInvaders.vhd Line: 12
-    Warning (13410): Pin "ds[1]" is stuck at GND File: C:/Users/fonseca/Desktop/SpaceInvaders/SpaceInvaders.vhd Line: 12
-    Warning (13410): Pin "ds[2]" is stuck at GND File: C:/Users/fonseca/Desktop/SpaceInvaders/SpaceInvaders.vhd Line: 12
-    Warning (13410): Pin "ds[3]" is stuck at GND File: C:/Users/fonseca/Desktop/SpaceInvaders/SpaceInvaders.vhd Line: 12
+    Warning (13410): Pin "Dval" is stuck at GND File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/SpaceInvaders.vhd Line: 11
+    Warning (13410): Pin "ds[0]" is stuck at GND File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/SpaceInvaders.vhd Line: 12
+    Warning (13410): Pin "ds[1]" is stuck at GND File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/SpaceInvaders.vhd Line: 12
+    Warning (13410): Pin "ds[2]" is stuck at GND File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/SpaceInvaders.vhd Line: 12
+    Warning (13410): Pin "ds[3]" is stuck at GND File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/SpaceInvaders.vhd Line: 12
 Info (286031): Timing-Driven Synthesis is running on partition "Top"
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "ack" File: C:/Users/fonseca/Desktop/SpaceInvaders/SpaceInvaders.vhd Line: 8
+    Warning (15610): No output dependent on input pin "ack" File: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/SpaceInvaders.vhd Line: 8
 Info (21057): Implemented 191 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 10 input pins
     Info (21059): Implemented 9 output pins
     Info (21061): Implemented 171 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 15 warnings
-    Info: Peak virtual memory: 4799 megabytes
-    Info: Processing ended: Wed Mar 20 10:10:47 2024
-    Info: Elapsed time: 00:00:18
-    Info: Total CPU time (on all processors): 00:00:21
+    Info: Peak virtual memory: 4815 megabytes
+    Info: Processing ended: Thu Mar 28 02:54:15 2024
+    Info: Elapsed time: 00:00:27
+    Info: Total CPU time (on all processors): 00:00:42
 
 

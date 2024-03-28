@@ -1,50 +1,46 @@
-
 import isel.leic.utils.Time
 
-fun main(){
-    KBD.init()
-    while (true) {
-        KBD.waitKey(100)
+object KBD { // Ler teclas. Métodos retornam ‘0’..’9’,’#’,’*’ ou NONE.
+
+    private const val NONE = 0
+    private val arrayTeclas = arrayListOf('1', '4', '7', '*', '2', '5', '8', '0', '3', '6', '9', '#')
+
+    // Inicia a classe
+    fun init() {
+        HAL.init()
+        HAL.clearBits(ACK_MASK)
+    }
+
+    // Retorna de imediato a tecla premida ou NONE se não há tecla premida.
+    fun getKey(): Char {
+        if (!HAL.isBit(DVAL_MASK)) {
+            return NONE.toChar()
+        }
+        val key = HAL.readBits(I0_3_MASK)
+        while (HAL.isBit(DVAL_MASK)) { HAL.setBits(ACK_MASK) }
+        HAL.clearBits(ACK_MASK)
+        return arrayTeclas[key]
+    }
+
+    // Retorna a tecla premida, caso ocorra antes do ‘timeout’ (representado em milissegundos), ou NONE caso contrário.
+    fun waitKey(timeout: Long): Char {
+        var key = NONE.toChar()
+        val endTime = Time.getTimeInMillis() + timeout
+
+        while (endTime >= Time.getTimeInMillis()) {
+            key = getKey()
+            if (key != NONE.toChar()) { break }
+        }
+        return key
     }
 }
 
-object KBD {
-    const val NONE : Char = 0.toChar()
-    fun init() {
-        Receiver.init()
-    }
-
-    private fun getKeySerial(): Char {
-        var key: Char = NONE
-        var dVal = HAL.readBits(0x10)
-
-        val keyboard = arrayOf('1','4','7','*','2','5','8','0', '3','6','9','#') //Index of the keys according the returned value when pressed
-
-        if (dVal != 0) {
-            val idx = HAL.readBits(0x0F)
-            key = keyboard[idx]
-            HAL.writeBits(0x0F, 1)
-            println("Key: $key")
+fun main() {
+    KBD.init()
+    while (true) {
+        val key = KBD.waitKey(5000)
+        if (key != 0.toChar()) {
+            println("Key pressed: $key")
         }
-
-        return key
-    }
-
-    fun getKey(): Char{
-        return getKeySerial()
-    }
-
-    fun waitKey(timeout: Long): Char{
-        val tinicial= Time.getTimeInMillis()
-        var tatual:Long=0
-        while (tatual<=timeout){
-            val tf= Time.getTimeInMillis()
-            val key= getKey()
-            if (key!= NONE) {
-                return key
-            }
-            tatual= tf-tinicial
-        }
-        return NONE
     }
 }

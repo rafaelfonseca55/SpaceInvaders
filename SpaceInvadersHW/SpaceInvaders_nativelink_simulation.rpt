@@ -4,8 +4,8 @@ Info: Start Nativelink Simulation process
 
 Sim Mode              :  Gate
 Family                :  max10
-Quartus root          :  c:/quartusprime/quartus/bin64/
-Quartus sim root      :  c:/quartusprime/quartus/eda/sim_lib
+Quartus root          :  p:/quartusprime/quartus/bin64/
+Quartus sim root      :  p:/quartusprime/quartus/eda/sim_lib
 Simulation Tool       :  modelsim-altera
 Simulation Language   :  vhdl
 Version               :  93
@@ -17,8 +17,82 @@ Sim dir               :  simulation\modelsim
 =======================================================
 
 Info: Starting NativeLink simulation with ModelSim-Altera software
-Sourced NativeLink script c:/quartusprime/quartus/common/tcl/internal/nativelink/modelsim.tcl
+Sourced NativeLink script p:/quartusprime/quartus/common/tcl/internal/nativelink/modelsim.tcl
 Warning: File SpaceInvaders_run_msim_gate_vhdl.do already exists - backing up current file as SpaceInvaders_run_msim_gate_vhdl.do.bak11
 Probing transcript
 ModelSim-Altera Info: # Reading pref.tcl
-Info: NativeLink simulation flow was successful
+ModelSim-Altera Info: # do SpaceInvaders_run_msim_gate_vhdl.do
+ModelSim-Altera Info: # if {[file exists gate_work]} {
+ModelSim-Altera Info: # 	vdel -lib gate_work -all
+ModelSim-Altera Info: # }
+ModelSim-Altera Info: # vlib gate_work
+ModelSim-Altera Info: # vmap work gate_work
+ModelSim-Altera Info: # Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+ModelSim-Altera Info: # vmap work gate_work 
+ModelSim-Altera Info: # Copying P:/QuartusPrime/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+ModelSim-Altera Info: # Modifying modelsim.ini
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # vcom -93 -work work {SpaceInvaders.vho}
+ModelSim-Altera Info: # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+ModelSim-Altera Info: # Start time: 02:54:54 on Mar 28,2024
+ModelSim-Altera Info: # vcom -reportprogress 300 -93 -work work SpaceInvaders.vho 
+ModelSim-Altera Info: # -- Loading package STANDARD
+ModelSim-Altera Info: # -- Loading package TEXTIO
+ModelSim-Altera Info: # -- Loading package std_logic_1164
+ModelSim-Altera Info: # -- Loading package VITAL_Timing
+ModelSim-Altera Info: # -- Loading package VITAL_Primitives
+ModelSim-Altera Info: # -- Loading package dffeas_pack
+ModelSim-Altera Info: # -- Loading package altera_primitives_components
+ModelSim-Altera Info: # -- Loading package fiftyfivenm_atom_pack
+ModelSim-Altera Info: # -- Loading package fiftyfivenm_components
+ModelSim-Altera Info: # -- Compiling entity SpaceInvaders
+ModelSim-Altera Info: # -- Compiling architecture structure of SpaceInvaders
+ModelSim-Altera Error: # ** Error: SpaceInvaders.vho(830): (vcom-1035) Formal port "tdoutap" has OPEN or no actual associated with it.
+ModelSim-Altera Error: # ** Error: SpaceInvaders.vho(830): (vcom-1035) Formal port "tmscore" has OPEN or no actual associated with it.
+ModelSim-Altera Error: # ** Error: SpaceInvaders.vho(830): (vcom-1035) Formal port "tckcore" has OPEN or no actual associated with it.
+ModelSim-Altera Error: # ** Error: SpaceInvaders.vho(830): (vcom-1035) Formal port "tdicore" has OPEN or no actual associated with it.
+ModelSim-Altera Error: # ** Error: SpaceInvaders.vho(830): (vcom-1035) Formal port "corectl" has OPEN or no actual associated with it.
+ModelSim-Altera Error: # ** Error: SpaceInvaders.vho(830): (vcom-1035) Formal port "ntdopinena" has OPEN or no actual associated with it.
+ModelSim-Altera Info: # ** Note: SpaceInvaders.vho(4278): VHDL Compiler exiting
+ModelSim-Altera Info: # End time: 02:54:54 on Mar 28,2024, Elapsed time: 0:00:00
+ModelSim-Altera Info: # Errors: 6, Warnings: 0
+ModelSim-Altera Error: # ** Error: P:/QuartusPrime/modelsim_ase/win32aloem/vcom failed.
+ModelSim-Altera Info: # Error in macro ./SpaceInvaders_run_msim_gate_vhdl.do line 8
+ModelSim-Altera Info: # P:/QuartusPrime/modelsim_ase/win32aloem/vcom failed.
+ModelSim-Altera Info: #     while executing
+ModelSim-Altera Info: # "vcom -93 -work work {SpaceInvaders.vho}"
+Error: Errors encountered while running modelsim do file
+Error: NativeLink simulation flow was NOT successful
+
+
+
+================The following additional information is provided to help identify the cause of error while running nativelink scripts=================
+Nativelink TCL script failed with errorCode:  1
+Nativelink TCL script failed with errorInfo:  1
+    (procedure "launch_sim" line 1)
+    invoked from within
+"launch_sim launch_args_hash"
+    ("eval" body line 1)
+    invoked from within
+"eval launch_sim launch_args_hash"
+    invoked from within
+"if [ info exists ::errorCode ] {
+                set savedCode $::errorCode
+                set savedInfo $::errorInfo
+                error $result $..."
+    invoked from within
+"if [catch {eval launch_sim launch_args_hash} result ] {
+            set status 1
+            if [ info exists ::errorCode ] {
+                set save..."
+    (procedure "run_sim" line 74)
+    invoked from within
+"run_sim run_sim_args_hash"
+    invoked from within
+"if [ info exists ::errorCode ] {
+            set savedCode $::errorCode
+            set savedInfo $::errorInfo
+            error "$result" $savedInfo ..."
+    (procedure "run_eda_simulation_tool" line 334)
+    invoked from within
+"run_eda_simulation_tool eda_opts_hash"

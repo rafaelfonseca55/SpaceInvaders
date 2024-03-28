@@ -1,74 +1,93 @@
-import isel.leic.utils.Time
+// Escreve no LCD usando a interface a 4 bits.
+object LCD {
+    // Dimensão do display.
+    private const val LINES = 2
+    private const val COLS = 16
 
-fun main(){
-    LCD.init()
-    var i=0
-    while (true) {
-        LCD.write("$i")
-        i++
-        print(i)
+    // Escreve um nibble de comando/dados no LCD em paralelo
+    private fun writeNibbleParallel(rs: Boolean, data: Int) {
+        if (rs) HAL.setBits(LCD_RS_MASK) else HAL.clearBits(LCD_RS_MASK)
+        HAL.writeBits(LCD_DATA_MASK, data)
+        Thread.sleep(1)
+        HAL.setBits(LCD_E_MASK)
+        Thread.sleep(1)
+        HAL.clearBits(LCD_E_MASK)
     }
-}
-object LCD { // Escreve no LCD usando a interface a 8 bits.
-    private const val LINES = 2 //Dimensão do Display.
-    private const val COLS = 16;// Dimensão do display.
-    const val functionSet= 0x030
     // Escreve um byte de comando/dados no LCD em série
-    private fun writeByteSerial(rs: Boolean, data: Int) {
-        //rs seleciona se o registo é o registo de instruções ou de dados
-        var bit:Int = if(rs){
-            1
-        } else{
-            0
-        }
-        val newData =data.shl(1).or(bit)
-        SerialEmitter.send(SerialEmitter.Destination.LCD, newData)
+    private fun writeNibbleSerial(rs: Boolean, data: Int) {
+        val rsValue = if (rs) 1 else 0
+        SerialEmitter.send(SerialEmitter.Destination.LCD, data shl 1 or rsValue)
+        Thread.sleep(10)
     }
+
+    // Escreve um nibble de comando/dados no LCD
+    private fun writeNibble(rs: Boolean, data: Int) = writeNibbleSerial(rs, data)
+
+
     // Escreve um byte de comando/dados no LCD
-    private fun writeByte(rs: Boolean, data: Int) {
-        writeByteSerial(rs,data)
+    fun writeByte(rs: Boolean, data: Int) {
+        writeNibble(rs, data shr 4)
+        writeNibble(rs, data)
     }
+
     // Escreve um comando no LCD
-    private fun writeCMD(data: Int) {
-        writeByte(false,data)
-    }
+    fun writeCMD(data: Int) = writeByte(false, data)
+
     // Escreve um dado no LCD
-    private fun writeDATA(data: Int) {
-        writeByte(true,data)
-    }
-    // Envia a sequência de iniciação para comunicação a 8 bits.
+    fun writeDATA(data: Int) = writeByte(true, data)
+
+    // Envia a sequência de iniciação para comunicação a 4 bits.
     fun init() {
-        HAL.init()
         SerialEmitter.init()
-        Thread.sleep(16)        //Wait for more than 15 ms
-        writeCMD(functionSet)
-        Thread.sleep(5)         //Wait for more than 4.1ms
-        writeCMD(functionSet)
-        Thread.sleep(1)         //Wait for more than 100uS
-        writeCMD(functionSet)   //Sets Interface Data Length
-        writeCMD(0x038)   //Function Set,    N=1, logo 0x038, pois tem 2 linhas
-        writeCMD(0x08)    //Display OFF
-        writeCMD(0x01)    //Clear Display
-        writeCMD(0x06)    //Entry Mode Set
-        writeCMD(0x0F)    //Display ON, Cursor ON, Blinking ON
+
+        Thread.sleep(16)  // Esperar x ms
+        writeNibble(false, 3)
+        Thread.sleep(5)   // Esperar x ms
+        writeNibble(false, 3)
+        Thread.sleep(1)   // Esperar x ms
+        writeNibble(false, 3)
+        writeNibble(false, 2)
+
+        writeCMD(40)
+        writeCMD(8)
+        writeCMD(1)
+        writeCMD(6)
+        writeCMD(15)
     }
+
     // Escreve um caráter na posição corrente.
-    fun write(c: Char) {
-        writeDATA(c.code)
-    }
+    fun write(c: Char) = writeDATA(c.code)
+
     // Escreve uma string na posição corrente.
     fun write(text: String) {
-        text.forEach { writeDATA(it.code) }
-    }
-    // Envia comando para posicionar cursor (line1:0..LINES-1, 'column':0..COLS-1)
-    fun cursor(line: Int, column: Int) {
-        var writeADD=line*0x040+column+128     //0x040(segunda linha), 128(DDRAM_ADDRESS)
-        writeCMD(writeADD)
-    }
-    // Envia comando para limpar o ecrã e posicionar o cursor em (0,0)
-    fun clear() {
-        writeCMD(0x01)     //Display Clear and set DDRAM_ADDRESS 0.
-        Time.sleep(5)
+        for (c in text) write(c)
     }
 
+    // Envia comando para posicionar cursor (‘line’:0..LINES-1 , ‘column’:0..COLS-1)
+    fun cursor(line: Int, column: Int) = writeCMD((line * 0x40 + column) or 0x80)
+
+    // Envia comando para limpar o ecrã e posicionar o cursor em (0,0)
+    fun clear() {
+        writeCMD(1)
+        cursor(0,0)
+    }
+}
+
+fun main() {
+    LCD.init()
+    println(" LCD INITIALIZED ")
+    var count = 0
+    while (true) {
+        LCD.write("LCD COUNT: $count")
+        Thread.sleep(1000)
+        LCD.clear()
+        count++
+        if (count == 10) {
+            LCD.clear()
+            LCD.cursor(1, 0)
+            LCD.write("WE REACHED 10!")
+            LCD.clear()
+            count = 0
+        }
+    }
 }

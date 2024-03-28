@@ -1,5 +1,5 @@
 Fitter report for SpaceInvaders
-Wed Mar 20 10:10:54 2024
+Thu Mar 28 02:54:27 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -66,7 +66,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Wed Mar 20 10:10:54 2024       ;
+; Fitter Status                      ; Successful - Thu Mar 28 02:54:27 2024       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; SpaceInvaders                               ;
 ; Top-level Entity Name              ; SpaceInvaders                               ;
@@ -149,15 +149,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 8           ;
-; Maximum allowed            ; 4           ;
+; Number detected on machine ; 6           ;
+; Maximum allowed            ; 6           ;
 ;                            ;             ;
-; Average used               ; 1.03        ;
-; Maximum used               ; 4           ;
+; Average used               ; 1.04        ;
+; Maximum used               ; 6           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   1.1%      ;
+;     Processor 2            ;   0.7%      ;
+;     Processors 3-6         ;   0.7%      ;
 +----------------------------+-------------+
 
 
@@ -201,7 +202,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in C:/Users/fonseca/Desktop/SpaceInvaders/output_files/SpaceInvaders.pin.
+The pin-out file can be found in C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/output_files/SpaceInvaders.pin.
 
 
 +----------------------------------------------------------------------+
@@ -1298,7 +1299,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Fitter Messages ;
 +-----------------+
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
 Info (119006): Selected device 10M50DAF484C6GES for design "SpaceInvaders"
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
@@ -1337,7 +1338,7 @@ Info (176353): Automatically promoted node altera_internal_jtag~TCKUTAP
 Info (176233): Starting register packing
 Info (176235): Finished register packing
     Extra Info (176219): No registers were packed into other blocks
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:01
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:02
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:00
@@ -1351,25 +1352,25 @@ Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were
     Info (170201): Optimizations that may affect the design's routability were skipped
     Info (170200): Optimizations that may affect the design's timing were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:00
-Info (11888): Total time spent on timing analysis during the Fitter is 0.07 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.09 seconds.
 Info (334003): Started post-fitting delay annotation
 Warning (334000): Timing characteristics of device 10M50DAF484C6GES are preliminary
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Warning (334000): Timing characteristics of device 10M50DAF484C6GES are preliminary
 Info (334004): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:00
-Info (144001): Generated suppressed messages file C:/Users/fonseca/Desktop/SpaceInvaders/output_files/SpaceInvaders.fit.smsg
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
+Info (144001): Generated suppressed messages file C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/output_files/SpaceInvaders.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 10 warnings
-    Info: Peak virtual memory: 5644 megabytes
-    Info: Processing ended: Wed Mar 20 10:10:54 2024
-    Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:05
+    Info: Peak virtual memory: 5779 megabytes
+    Info: Processing ended: Thu Mar 28 02:54:28 2024
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:09
 
 
 +----------------------------+
 ; Fitter Suppressed Messages ;
 +----------------------------+
-The suppressed messages can be found in C:/Users/fonseca/Desktop/SpaceInvaders/output_files/SpaceInvaders.fit.smsg.
+The suppressed messages can be found in C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/output_files/SpaceInvaders.fit.smsg.
 
 
