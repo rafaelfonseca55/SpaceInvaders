@@ -1,33 +1,27 @@
-// Escreve no LCD usando a interface a 4 bits.
+// Escreve no LCD usando a interface a 8 bits.
 object LCD {
     // Dimensão do display.
     private const val LINES = 2
     private const val COLS = 16
+    private const val LCD_DX = LCD_E_MASK or LCD_RS_MASK or LCD_DATA_MASK
+    const val functionSet = 0x30
 
-    // Escreve um nibble de comando/dados no LCD em paralelo
-    private fun writeNibbleParallel(rs: Boolean, data: Int) {
+    // Escreve um byte de comando/dados no LCD em paralelo
+    private fun writeByteParallel(rs: Boolean, data: Int) {
         if (rs) HAL.setBits(LCD_RS_MASK) else HAL.clearBits(LCD_RS_MASK)
         HAL.writeBits(LCD_DATA_MASK, data)
         Thread.sleep(1)
-        HAL.setBits(LCD_E_MASK)
-        Thread.sleep(1)
-        HAL.clearBits(LCD_E_MASK)
     }
     // Escreve um byte de comando/dados no LCD em série
-    private fun writeNibbleSerial(rs: Boolean, data: Int) {
+    private fun writeByteSerial(rs: Boolean, data: Int) {
         val rsValue = if (rs) 1 else 0
         SerialEmitter.send(SerialEmitter.Destination.LCD, data shl 1 or rsValue)
         Thread.sleep(10)
     }
 
-    // Escreve um nibble de comando/dados no LCD
-    private fun writeNibble(rs: Boolean, data: Int) = writeNibbleSerial(rs, data)
-
-
     // Escreve um byte de comando/dados no LCD
     fun writeByte(rs: Boolean, data: Int) {
-        writeNibble(rs, data shr 4)
-        writeNibble(rs, data)
+        writeByteParallel(rs, data)
     }
 
     // Escreve um comando no LCD
@@ -36,23 +30,14 @@ object LCD {
     // Escreve um dado no LCD
     fun writeDATA(data: Int) = writeByte(true, data)
 
-    // Envia a sequência de iniciação para comunicação a 4 bits.
+    // Envia a sequência de iniciação para comunicação a 8 bits.
     fun init() {
-        SerialEmitter.init()
-
-        Thread.sleep(16)  // Esperar x ms
-        writeNibble(false, 3)
-        Thread.sleep(5)   // Esperar x ms
-        writeNibble(false, 3)
-        Thread.sleep(1)   // Esperar x ms
-        writeNibble(false, 3)
-        writeNibble(false, 2)
-
-        writeCMD(40)
-        writeCMD(8)
-        writeCMD(1)
-        writeCMD(6)
-        writeCMD(15)
+        HAL.init()
+        //SerialEmitter.init()
+        Thread.sleep(16)
+        writeCMD(functionSet)
+        HAL.setBits(LCD_E_MASK) // Display ON
+        clear()
     }
 
     // Escreve um caráter na posição corrente.

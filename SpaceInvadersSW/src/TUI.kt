@@ -1,44 +1,43 @@
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
+object TUI{
 
-object TUI {
-    private val DATE_PATTERN = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")
-    private var date = LocalDateTime.now()
-    private var dateFormatted = date.format(DATE_PATTERN)
-    private const val CLK: Long = 3000
-    fun init() {
-        LCD.init()
+    fun init(){
         KBD.init()
+        //Clock().start()
+        LCD.init()
+        LCD.clear()
     }
-    fun clearLine(line: Int) =writeText("                ", line)
-    fun clearScreen() = LCD.clear()
-    fun waitForKey(time: Long) = KBD.waitKey(time)
-    fun writeCentralized(text: String, line: Int, clearScreen: Boolean = false) {
-        LCD.cursor(line, 8 - text.length / 2)
-        LCD.write(text)
-        if (clearScreen) {
-            Thread.sleep(CLK)
-            LCD.clear()
+    fun keyToLCD(){
+        val key= KBD.waitKey(1500)
+        if (key!= 0.toChar()){
+            LCD.write(key)
         }
     }
-    fun writeText(text: String, line: Int, column: Int = 0) {
-        LCD.cursor(line, column)
-        LCD.write(text)
+    fun writeString(string: String){
+        LCD.write(string)
     }
-    fun writeDate() {
-        val currentDate = LocalDateTime.now()
-        val currentDateFormatted = currentDate.format(DATE_PATTERN)
 
-        if (currentDate != date) {
-            date = currentDate
-            dateFormatted = currentDateFormatted
-            writeCentralized(dateFormatted, 0, false)
+    fun get2Key(maxValue: Int):String{
+        var accum= emptyArray<Char>()
+        var i=maxValue
+        while (i!=0) {
+            val key = KBD.waitKey(1500)
+            if (key!= 0.toChar()) {
+                accum += key
+            }
+            i--
         }
+        return accum.joinToString("")
     }
-    fun writeFailedMessage(message: String) {
-        clearLine(1)
-        writeCentralized(message, 1)
-        Thread.sleep(CLK / 3)
-        clearLine(1)
+
+    fun nextLine(e:String){             //Escreve na proxima linha
+        LCD.cursor(1, 0)
+        writeString(e)
+    }
+}
+
+fun main(){
+    TUI.init()
+    while (true){
+        TUI.keyToLCD()
     }
 }

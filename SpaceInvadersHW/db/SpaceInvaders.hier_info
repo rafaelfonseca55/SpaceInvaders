@@ -1,6 +1,7 @@
 |SpaceInvaders
 Mclk => Keyboard_Reader:U0.Mclk
 reset => Keyboard_Reader:U0.reset
+reset => Registers:U2.Reset
 ack => ~NO_FANOUT~
 Lines[0] => Keyboard_Reader:U0.Lines[0]
 Lines[1] => Keyboard_Reader:U0.Lines[1]
@@ -14,6 +15,16 @@ ds[0] <= comb.DB_MAX_OUTPUT_PORT_TYPE
 ds[1] <= ds[1].DB_MAX_OUTPUT_PORT_TYPE
 ds[2] <= ds[2].DB_MAX_OUTPUT_PORT_TYPE
 ds[3] <= ds[3].DB_MAX_OUTPUT_PORT_TYPE
+Dout[0] <= Registers:U2.ParallelData[0]
+Dout[1] <= Registers:U2.ParallelData[1]
+Dout[2] <= Registers:U2.ParallelData[2]
+Dout[3] <= Registers:U2.ParallelData[3]
+Dout[4] <= Registers:U2.ParallelData[4]
+Dout[5] <= Registers:U2.ParallelData[5]
+Dout[6] <= Registers:U2.ParallelData[6]
+Dout[7] <= Registers:U2.ParallelData[7]
+e <= UsbPort:U1.outputPort[5]
+rs <= UsbPort:U1.outputPort[6]
 
 
 |SpaceInvaders|Keyboard_Reader:U0
@@ -652,5 +663,42 @@ adapted_ir_out[4] => ir_out[4].DATAIN
 adapted_ir_out[5] => ir_out[5].DATAIN
 adapted_ir_out[6] => ir_out[6].DATAIN
 adapted_ir_out[7] => ir_out[7].DATAIN
+
+
+|SpaceInvaders|Registers:U2
+SerialData[0] => RegLow[0].DATAIN
+SerialData[0] => RegHigh[0].DATAIN
+SerialData[1] => RegLow[1].DATAIN
+SerialData[1] => RegHigh[1].DATAIN
+SerialData[2] => RegLow[2].DATAIN
+SerialData[2] => RegHigh[2].DATAIN
+SerialData[3] => RegLow[3].DATAIN
+SerialData[3] => RegHigh[3].DATAIN
+Clk => BitCount.CLK
+Clk => RegHigh[0].CLK
+Clk => RegHigh[1].CLK
+Clk => RegHigh[2].CLK
+Clk => RegHigh[3].CLK
+Clk => RegLow[0].CLK
+Clk => RegLow[1].CLK
+Clk => RegLow[2].CLK
+Clk => RegLow[3].CLK
+Reset => BitCount.ACLR
+Reset => RegHigh[0].ACLR
+Reset => RegHigh[1].ACLR
+Reset => RegHigh[2].ACLR
+Reset => RegHigh[3].ACLR
+Reset => RegLow[0].ACLR
+Reset => RegLow[1].ACLR
+Reset => RegLow[2].ACLR
+Reset => RegLow[3].ACLR
+ParallelData[0] <= RegLow[0].DB_MAX_OUTPUT_PORT_TYPE
+ParallelData[1] <= RegLow[1].DB_MAX_OUTPUT_PORT_TYPE
+ParallelData[2] <= RegLow[2].DB_MAX_OUTPUT_PORT_TYPE
+ParallelData[3] <= RegLow[3].DB_MAX_OUTPUT_PORT_TYPE
+ParallelData[4] <= RegHigh[0].DB_MAX_OUTPUT_PORT_TYPE
+ParallelData[5] <= RegHigh[1].DB_MAX_OUTPUT_PORT_TYPE
+ParallelData[6] <= RegHigh[2].DB_MAX_OUTPUT_PORT_TYPE
+ParallelData[7] <= RegHigh[3].DB_MAX_OUTPUT_PORT_TYPE
 
 

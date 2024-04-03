@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(10M50DAF484ES) Path("C:/Users/fonseca/Desktop/SpaceInvaders/output_files/") File("SpaceInvaders.sof") MfrSpec(OpMask(1));
+		Device PartName(10M50DAF484ES) Path("C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/output_files/") File("SpaceInvaders.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

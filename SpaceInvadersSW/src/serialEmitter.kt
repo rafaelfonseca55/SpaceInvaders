@@ -13,9 +13,9 @@ object SerialEmitter {
     const val busyMask: Int = 0x01
 
     //--output--
-    const val SS_MASK: Int = 0x01 //menos significativo
+    const val SS_MASK: Int = 0x01 //Slave Select - menos significativo
     const val SDX_MASK: Int = 0x02
-    const val SCLK_MASK: Int = 0x04
+    //const val SCLK_MASK: Int = 0x04
 
     // Inicia a classe
     fun init() {
