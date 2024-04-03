@@ -9,7 +9,7 @@ object Receiver {
 
     fun init(){
         HAL.init()
-        HAL.clrBits(TxClk)
+        HAL.clearBits(TxClk)
     }
 
     fun rcv(): Int{
@@ -30,7 +30,7 @@ object Receiver {
                 }
                 receiveTrama = receiveTrama.or(bit.shl(i))
                 i++
-                HAL.clrBits(TxClk)
+                HAL.clearBits(TxClk)
             }
 
             HAL.setBits(TxClk)
@@ -39,10 +39,10 @@ object Receiver {
 
             if (start == 1 && stop == 0) {
                 finalTrama = receiveTrama.shr(1)
-                HAL.clrBits(TxClk)
+                HAL.clearBits(TxClk)
                 return finalTrama
             }
-            HAL.clrBits(TxClk)
+            HAL.clearBits(TxClk)
         }
 
         return -1

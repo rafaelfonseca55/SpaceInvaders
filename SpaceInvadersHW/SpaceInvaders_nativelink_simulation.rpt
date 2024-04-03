@@ -4,8 +4,8 @@ Info: Start Nativelink Simulation process
 
 Sim Mode              :  Gate
 Family                :  max10
-Quartus root          :  p:/quartusprime/quartus/bin64/
-Quartus sim root      :  p:/quartusprime/quartus/eda/sim_lib
+Quartus root          :  c:/quartusprime/quartus/bin64/
+Quartus sim root      :  c:/quartusprime/quartus/eda/sim_lib
 Simulation Tool       :  modelsim-altera
 Simulation Language   :  vhdl
 Version               :  93
@@ -17,7 +17,7 @@ Sim dir               :  simulation\modelsim
 =======================================================
 
 Info: Starting NativeLink simulation with ModelSim-Altera software
-Sourced NativeLink script p:/quartusprime/quartus/common/tcl/internal/nativelink/modelsim.tcl
+Sourced NativeLink script c:/quartusprime/quartus/common/tcl/internal/nativelink/modelsim.tcl
 Warning: File SpaceInvaders_run_msim_gate_vhdl.do already exists - backing up current file as SpaceInvaders_run_msim_gate_vhdl.do.bak11
 Probing transcript
 ModelSim-Altera Info: # Reading pref.tcl
@@ -29,12 +29,12 @@ ModelSim-Altera Info: # vlib gate_work
 ModelSim-Altera Info: # vmap work gate_work
 ModelSim-Altera Info: # Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
 ModelSim-Altera Info: # vmap work gate_work 
-ModelSim-Altera Info: # Copying P:/QuartusPrime/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+ModelSim-Altera Info: # Copying C:/quartusprime/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
 ModelSim-Altera Info: # Modifying modelsim.ini
 ModelSim-Altera Info: # 
 ModelSim-Altera Info: # vcom -93 -work work {SpaceInvaders.vho}
 ModelSim-Altera Info: # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-ModelSim-Altera Info: # Start time: 02:54:54 on Mar 28,2024
+ModelSim-Altera Info: # Start time: 08:28:06 on Apr 03,2024
 ModelSim-Altera Info: # vcom -reportprogress 300 -93 -work work SpaceInvaders.vho 
 ModelSim-Altera Info: # -- Loading package STANDARD
 ModelSim-Altera Info: # -- Loading package TEXTIO
@@ -54,11 +54,11 @@ ModelSim-Altera Error: # ** Error: SpaceInvaders.vho(830): (vcom-1035) Formal po
 ModelSim-Altera Error: # ** Error: SpaceInvaders.vho(830): (vcom-1035) Formal port "corectl" has OPEN or no actual associated with it.
 ModelSim-Altera Error: # ** Error: SpaceInvaders.vho(830): (vcom-1035) Formal port "ntdopinena" has OPEN or no actual associated with it.
 ModelSim-Altera Info: # ** Note: SpaceInvaders.vho(4278): VHDL Compiler exiting
-ModelSim-Altera Info: # End time: 02:54:54 on Mar 28,2024, Elapsed time: 0:00:00
+ModelSim-Altera Info: # End time: 08:28:06 on Apr 03,2024, Elapsed time: 0:00:00
 ModelSim-Altera Info: # Errors: 6, Warnings: 0
-ModelSim-Altera Error: # ** Error: P:/QuartusPrime/modelsim_ase/win32aloem/vcom failed.
+ModelSim-Altera Error: # ** Error: C:/quartusprime/modelsim_ase/win32aloem/vcom failed.
 ModelSim-Altera Info: # Error in macro ./SpaceInvaders_run_msim_gate_vhdl.do line 8
-ModelSim-Altera Info: # P:/QuartusPrime/modelsim_ase/win32aloem/vcom failed.
+ModelSim-Altera Info: # C:/quartusprime/modelsim_ase/win32aloem/vcom failed.
 ModelSim-Altera Info: #     while executing
 ModelSim-Altera Info: # "vcom -93 -work work {SpaceInvaders.vho}"
 Error: Errors encountered while running modelsim do file

@@ -1,5 +1,5 @@
 Assembler report for SpaceInvaders
-Thu Mar 28 02:54:34 2024
+Wed Apr 03 08:29:29 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -11,7 +11,7 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   3. Assembler Settings
   4. Assembler Encrypted IP Cores Summary
   5. Assembler Generated Files
-  6. Assembler Device Options: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/output_files/SpaceInvaders.sof
+  6. Assembler Device Options: C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/output_files/SpaceInvaders.sof
   7. Assembler Messages
 
 
@@ -39,7 +39,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Thu Mar 28 02:54:34 2024 ;
+; Assembler Status      ; Successful - Wed Apr 03 08:29:29 2024 ;
 ; Revision Name         ; SpaceInvaders                         ;
 ; Top-level Entity Name ; SpaceInvaders                         ;
 ; Family                ; MAX 10                                ;
@@ -64,23 +64,23 @@ https://fpgasoftware.intel.com/eula.
 +--------+------------------------+--------------+
 
 
-+-------------------------------------------------------------------------------------+
-; Assembler Generated Files                                                           ;
-+-------------------------------------------------------------------------------------+
-; File Name                                                                           ;
-+-------------------------------------------------------------------------------------+
-; C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/output_files/SpaceInvaders.sof ;
-+-------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------+
+; Assembler Generated Files                                                                      ;
++------------------------------------------------------------------------------------------------+
+; File Name                                                                                      ;
++------------------------------------------------------------------------------------------------+
+; C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/output_files/SpaceInvaders.sof ;
++------------------------------------------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------+
-; Assembler Device Options: C:/Users/slb4e/Desktop/SpaceInvaders/SpaceInvadersHW/output_files/SpaceInvaders.sof ;
-+----------------+----------------------------------------------------------------------------------------------+
-; Option         ; Setting                                                                                      ;
-+----------------+----------------------------------------------------------------------------------------------+
-; JTAG usercode  ; 0x00285493                                                                                   ;
-; Checksum       ; 0x00285493                                                                                   ;
-+----------------+----------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------+
+; Assembler Device Options: C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/output_files/SpaceInvaders.sof ;
++----------------+---------------------------------------------------------------------------------------------------------+
+; Option         ; Setting                                                                                                 ;
++----------------+---------------------------------------------------------------------------------------------------------+
+; JTAG usercode  ; 0x00285493                                                                                              ;
+; Checksum       ; 0x00285493                                                                                              ;
++----------------+---------------------------------------------------------------------------------------------------------+
 
 
 +--------------------+
@@ -89,15 +89,15 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Thu Mar 28 02:54:30 2024
+    Info: Processing started: Wed Apr 03 08:29:26 2024
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off SpaceInvaders -c SpaceInvaders
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4694 megabytes
-    Info: Processing ended: Thu Mar 28 02:54:34 2024
-    Info: Elapsed time: 00:00:04
+    Info: Peak virtual memory: 4699 megabytes
+    Info: Processing ended: Wed Apr 03 08:29:29 2024
+    Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:03
 
 
