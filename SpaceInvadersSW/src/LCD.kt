@@ -9,8 +9,17 @@ object LCD {
     // Escreve um byte de comando/dados no LCD em paralelo
     private fun writeByteParallel(rs: Boolean, data: Int) {
         if (rs) HAL.setBits(LCD_RS_MASK) else HAL.clearBits(LCD_RS_MASK)
+        HAL.setBits(LCD_E_MASK) //Display ON
         HAL.writeBits(LCD_DATA_MASK, data)
-        Thread.sleep(1)
+        HAL.setBits(SCLK_MASK) // First clock
+        Thread.sleep(10)
+        HAL.clearBits(SCLK_MASK) // First clock
+        Thread.sleep(10)
+        HAL.setBits(SCLK_MASK) // Second clock
+        Thread.sleep(10)
+        HAL.clearBits(SCLK_MASK) // Second clock
+        Thread.sleep(10)
+        HAL.clearBits(LCD_E_MASK) // Display OFF
     }
     // Escreve um byte de comando/dados no LCD em série
     private fun writeByteSerial(rs: Boolean, data: Int) {
