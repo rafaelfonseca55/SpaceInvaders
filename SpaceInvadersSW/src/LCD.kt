@@ -1,3 +1,5 @@
+import isel.leic.utils.Time
+
 // Escreve no LCD usando a interface a 8 bits.
 object LCD {
     // Dimensão do display.
@@ -9,17 +11,19 @@ object LCD {
     // Escreve um byte de comando/dados no LCD em paralelo
     private fun writeByteParallel(rs: Boolean, data: Int) {
         if (rs) HAL.setBits(LCD_RS_MASK) else HAL.clearBits(LCD_RS_MASK)
-        HAL.setBits(LCD_E_MASK) //Display ON
-        HAL.writeBits(LCD_DATA_MASK, data)
+        HAL.clearBits(LCD_E_MASK) // Clear enable
+        HAL.writeBits(LCD_DATA_MASK, data.shr(4))
         HAL.setBits(SCLK_MASK) // First clock
-        Thread.sleep(10)
+        Thread.sleep(1)
         HAL.clearBits(SCLK_MASK) // First clock
-        Thread.sleep(10)
+        HAL.writeBits(LCD_DATA_MASK, data and 0x0F)
+        Thread.sleep(1)
         HAL.setBits(SCLK_MASK) // Second clock
-        Thread.sleep(10)
+        Thread.sleep(1)
         HAL.clearBits(SCLK_MASK) // Second clock
-        Thread.sleep(10)
-        HAL.clearBits(LCD_E_MASK) // Display OFF
+        Thread.sleep(1)
+        HAL.setBits(LCD_E_MASK) // Set enable
+        HAL.clearBits(LCD_E_MASK) // Clear enable
     }
     // Escreve um byte de comando/dados no LCD em série
     private fun writeByteSerial(rs: Boolean, data: Int) {
@@ -41,18 +45,25 @@ object LCD {
 
     // Envia a sequência de iniciação para comunicação a 8 bits.
     fun init() {
-        HAL.init()
+        println("Initializing LCD...")
         //SerialEmitter.init()
         Thread.sleep(16)
         writeCMD(functionSet)
-        HAL.setBits(LCD_E_MASK) // Display ON
-        clear()
+        Thread.sleep(5)
+        writeCMD(functionSet)
+        Thread.sleep(1)
+        writeCMD(functionSet)
+        writeCMD(0x038) //Function set 8 bit
+        writeCMD(0x08) //Display OFF
+        writeCMD(0x01) //Clear display
+        writeCMD(0x06) //Entry mode
+        writeCMD(0x0C) //Display ON (with cursor 0x0E)
     }
 
-    // Escreve um caráter na posição corrente.
+    // Escreve um caráter na posição atual.
     fun write(c: Char) = writeDATA(c.code)
 
-    // Escreve uma string na posição corrente.
+    // Escreve uma string na posição atual.
     fun write(text: String) {
         for (c in text) write(c)
     }
@@ -69,19 +80,5 @@ object LCD {
 
 fun main() {
     LCD.init()
-    println(" LCD INITIALIZED ")
-    var count = 0
-    while (true) {
-        LCD.write("LCD COUNT: $count")
-        Thread.sleep(1000)
-        LCD.clear()
-        count++
-        if (count == 10) {
-            LCD.clear()
-            LCD.cursor(1, 0)
-            LCD.write("WE REACHED 10!")
-            LCD.clear()
-            count = 0
-        }
-    }
+    LCD.write("Hello, World!")
 }

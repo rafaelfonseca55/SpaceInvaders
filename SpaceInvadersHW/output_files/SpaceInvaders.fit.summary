@@ -1,14 +1,14 @@
-Fitter Status : Successful - Wed Apr 03 12:18:35 2024
+Fitter Status : Successful - Wed Apr 10 11:33:26 2024
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : SpaceInvaders
 Top-level Entity Name : SpaceInvaders
 Family : MAX 10
 Device : 10M50DAF484C6GES
 Timing Models : Preliminary
-Total logic elements : 174 / 49,760 ( < 1 % )
-    Total combinational functions : 145 / 49,760 ( < 1 % )
-    Dedicated logic registers : 102 / 49,760 ( < 1 % )
-Total registers : 102
+Total logic elements : 169 / 49,760 ( < 1 % )
+    Total combinational functions : 144 / 49,760 ( < 1 % )
+    Dedicated logic registers : 101 / 49,760 ( < 1 % )
+Total registers : 101
 Total pins : 25 / 360 ( 7 % )
 Total virtual pins : 0
 Total memory bits : 0 / 1,677,312 ( 0 % )

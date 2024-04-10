@@ -7,6 +7,7 @@ object HAL {
 
     // Inicia a classe
     fun init() {
+        println("Initializing HAL...")
         UsbPort.write(lastWriting)
     }
 

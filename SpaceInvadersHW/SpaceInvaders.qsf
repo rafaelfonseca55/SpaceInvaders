@@ -80,10 +80,6 @@ set_location_assignment PIN_AB11 -to Columns[0]
 set_location_assignment PIN_AB10 -to Columns[1]
 set_location_assignment PIN_AA9 -to Columns[2]
 set_location_assignment PIN_A8 -to dval
-set_location_assignment PIN_A9 -to ds[0]
-set_location_assignment PIN_A10 -to ds[1]
-set_location_assignment PIN_B10 -to ds[2]
-set_location_assignment PIN_D13 -to ds[3]
 set_location_assignment PIN_D12 -to ack
 set_location_assignment PIN_C12 -to reset
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top

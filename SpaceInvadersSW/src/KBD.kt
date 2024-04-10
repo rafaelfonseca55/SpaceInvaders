@@ -7,6 +7,7 @@ object KBD { // Ler teclas. Métodos retornam ‘0’..’9’,’#’,’*’ o
 
     // Inicia a classe
     fun init() {
+        println("Initializing KBD...")
         HAL.init()
         HAL.clearBits(ACK_MASK)
     }
