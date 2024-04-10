@@ -19,4 +19,4 @@ This project was developed as part of the Laboratory of Computers and Informatic
 -  **Serial Emitter**: The Serial Emitter module manages the transmission of serial data to external peripherals, such as the LCD and score display. It includes functions for initializing the serial communication interface and sending data packets to specific destinations. The module abstracts the transmission process, allowing the game control logic to communicate easily with external devices over a serial connection.
 
 ## TO DO:
-- **Testing**: New modules are yet to be tested.
+- **Testing**: LCD and Keyboard interaction yet to be fixed.
