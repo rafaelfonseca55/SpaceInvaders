@@ -1,4 +1,4 @@
-Fitter Status : Successful - Wed Apr 10 11:33:26 2024
+Fitter Status : Successful - Thu Apr 11 01:38:50 2024
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : SpaceInvaders
 Top-level Entity Name : SpaceInvaders
@@ -9,7 +9,7 @@ Total logic elements : 169 / 49,760 ( < 1 % )
     Total combinational functions : 144 / 49,760 ( < 1 % )
     Dedicated logic registers : 101 / 49,760 ( < 1 % )
 Total registers : 101
-Total pins : 25 / 360 ( 7 % )
+Total pins : 21 / 360 ( 6 % )
 Total virtual pins : 0
 Total memory bits : 0 / 1,677,312 ( 0 % )
 Embedded Multiplier 9-bit elements : 0 / 288 ( 0 % )
