@@ -3,7 +3,7 @@ use ieee.std_logic_1164.all;
 
 entity SpaceInvaders is
 	port (
-	Mclk : in std_logic;
+	 Mclk : in std_logic;
     reset : in std_logic;
     ack : in std_logic;
     Lines : in std_logic_vector(3 downTo 0);
@@ -27,16 +27,6 @@ Columns : out std_logic_vector (2 downTo 0);
 Dval: out std_logic;
 D : out std_logic_vector(3 downTo 0)	
 );
-end component;
-
-component FourBitRegister is
-port
-    (
-		  Reset : in std_logic;
-        Datain : in  std_logic_vector(3 downto 0);
-        Clk    : in  std_logic;
-        Dataout: out std_logic_vector(3 downto 0)
-    );
 end component;
 
 component UsbPort IS 

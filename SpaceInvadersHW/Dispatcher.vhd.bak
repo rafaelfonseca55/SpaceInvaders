@@ -1,0 +1,23 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity Dispatcher is
+
+port(
+    clk        : in std_logic;
+    reset        : in std_logic;
+    FSH        : in std_logic;
+    DVal        : in std_logic;
+    Din        : in std_logic_vector(9 downto 0);
+    WrT        : out std_logic;
+    WrL        : out std_logic;
+    done        : out std_logic;
+    Dout        : out std_logic_vector(8 downto 0)
+);
+end Dispatcher;
+
+architecture behavioral of Dispatcher is
+
+type STATE_TYPE is (STATE_1 , STATE_2 , STATE_3, STATE_4, STATE_5);
+
+signal CurrentState, NextState : STATE_TYPE;

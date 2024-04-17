@@ -1,7 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity SerialControl is
+entity Serial_Control is
 port(
 	reset		: in std_logic;
 	clk		: in std_logic;
@@ -15,7 +15,7 @@ port(
 	DXval		: out std_logic;
 	busy		: out std_logic
 );
-end SerialControl;
+end Serial_Control;
 
 architecture behavioral of Serial_Control is
 
@@ -81,5 +81,6 @@ process (CurrentState, SS, accept, pFlag, dFlag, RXError)
 init <= '1' when (CurrentState = State_1) else '0';
 wr <= '1' when (CurrentState = State_2) else '0';
 DXval <= '1' when (CurrentState = State_4) else '0';
+busy <= '1' when (CurrentState = State_4) else '0';
 
 end behavioral;

@@ -28,13 +28,13 @@ object LCD {
     // Escreve um byte de comando/dados no LCD em série
     private fun writeByteSerial(rs: Boolean, data: Int) {
         val rsValue = if (rs) 1 else 0
-        SerialEmitter.send(SerialEmitter.Destination.LCD, data shl 1 or rsValue)
+        SerialEmitter.send(SerialEmitter.Destination.LCD, data shl 1 or rsValue, 10)
         Thread.sleep(10)
     }
 
     // Escreve um byte de comando/dados no LCD
     fun writeByte(rs: Boolean, data: Int) {
-        writeByteParallel(rs, data)
+        writeByteSerial(rs, data)
     }
 
     // Escreve um comando no LCD
