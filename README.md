@@ -1,6 +1,7 @@
 # Class 24D - Group 8
       Guilherme Esteves 48313;
-      Rafael Fonseca 48354.
+      Rafael Fonseca 48354;
+      Pedro Correia 47264.
 
 # About this project
 
