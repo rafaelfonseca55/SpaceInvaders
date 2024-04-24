@@ -8,7 +8,7 @@ object SerialEmitter {
         SCORE
     }
 
-    val busyMask = 0x01
+    //val busyMask = 0x01
     val SS_MASK = 0x01
 
     // Inicia a classe
@@ -27,7 +27,7 @@ object SerialEmitter {
         val dataTx = data.shl(1).or(addr.ordinal)
         var accum = 0
 
-        for (i in 0 until size) { // Loop agora executa 'size' vezes
+        for (i in 0..<size) { // Loop agora executa 'size' vezes
             HAL.clearBits(SCLK_MASK)
 
             if ((dataTx.shr(i) and 1) == 1) {
@@ -52,12 +52,14 @@ object SerialEmitter {
         HAL.setBits(SS_MASK)
     }
 
-    fun isBusy() = HAL.isBit(busyMask)
+    //fun isBusy() = HAL.isBit(busyMask)
 }
 
 fun main() {
     SerialEmitter.init()
-    SerialEmitter.send(SerialEmitter.Destination.LCD, 0, 31)
-    Thread.sleep(250)
-
+    var value = 1
+    while (true) {
+        SerialEmitter.send(SerialEmitter.Destination.LCD, value++, 10)
+        Thread.sleep(2500)
+    }
 }

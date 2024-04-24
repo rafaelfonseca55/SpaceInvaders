@@ -13,7 +13,7 @@ entity SerialReceiver is
         Reset   : in std_logic;
 
         -- Output ports
-        D       : out std_logic_vector(7 downto 0);
+        D_RCV       : out std_logic_vector(8 downto 0);
         DXval   : out std_logic;
         Busy    : out std_logic
     );
@@ -58,25 +58,37 @@ port
         Clr     : in std_logic;
 
         -- Output ports
-        Q       : out std_logic_vector(4 downto 0)
+        Q       : out std_logic_vector(3 downto 0)
     );
 end component;
 
-signal Clr_X, Wr_X, pFlag_signal, dFlag_signal : std_logic;
-signal Q_X : std_logic_vector(4 downto 0);
+component Parity_Check is
+port
+(
+CLK : in std_logic;
+Data : in std_logic;
+init : in std_logic;
+Err : out std_logic
+);
+end component;
+
+signal Wr_X, pFlag_signal, dFlag_signal, init_signal, err_signal : std_logic;
+signal Q_X : std_logic_vector(3 downto 0);
 
 begin
 
-pFlag <= '1' when O_X = "1001" else '0';  -- pFlag is 1 when O_X is 9
-dFlag <= '1' when O_X = "1010" else '0';  -- dFlag is 1 when O_X is 10
+pFlag_signal <= '1' when Q_X = "1001" else '0';  -- pFlag is 1 when Q_X is 9
+dFlag_signal <= '1' when Q_X = "1010" else '0';  -- dFlag is 1 when Q_X is 10
 
-U0: SerialControl           port map (Clk => Clk, EnRx => nSS, pFlag => pFlag_signal, dFlag => dFlag_signal, Accept => Accept, Reset => Reset,
-                                                 Wr => Wr_X, Clr => Clr_X, DXval => DXval);
+U0: SerialControl   port map (reset => reset, clk => clk, ss => nSS, accept => accept, pFlag => pFlag_signal,
+										dFlag => dFlag_signal, RXerror => err_signal, wr => WR_X, init => init_signal,
+										DXval => DXval);
 
-U1: ShiftRegister           port map (Clk => SClk, Reset => Reset, Data => SDX, Enable => Wr_X,
-                                                 D => D);
+U1: ShiftRegister   port map ( Data =>SDX, Clk => SClk,  Enable => Wr_X, reset => reset, D => D_RCV );
 
-U2: Counter   port map (Clk => SClk , Clr => Clr_X,
+U2: Counter   port map (Clk => SClk , Clr => init_signal,
                                                  Q => Q_X);
+																 
+U3: Parity_Check port map(Clk => SClk, Data => SDX, init => init_signal, err => err_signal);
 
 end structural;

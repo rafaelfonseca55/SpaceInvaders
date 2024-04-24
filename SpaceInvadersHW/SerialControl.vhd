@@ -17,9 +17,9 @@ port(
 );
 end SerialControl;
 
-architecture behavioral of Serial_Control is
+architecture behavioral of SerialControl is
 
-type STATE_TYPE is (STATE_1 , STATE_2 , STATE_3 , STATE_4, STATE_5);
+type STATE_TYPE is (STATE_1 , STATE_2 , STATE_3 , STATE_4);
 
 signal CurrentState, NextState : STATE_TYPE;
 
@@ -46,7 +46,7 @@ process (CurrentState, SS, accept, pFlag, dFlag, RXError)
 												NextState <= STATE_2;
 											end if;
 											else
-												NextState <= STATE_2;
+												NextState <= STATE_1;
 											end if;	
 											
 			when STATE_3			=> if (SS = '1') then
@@ -68,12 +68,7 @@ process (CurrentState, SS, accept, pFlag, dFlag, RXError)
 											else
 												NextState <= STATE_4;
 											end if;
-											
-			when STATE_5			=> if(accept='0') then
-												NextState <= STATE_1;
-											else
-												NextState <= STATE_5;
-											end if;	
+												
 		end case;
 	end process;
 
