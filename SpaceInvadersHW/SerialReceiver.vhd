@@ -2,64 +2,53 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 entity SerialReceiver is
-    port
-    (
-        -- Input ports
-        Clk     : in std_logic;
-        SDX     : in std_logic;
-        SClk    : in std_logic;
-        nSS     : in std_logic;
-        Accept  : in std_logic;
-        Reset   : in std_logic;
-
-        -- Output ports
-        D_RCV       : out std_logic_vector(8 downto 0);
-        DXval   : out std_logic;
-        Busy    : out std_logic
-    );
+port (
+SS      : in std_logic;
+SDX     : in std_logic;
+SCLK    : in std_logic;
+accept  : in std_logic;
+reset   : in std_logic;
+MCLK       : in std_logic;
+DXval   : out std_logic;
+D       : out std_logic_vector(8 downto 0)
+);
 end SerialReceiver;
 
-architecture structural of SerialReceiver is
+architecture  Structure of SerialReceiver is
 
 component SerialControl is
-    port(
-		reset		: in std_logic;
-		clk		: in std_logic;
-		SS			: in std_logic;
-		accept	: in std_logic;
-		pFlag		: in std_logic;
-		dFlag		: in std_logic;
-		RXError	: in std_logic;
-		wr			: out std_logic;
-		init		: out std_logic;
-		DXval		: out std_logic
+port(
+    reset        : in std_logic;
+    clk        : in std_logic;
+    enRx            : in std_logic;
+    accept    : in std_logic;
+    pFlag        : in std_logic;
+    dFlag        : in std_logic;
+    RXError    : in std_logic;
+    wr            : out std_logic;
+    init        : out std_logic;
+    DXval        : out std_logic
 );
 end component;
 
 component ShiftRegister is
-    port
-    (
-        -- Input ports
-        Data    : in  std_logic;
-        Clk     : in  std_logic;
-        Enable  : in  std_logic;
-        Reset   : in  std_logic;
-
-        -- Output ports
-        D       : out std_logic_vector(8 downto 0)
-    );
+PORT(    CLK : in std_logic;
+        RESET : in STD_LOGIC;
+        Sin : IN STD_LOGIC;
+        EN : IN STD_LOGIC;
+        D : out std_logic_vector (8 downto 0)
+        );
 end component;
 
-component Counter IS
+component Counter is
 port
-    (
-        -- Input ports
-        Clk     : in std_logic;
-        Clr     : in std_logic;
-
-        -- Output ports
-        Q       : out std_logic_vector(3 downto 0)
-    );
+(
+--input ports
+CLK : in std_logic;
+clr : in std_logic;
+--output ports
+Q : out std_logic_vector(3 downto 0)
+);
 end component;
 
 component Parity_Check is
@@ -72,23 +61,22 @@ Err : out std_logic
 );
 end component;
 
-signal Wr_X, pFlag_signal, dFlag_signal, init_signal, err_signal : std_logic;
-signal Q_X : std_logic_vector(3 downto 0);
+signal s1,s2,s3 :std_logic;
+signal s4 :std_logic_vector(3 downto 0);
+signal Dflag_signal, Pflag_signal : std_logic;
 
-begin
+Begin
 
-pFlag_signal <= '1' when Q_X = "1001" else '0';  -- pFlag is 1 when Q_X is 9
-dFlag_signal <= '1' when Q_X = "1010" else '0';  -- dFlag is 1 when Q_X is 10
+UO : SerialControl port map( clk => MCLK, reset => reset, enRx=>SS,
+accept=>accept , Pflag=>Pflag_signal , Dflag=>Dflag_signal,
+RXerror=> s2 ,Dxval=>Dxval , init=>s1, wr=>s3);
 
-U0: SerialControl   port map (reset => reset, clk => clk, ss => nSS, accept => accept, pFlag => pFlag_signal,
-										dFlag => dFlag_signal, RXerror => err_signal, wr => WR_X, init => init_signal,
-										DXval => DXval);
+U1 : Parity_Check port map(init=>s1 , CLK=>SCLK , Data=>SDX,Err=>s2);
 
-U1: ShiftRegister   port map ( Data =>SDX, Clk => SClk,  Enable => Wr_X, reset => reset, D => D_RCV );
+U2 : Counter port map ( CLK=>SCLK , clr=>s1 , Q=>s4);
 
-U2: Counter   port map (Clk => SClk , Clr => init_signal,
-                                                 Q => Q_X);
-																 
-U3: Parity_Check port map(Clk => SClk, Data => SDX, init => init_signal, err => err_signal);
+U3 : ShiftRegister port map (En =>s3,CLK=>SCLK,Sin=>SDX,RESET=>reset,D=>D); 
 
-end structural;
+Dflag_signal <= S4(3) and not s4(2) and s4(1) and not s4(0);
+PFlag_signal <= s4(3) and not s4(2) and s4(1) and s4(0);
+end Structure;

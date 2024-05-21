@@ -8,16 +8,16 @@ entity Dispatcher is
         Clk         : in std_logic;
         Reset       : in std_logic;
         DXval       : in std_logic;
-        Din         : in std_logic_vector(7 downto 0);
+        Din         : in std_logic_vector(8 downto 0);
     
         -- Output ports
         WrL         : out std_logic;
-        Dout        : out std_logic_vector(7 downto 0);
+        Dout        : out std_logic_vector(8 downto 0);
         Done        : out std_logic
     );
 end Dispatcher;
 
-architecture behavioral of LCDDispatcher is
+architecture behavioral of Dispatcher is
 
 type STATE_TYPE is (STATE_WAITING, STATE_TRAMA_RECEBIDA, STATE_DONE);
 

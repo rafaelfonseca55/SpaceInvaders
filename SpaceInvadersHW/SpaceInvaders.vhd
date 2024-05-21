@@ -29,6 +29,22 @@ D : out std_logic_vector(3 downTo 0)
 );
 end component;
 
+component SerialLCDController is 
+	port
+	(
+		-- Input ports
+		LCDsel	: in std_logic;
+		SClk  	: in std_logic;
+		MClk		: in std_logic;
+		SDX    	: in std_logic;
+		Reset  	: in std_logic;
+	
+		-- Output ports
+		Dout     	: out std_logic_vector(8 downto 0);
+		WrL	 	: out std_logic
+	);
+end component;
+
 component UsbPort IS 
 PORT
 (
@@ -62,18 +78,6 @@ begin
 		inputPort(3 downTo 0) => d_signal, 
 		inputPort(4) => Dval_signal,
 		outputPort => outputPort_signal);
-		
-	 FirstReg: FourBitRegister port map(
-		Reset  => reset, 
-		Datain => Din_signal, 
-		Clk 	 => Clkreg, 
-		Dataout=> Dlow_signal);
-		
-	 SecondReg: FourBitRegister port map(
-		Reset => reset, 
-		Datain => Dlow_signal, 
-		Clk => Clkreg, 
-		Dataout => Dhigh_signal);
 		
 	 
 	 Din_signal <= outputPort_signal(3 downTo 0);

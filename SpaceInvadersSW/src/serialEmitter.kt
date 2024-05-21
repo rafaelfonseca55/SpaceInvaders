@@ -9,34 +9,33 @@ object SerialEmitter {
     }
 
     //val busyMask = 0x01
-    val SS_MASK = 0x01
 
     // Inicia a classe
     fun init() {
-        KBD.init()
-        LCD.init()
+        HAL.clearBits(SDX_MASK)
+        HAL.setBits(nLCDsel_MASK)
+        HAL.clearBits(SCLK_MASK)
     }
 
     fun send(addr: Destination, data: Int, size: Int) {
-        /*while (isBusy()) {
-            Thread.sleep(100)
-        }*/
         Time.sleep(1)
-        HAL.clearBits(SS_MASK)
+        HAL.clearBits(nLCDsel_MASK)
 
         val dataTx = data.shl(1).or(addr.ordinal)
         var accum = 0
 
-        for (i in 0..<size) { // Loop agora executa 'size' vezes
+        for (i in 0 until size) { // Loop agora executa 'size' vezes
             HAL.clearBits(SCLK_MASK)
 
-            if ((dataTx.shr(i) and 1) == 1) {
+            if ((dataTx.shr(i) and 0x01) == 1) {
                 HAL.setBits(SDX_MASK)
+                HAL.setBits(SCLK_MASK)
                 accum++
             } else {
                 HAL.clearBits(SDX_MASK)
+                HAL.setBits(SCLK_MASK)
             }
-            HAL.setBits(SCLK_MASK)
+
         }
 
         if (accum % 2 == 0) {
@@ -49,17 +48,14 @@ object SerialEmitter {
             HAL.setBits(SCLK_MASK)
         }
 
-        HAL.setBits(SS_MASK)
+        HAL.setBits(nLCDsel_MASK)
     }
 
     //fun isBusy() = HAL.isBit(busyMask)
 }
 
 fun main() {
+    HAL.init()
     SerialEmitter.init()
-    var value = 1
-    while (true) {
-        SerialEmitter.send(SerialEmitter.Destination.LCD, value++, 10)
-        Thread.sleep(2500)
-    }
+    SerialEmitter.send(SerialEmitter.Destination.LCD, 18, 10)
 }
