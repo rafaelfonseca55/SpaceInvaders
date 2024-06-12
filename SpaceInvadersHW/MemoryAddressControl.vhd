@@ -20,7 +20,7 @@ end MemoryAddressControl;
 
 architecture structural of MemoryAddressControl is
 
-component Counter is 
+component CounterLimit is 
 	port
 	(
 		-- Input ports
@@ -77,10 +77,10 @@ U0: RingBufferMux port map (I => O_Get_X, I2 => O_Put_X, S => PutNGet, O => D);
 												
 U1: CounterBuffer port map (Clk => Clk, Ce => Ce_X, Clr => Reset, UpDown => UpDown_X, O => O_Buffer_X);
 
-U3: Counter			port map (Clk => Clk, Ce => IncPut, Clr => Reset, Limit => 7, O(3) => O_Put_Dummy_X,
+U3: CounterLimit			port map (Clk => Clk, Ce => IncPut, Clr => Reset, Limit => 7, O(3) => O_Put_Dummy_X,
 									 O(2) => O_Put_X(2), O(1) => O_Put_X(1), O(0) => O_Put_X(0));
 												 
-U4: Counter			port map (Clk => Clk, Ce => IncGet, Clr => Reset, Limit => 7, O(3) => O_Get_Dummy_X,
+U4: CounterLimit			port map (Clk => Clk, Ce => IncGet, Clr => Reset, Limit => 7, O(3) => O_Get_Dummy_X,
 									 O(2) => O_Get_X(2), O(1) => O_Get_X(1), O(0) => O_Get_X(0));												 
 
 end structural;

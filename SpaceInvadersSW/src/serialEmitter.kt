@@ -21,7 +21,7 @@ object SerialEmitter {
         Time.sleep(1)
         HAL.clearBits(nLCDsel_MASK)
 
-        val dataTx = data.shl(1).or(addr.ordinal)
+        val dataTx = data
         var accum = 0
 
         for (i in 0 until size) { // Loop agora executa 'size' vezes
@@ -57,5 +57,5 @@ object SerialEmitter {
 fun main() {
     HAL.init()
     SerialEmitter.init()
-    SerialEmitter.send(SerialEmitter.Destination.LCD, 18, 10)
+    SerialEmitter.send(SerialEmitter.Destination.LCD, 1, 10)
 }

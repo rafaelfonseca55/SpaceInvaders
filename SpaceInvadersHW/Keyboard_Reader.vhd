@@ -28,9 +28,70 @@ architecture Structure of Keyboard_Reader is
     );
 end component;
 
+	component RingBuffer is
+	port
+	(
+		-- Input ports
+		Clk		: in std_logic;
+		Reset		: in std_logic;
+		D			: in std_logic_vector(3 downto 0);
+		DAV		: in std_logic;
+		CTS		: in std_logic;
+	
+		-- Output ports
+		Q     	: out std_logic_vector(3 downto 0);
+		Wreg 		: out std_logic;
+		DAC		: out std_logic
+	);
+end component;
+
+	component OutputBuffer is
+	port
+	(
+		-- Input ports
+		Clk		: in std_logic;
+		Load		: in std_logic;
+		Ack   	: in std_logic;
+		Reset		: in std_logic;
+		D			: in std_logic_vector(3 downto 0);
+	
+		-- Output ports
+		Q     	: out std_logic_vector(3 downto 0);
+		Dval 		: out std_logic;
+		OBfree	: out std_logic
+	);
+end component;
+
+signal valid, Reg, keyAck, free : std_logic;
+signal keyData, bufferData : std_logic_vector(3 downTo 0);
+
 begin
 
-    U0 : Key_Decode port map(Mclk => Mclk, reset =>reset, Kack => Kack, Lines=>Lines, Columns=>Columns, Kval=>Dval, K=>D);
-
+    U0 : Key_Decode port map(Mclk => Mclk, 
+									  reset =>reset, 
+									  Kack => keyAck, 
+									  Lines=>Lines, 
+									  Columns=>Columns, 
+									  Kval=>valid, 
+									  K=>keyData);
+									  
+	 U1: RingBuffer port map(Clk => MClk,
+									 reset => reset,
+									 D => keyData,
+									 DAV => valid,
+									 CTS => free,
+									 Q => bufferData,
+									 Wreg => Reg,
+									 DAC => keyAck);
+									 
+	 U2: OutputBuffer port map(Clk => MClk,
+										Reset => Reset,
+										Load => Reg,
+										Ack => Kack,
+										D => bufferData,
+										Q => D,
+										Dval => Dval,
+										OBfree => free);
+	 
 
 end Structure;
