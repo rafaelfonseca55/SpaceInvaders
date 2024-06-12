@@ -1,40 +1,40 @@
-LIBRARY ieee;
-USE ieee.std_logic_1164.all;
+library ieee;
+use ieee.std_logic_1164.all;
 
-ENTITY ShiftRegister IS
-PORT(    CLK : in std_logic;
-        RESET : in STD_LOGIC;
-        Sin : IN STD_LOGIC;
-        EN : IN STD_LOGIC;
-        D : out std_logic_vector (8 downto 0)
-        );
-END ShiftRegister;
-ARCHITECTURE logicFunction OF ShiftRegister IS
-component FFD is
-port
-(    
-CLK : in std_logic;
-RESET : in STD_LOGIC;
-SET : in std_logic;
-D : IN STD_LOGIC;
-EN : IN STD_LOGIC;
-Q : out std_logic
-);
-END component;
+entity ShiftRegister is
+    port (
+        -- Input ports
+        Sin   : in  std_logic;
+        Clk   : in  std_logic;
+        En    : in  std_logic;
+        Reset : in  std_logic;
 
-signal R : std_logic_vector(8 downto 0);
+        -- Output ports
+        D     : out std_logic_vector(8 downto 0)
+    );
+end entity ShiftRegister;
 
-BEGIN
+architecture behavioral of ShiftRegister is
+    signal D_X : std_logic_vector(8 downto 0);
+begin
+    process(Clk, Reset, En)
+    begin
+        if (Reset = '1') then
+            D_X <= "000000000";
+        elsif rising_edge(Clk) then
+            if (En = '1') then
+                D_X(0) <= Sin;
+                D_X(1) <= D_X(0);
+                D_X(2) <= D_X(1);
+                D_X(3) <= D_X(2);
+                D_X(4) <= D_X(3);
+                D_X(5) <= D_X(4);
+                D_X(6) <= D_X(5);
+                D_X(7) <= D_X(6);
+                D_X(8) <= D_X(7);
+            end if;
+        end if;
+    end process;
 
-Sc0 : FFD port map( CLK => CLK , D => Sin , RESET=> RESET , SET => '0' , EN => EN , Q => R(8));
-Sc1 : FFD port map( CLK => CLK , D => R(8) , RESET=> RESET , SET => '0' , EN => EN , Q => R(7));
-Sc2 : FFD port map( CLK => CLK , D => R(7) , RESET=> RESET , SET => '0' , EN => EN , Q => R(6));
-Sc3 : FFD port map( CLK => CLK , D => R(6) , RESET=> RESET , SET => '0' , EN => EN , Q => R(5));
-Sc4 : FFD port map( CLK => CLK , D => R(5) , RESET=> RESET , SET => '0' , EN => EN , Q => R(4));
-Sc5 : FFD port map( CLK => CLK , D => R(4) , RESET=> RESET , SET => '0' , EN => EN , Q => R(3));
-Sc6 : FFD port map( CLK => CLK , D => R(3) , RESET=> RESET , SET => '0' , EN => EN , Q => R(2));
-Sc7 : FFD port map( CLK => CLK , D => R(2) , RESET=> RESET , SET => '0' , EN => EN , Q => R(1));
-Sc8 : FFD port map( CLK => CLK , D => R(1) , RESET=> RESET , SET => '0' , EN => EN , Q => R(0));
-D<=R;
-
-END logicFunction;
+    D <= D_X;
+end architecture behavioral;

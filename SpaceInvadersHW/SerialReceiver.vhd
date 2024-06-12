@@ -9,6 +9,8 @@ SCLK    : in std_logic;
 accept  : in std_logic;
 reset   : in std_logic;
 MCLK       : in std_logic;
+DATA : out std_logic;
+PARITY : out std_logic;
 DXval   : out std_logic;
 D       : out std_logic_vector(8 downto 0)
 );
@@ -61,22 +63,24 @@ Err : out std_logic
 );
 end component;
 
-signal s1,s2,s3 :std_logic;
-signal s4 :std_logic_vector(3 downto 0);
+signal init_sr,err_sr,enable_sr :std_logic;
+signal count :std_logic_vector(3 downto 0);
 signal Dflag_signal, Pflag_signal : std_logic;
 
 Begin
 
 UO : SerialControl port map( clk => MCLK, reset => reset, enRx=>SS,
-accept=>accept , Pflag=>Pflag_signal , Dflag=>Dflag_signal,
-RXerror=> s2 ,Dxval=>Dxval , init=>s1, wr=>s3);
+									  accept=>accept , Pflag=>Pflag_signal , Dflag=>Dflag_signal,
+									  RXerror=> err_sr ,Dxval=>Dxval , init=>init_sr, wr=>enable_sr);
 
-U1 : Parity_Check port map(init=>s1 , CLK=>SCLK , Data=>SDX,Err=>s2);
+U1 : Parity_Check port map(init=>init_sr , CLK=>SCLK , Data=>SDX,Err=>err_sr);
 
-U2 : Counter port map ( CLK=>SCLK , clr=>s1 , Q=>s4);
+U2 : Counter port map ( CLK=>SCLK , clr=>init_sr , Q=>count);
 
-U3 : ShiftRegister port map (En =>s3,CLK=>SCLK,Sin=>SDX,RESET=>reset,D=>D); 
+U3 : ShiftRegister port map (En =>enable_sr,CLK=>SCLK,Sin=>SDX,RESET=>reset,D=>D); 
 
-Dflag_signal <= S4(3) and not s4(2) and s4(1) and not s4(0);
-PFlag_signal <= s4(3) and not s4(2) and s4(1) and s4(0);
+Dflag_signal <= count(3) and not count(2) and not count(1) and count(0);
+Data <= Dflag_signal;
+PFlag_signal <= count(3) and not count(2) and  count(1) and not count(0);
+Parity <= PFlag_signal;
 end Structure;
