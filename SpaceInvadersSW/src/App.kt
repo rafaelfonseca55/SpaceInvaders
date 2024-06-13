@@ -1,5 +1,4 @@
 import kotlin.random.Random
-import kotlin.system.exitProcess
 
 object SpaceInvaders {
     const val MAX_ALIENS_ON_SCREEN = 3 // Maximum aliens on screen at once
