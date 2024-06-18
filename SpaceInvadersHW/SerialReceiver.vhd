@@ -66,6 +66,7 @@ end component;
 signal init_sr,err_sr,enable_sr :std_logic;
 signal count :std_logic_vector(3 downto 0);
 signal Dflag_signal, Pflag_signal : std_logic;
+signal counter_rst : std_logic;
 
 Begin
 
@@ -77,8 +78,10 @@ U1 : Parity_Check port map(init=>init_sr , CLK=>SCLK , Data=>SDX,Err=>err_sr);
 
 U2 : Counter port map ( CLK=>SCLK , clr=>init_sr , Q=>count);
 
-U3 : ShiftRegister port map (En =>enable_sr,CLK=>SCLK,Sin=>SDX,RESET=>reset,D=>D); 
+U3 : ShiftRegister port map (En =>enable_sr,CLK=>SCLK,Sin=>SDX,RESET=>counter_rst,D=>D); 
 
+
+counter_rst <= reset or init_sr;
 Dflag_signal <= count(3) and not count(2) and not count(1) and count(0);
 Data <= Dflag_signal;
 PFlag_signal <= count(3) and not count(2) and  count(1) and not count(0);

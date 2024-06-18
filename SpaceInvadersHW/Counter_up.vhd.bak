@@ -19,9 +19,8 @@ End Component;
 
 Component REG is
 Port( clk : in std_logic;
-        CE : in std_logic;
+        EN : in std_logic;
         D : in std_logic_vector(3 downto 0);
-		  RESET : in std_logic;
         Q : out std_logic_vector(3 downto 0));
 End Component;
 
@@ -40,7 +39,7 @@ Begin
 
 U1 : ADDER port map (A => carry_Q, B => "0000", Ci => CE, S => carry_ADDER);
 U2 : MUX_4 port map (A => carry_ADDER, B => dataIn, S => PL, Y => carry_MUX);
-U3 : REG port map (clk => CLK, CE => '1', D => carry_MUX, Reset => '0', Q => carry_Q);
+U3 : REG port map (clk => CLK, EN => '1', D => carry_MUX, Q => carry_Q);
 
 Q <= carry_Q;
 
