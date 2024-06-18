@@ -84,5 +84,5 @@ object LCD {
 fun main() {
     HAL.init()
     LCD.init()
-    LCD.write("Hello, World!")
+    //LCD.write("Hello, World!")
 }
