@@ -1,36 +1,55 @@
 object TUI{
 
+    //Representa os locais onde pode ser escrito a informação
+    enum class Location(val offset: Int) { LEFT(0), CENTER(8), RIGHT(16) }
+
+    //Tempo normal de timeout
+    private const val TIMEOUT = 50000L
+    //Valor que, traduzido para char, representa a ausência de caracter
+    private const val NONE = 0
+
     fun init(){
+        HAL.init()
         KBD.init()
         LCD.init()
+        SerialEmitter.init()
         LCD.clear()
     }
-    fun keyToLCD(){
-        val key= KBD.waitKey(1500)
-        if (key!= 0.toChar()){
-            println("Key detected: $key")  // Print the detected key
-            LCD.write(key)
+    //Lê a tecla do keyboard. Se ocorreu timeout, ele retorna ausência de tecla
+    fun read(timeout: Long = TIMEOUT) = KBD.waitKey(timeout)
+
+    //Lê do keyboard uma tecla e escreve-a no LCD
+    fun writeFromKeyboard() {
+        val key = read()
+        if (key == NONE.toChar()) print("ERROR: Timeout reached.")
+        else {
+            write(key.toString(), 0, Location.LEFT )
         }
     }
+
     fun writeString(string: String){
         LCD.write(string)
     }
 
-    fun get2Key(maxValue: Int):String{
-        var accum= emptyArray<Char>()
-        var i=maxValue
-        while (i!=0) {
-            val key = KBD.waitKey(1500)
-            if (key!= 0.toChar()) {
-                accum += key
-            }
-            i--
+    //Escreve no LCD, numa linha e num local passado como parâmetro
+    fun write(text: String, line: Int, location: TUI.Location) {
+        when (location) {
+            TUI.Location.LEFT -> LCD.cursor(line, location.offset)
+            TUI.Location.RIGHT -> LCD.cursor(line, (location.offset - text.length))
+            TUI.Location.CENTER -> LCD.cursor(line, (location.offset - (text.length / 2)))
         }
-        return accum.joinToString("")
+        LCD.write(text)
     }
 
     fun nextLine(e:String){             //Escreve na proxima linha
         LCD.cursor(1, 0)
+        writeString(e)
+    }
+
+    fun clear() = LCD.clear()
+
+    fun firstLine(e:String){            //Escreve na primeira linha
+        LCD.cursor(0, 0)
         writeString(e)
     }
 }
@@ -38,7 +57,7 @@ object TUI{
 fun main(){
     TUI.init()
     while (true){
-        TUI.keyToLCD()
+        TUI.writeFromKeyboard()
         Thread.sleep(1000)
         LCD.clear()
     }

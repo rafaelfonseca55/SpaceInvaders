@@ -20,7 +20,7 @@ object KBD { // Ler teclas. Métodos retornam ‘0’..’9’,’#’,’*’ o
         val key = HAL.readBits(I0_3_MASK)
         while (HAL.isBit(DVAL_MASK)) { HAL.setBits(ACK_MASK) }
         HAL.clearBits(ACK_MASK)
-        return arrayTeclas[key-1]
+        return arrayTeclas[key]
     }
 
     // Retorna a tecla premida, caso ocorra antes do ‘timeout’ (representado em milissegundos), ou NONE caso contrário.

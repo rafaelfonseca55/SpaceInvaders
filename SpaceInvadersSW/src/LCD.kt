@@ -2,11 +2,13 @@ import isel.leic.utils.Time
 
 // Escreve no LCD usando a interface a 8 bits.
 object LCD {
-    // Dimensão do display.
-    private const val LINES = 2
-    private const val COLS = 16
-    private const val LCD_DX = LCD_E_MASK or LCD_RS_MASK or LCD_DATA_MASK
     const val functionSet = 0x30
+
+    fun createChar(location: Int, charMap: IntArray) {
+        val actualLocation = location and 0x7 // Ensure location is within 0-7 range
+        writeCMD(0x40 + (actualLocation * 8)) // Set CGRAM address correctly
+        charMap.forEach { writeDATA(it) }      // Write each byte of the character data
+    }
 
     // Escreve um byte de comando/dados no LCD em paralelo
     private fun writeByteParallel(rs: Boolean, data: Int) {
@@ -28,12 +30,13 @@ object LCD {
     // Escreve um byte de comando/dados no LCD em série
     private fun writeByteSerial(rs: Boolean, data: Int) {
         val rsValue = if (rs) 1 else 0
-        SerialEmitter.send(SerialEmitter.Destination.LCD, data shl 1 or rsValue, 10)
-        Thread.sleep(10)
+        SerialEmitter.init()
+        SerialEmitter.send(SerialEmitter.Destination.LCD, data.shl(1).or(rsValue), 9)
     }
 
     // Escreve um byte de comando/dados no LCD
     fun writeByte(rs: Boolean, data: Int) {
+        //writeByteParallel(rs, data)
         writeByteSerial(rs, data)
     }
 
@@ -46,7 +49,6 @@ object LCD {
     // Envia a sequência de iniciação para comunicação a 8 bits.
     fun init() {
         println("Initializing LCD...")
-        //SerialEmitter.init()
         Thread.sleep(16)
         writeCMD(functionSet)
         Thread.sleep(5)
@@ -74,11 +76,13 @@ object LCD {
     // Envia comando para limpar o ecrã e posicionar o cursor em (0,0)
     fun clear() {
         writeCMD(1)
+        Thread.sleep(2)
         cursor(0,0)
     }
 }
 
 fun main() {
+    HAL.init()
     LCD.init()
     LCD.write("Hello, World!")
 }

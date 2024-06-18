@@ -64,12 +64,12 @@ signal Din_X 									: std_logic_vector(8 downto 0);
 
 begin
 
-U0: SerialReceiver 			port map (MClk => Clk, SDX => SDX, SClk => SClk, SS => nLCDsel, Accept => Done_X, Reset => Reset, 
+U0: SerialReceiver 			port map (MClk => Clk_X, SDX => SDX, SClk => SClk, SS => LCDsel, Accept => Done_X, Reset => Reset, 
 												 D => Din_X, DXval => Dxval_X);
 													
 U1: Dispatcher      		port map (Clk => Clk_X, Reset => Reset, Dxval => Dxval_X, Din => Din_X, 
-												 WrL => WrL, Dout => D, Done => Done_X);
+												 WrL => WrL, Dout => Dout, Done => Done_X);
 												 
-U2: ClkDiv  	generic map(15) port map (Clk_in => Clk, Clk_out => Clk_X);												 
+U2: ClkDiv  	generic map(15) port map (Clk_in => MClk, Clk_out => Clk_X);												 
 
 end structural;

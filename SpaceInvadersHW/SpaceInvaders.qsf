@@ -85,26 +85,135 @@ set_location_assignment PIN_C12 -to reset
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_location_assignment PIN_AA15 -to Dout[0]
-set_location_assignment PIN_W13 -to Dout[1]
-set_location_assignment PIN_AB13 -to Dout[2]
-set_location_assignment PIN_Y11 -to Dout[3]
-set_location_assignment PIN_W11 -to Dout[4]
-set_location_assignment PIN_AA10 -to Dout[5]
-set_location_assignment PIN_Y8 -to Dout[6]
-set_location_assignment PIN_Y7 -to Dout[7]
-set_location_assignment PIN_W8 -to rs
 set_location_assignment PIN_V5 -to e
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+#============================================================
+# SHEX0
+#============================================================
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX0[0]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX0[1]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX0[2]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX0[3]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX0[4]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX0[5]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX0[6]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX0[7]
+set_location_assignment PIN_C14 -to SHEX0[0]
+set_location_assignment PIN_E15 -to SHEX0[1]
+set_location_assignment PIN_C15 -to SHEX0[2]
+set_location_assignment PIN_C16 -to SHEX0[3]
+set_location_assignment PIN_E16 -to SHEX0[4]
+set_location_assignment PIN_D17 -to SHEX0[5]
+set_location_assignment PIN_C17 -to SHEX0[6]
+set_location_assignment PIN_D15 -to SHEX0[7]
+
+#============================================================
+# SHEX1
+#============================================================
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX1[0]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX1[1]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX1[2]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX1[3]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX1[4]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX1[5]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX1[6]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX1[7]
+set_location_assignment PIN_C18 -to SHEX1[0]
+set_location_assignment PIN_D18 -to SHEX1[1]
+set_location_assignment PIN_E18 -to SHEX1[2]
+set_location_assignment PIN_B16 -to SHEX1[3]
+set_location_assignment PIN_A17 -to SHEX1[4]
+set_location_assignment PIN_A18 -to SHEX1[5]
+set_location_assignment PIN_B17 -to SHEX1[6]
+set_location_assignment PIN_A16 -to SHEX1[7]
+
+#============================================================
+# SHEX2
+#============================================================
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX2[0]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX2[1]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX2[2]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX2[3]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX2[4]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX2[5]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX2[6]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX2[7]
+set_location_assignment PIN_B20 -to SHEX2[0]
+set_location_assignment PIN_A20 -to SHEX2[1]
+set_location_assignment PIN_B19 -to SHEX2[2]
+set_location_assignment PIN_A21 -to SHEX2[3]
+set_location_assignment PIN_B21 -to SHEX2[4]
+set_location_assignment PIN_C22 -to SHEX2[5]
+set_location_assignment PIN_B22 -to SHEX2[6]
+set_location_assignment PIN_A19 -to SHEX2[7]
+
+#============================================================
+# SHEX3
+#============================================================
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX3[0]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX3[1]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX3[2]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX3[3]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX3[4]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX3[5]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX3[6]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX3[7]
+set_location_assignment PIN_F21 -to SHEX3[0]
+set_location_assignment PIN_E22 -to SHEX3[1]
+set_location_assignment PIN_E21 -to SHEX3[2]
+set_location_assignment PIN_C19 -to SHEX3[3]
+set_location_assignment PIN_C20 -to SHEX3[4]
+set_location_assignment PIN_D19 -to SHEX3[5]
+set_location_assignment PIN_E17 -to SHEX3[6]
+set_location_assignment PIN_D22 -to SHEX3[7]
+
+#============================================================
+# SHEX4
+#============================================================
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX4[0]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX4[1]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX4[2]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX4[3]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX4[4]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX4[5]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX4[6]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX4[7]
+set_location_assignment PIN_F18 -to SHEX4[0]
+set_location_assignment PIN_E20 -to SHEX4[1]
+set_location_assignment PIN_E19 -to SHEX4[2]
+set_location_assignment PIN_J18 -to SHEX4[3]
+set_location_assignment PIN_H19 -to SHEX4[4]
+set_location_assignment PIN_F19 -to SHEX4[5]
+set_location_assignment PIN_F20 -to SHEX4[6]
+set_location_assignment PIN_F17 -to SHEX4[7]
+
+#============================================================
+# SHEX5
+#============================================================
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX5[0]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX5[1]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX5[2]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX5[3]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX5[4]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX5[5]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX5[6]
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SHEX5[7]
+set_location_assignment PIN_J20 -to SHEX5[0]
+set_location_assignment PIN_K20 -to SHEX5[1]
+set_location_assignment PIN_L18 -to SHEX5[2]
+set_location_assignment PIN_N18 -to SHEX5[3]
+set_location_assignment PIN_M20 -to SHEX5[4]
+set_location_assignment PIN_N19 -to SHEX5[5]
+set_location_assignment PIN_N20 -to SHEX5[6]
+set_location_assignment PIN_L19 -to SHEX5[7]
+set_global_assignment -name VHDL_FILE scoreDisplay.vhd
+set_global_assignment -name VHDL_FILE reg_4bit.vhd
+set_global_assignment -name VHDL_FILE dec_3_8.vhd
+set_global_assignment -name VHDL_FILE dec2hex.vhd
 set_global_assignment -name VHDL_FILE ShiftRegister_TB.vhd
 set_global_assignment -name VHDL_FILE ShiftRegister.vhd
 set_global_assignment -name VHDL_FILE SerialReceiver_TB.vhd
-set_global_assignment -name VHDL_FILE SerialReceiverCounter_TB.vhd
-set_global_assignment -name VHDL_FILE SerialReceiverCounter.vhd
 set_global_assignment -name VHDL_FILE SerialControl_TB.vhd
 set_global_assignment -name VHDL_FILE SerialControl.vhd
-set_global_assignment -name VHDL_FILE LCDDispatcher_TB.vhd
-set_global_assignment -name VHDL_FILE LCDDispatcher.vhd
 set_global_assignment -name VHDL_FILE RingBuffer_TB.vhd
 set_global_assignment -name VHDL_FILE RingBufferMux_TB.vhd
 set_global_assignment -name VHDL_FILE RingBufferMux.vhd
@@ -141,7 +250,6 @@ set_global_assignment -name VHDL_FILE Keyboard_Reader.vhd
 set_global_assignment -name VHDL_FILE SpaceInvaders.vhd
 set_global_assignment -name VHDL_FILE Registers.vhd
 set_global_assignment -name VHDL_FILE Registers_tb.vhd
-set_global_assignment -name VHDL_FILE SerialLCDController.vhd
 set_global_assignment -name VHDL_FILE SerialLCDController_TB.vhd
 set_global_assignment -name VHDL_FILE SerialReceiver.vhd
 set_global_assignment -name VHDL_FILE Serial_Control.vhd
@@ -149,3 +257,19 @@ set_global_assignment -name VHDL_FILE Parity_Check.vhd
 set_global_assignment -name VHDL_FILE Counter.vhd
 set_global_assignment -name VHDL_FILE Dispatcher.vhd
 set_global_assignment -name VHDL_FILE SLCDCvhd.vhd
+set_global_assignment -name VHDL_FILE SerialReceiverScore.vhd
+set_global_assignment -name VHDL_FILE ShiftRegisterScore.vhd
+set_global_assignment -name VHDL_FILE ScoreDispatcher.vhd
+set_global_assignment -name VHDL_FILE SerialScoreController.vhd
+set_global_assignment -name VHDL_FILE CounterLimit.vhd
+set_global_assignment -name VHDL_FILE CounterLimit_tb.vhd
+set_location_assignment PIN_W8 -to LCDDout[0] -comment rs
+set_location_assignment PIN_AA15 -to LCDDout[1]
+set_location_assignment PIN_W13 -to LCDDout[2]
+set_location_assignment PIN_AB13 -to LCDDout[3]
+set_location_assignment PIN_Y11 -to LCDDout[4]
+set_location_assignment PIN_W11 -to LCDDout[5]
+set_location_assignment PIN_AA10 -to LCDDout[6]
+set_location_assignment PIN_Y8 -to LCDDout[7]
+set_location_assignment PIN_Y7 -to LCDDout[8]
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

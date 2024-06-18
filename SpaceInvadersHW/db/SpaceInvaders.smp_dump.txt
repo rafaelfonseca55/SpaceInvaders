@@ -1,4 +1,47 @@
 
+State Machine - |SpaceInvaders|SerialScoreController:U3|ScoreDispatcher:U1|CurrentState
+Name CurrentState.STATE_DONE CurrentState.STATE_TRAMA_RECEBIDA CurrentState.STATE_WAITING 
+CurrentState.STATE_WAITING 0 0 0 
+CurrentState.STATE_TRAMA_RECEBIDA 0 1 1 
+CurrentState.STATE_DONE 1 0 1 
+
+State Machine - |SpaceInvaders|SerialScoreController:U3|SerialReceiverScore:U0|SerialControl:UO|CurrentState
+Name CurrentState.STATE_4 CurrentState.STATE_3 CurrentState.STATE_2 CurrentState.STATE_1 
+CurrentState.STATE_1 0 0 0 0 
+CurrentState.STATE_2 0 0 1 1 
+CurrentState.STATE_3 0 1 0 1 
+CurrentState.STATE_4 1 0 0 1 
+
+State Machine - |SpaceInvaders|SerialLCDController:U2|Dispatcher:U1|CurrentState
+Name CurrentState.STATE_DONE CurrentState.STATE_TRAMA_RECEBIDA CurrentState.STATE_WAITING 
+CurrentState.STATE_WAITING 0 0 0 
+CurrentState.STATE_TRAMA_RECEBIDA 0 1 1 
+CurrentState.STATE_DONE 1 0 1 
+
+State Machine - |SpaceInvaders|SerialLCDController:U2|SerialReceiver:U0|SerialControl:UO|CurrentState
+Name CurrentState.STATE_4 CurrentState.STATE_3 CurrentState.STATE_2 CurrentState.STATE_1 
+CurrentState.STATE_1 0 0 0 0 
+CurrentState.STATE_2 0 0 1 1 
+CurrentState.STATE_3 0 1 0 1 
+CurrentState.STATE_4 1 0 0 1 
+
+State Machine - |SpaceInvaders|Keyboard_Reader:U0|OutputBuffer:U2|BufferControl:U0|CurrentState
+Name CurrentState.STATE_END CurrentState.STATE_ACKNOWLEDGED CurrentState.STATE_RECEIVING CurrentState.STATE_WAITING 
+CurrentState.STATE_WAITING 0 0 0 0 
+CurrentState.STATE_RECEIVING 0 0 1 1 
+CurrentState.STATE_ACKNOWLEDGED 0 1 0 1 
+CurrentState.STATE_END 1 0 0 1 
+
+State Machine - |SpaceInvaders|Keyboard_Reader:U0|RingBuffer:U1|RingBufferControl:U0|CurrentState
+Name CurrentState.STATE_INC_GET CurrentState.STATE_READ_KEY CurrentState.STATE_END_WRITE CurrentState.STATE_INC_PUT CurrentState.STATE_WRITE_KEY CurrentState.STATE_ACTIVATE_PUT CurrentState.STATE_WAITING 
+CurrentState.STATE_WAITING 0 0 0 0 0 0 0 
+CurrentState.STATE_ACTIVATE_PUT 0 0 0 0 0 1 1 
+CurrentState.STATE_WRITE_KEY 0 0 0 0 1 0 1 
+CurrentState.STATE_INC_PUT 0 0 0 1 0 0 1 
+CurrentState.STATE_END_WRITE 0 0 1 0 0 0 1 
+CurrentState.STATE_READ_KEY 0 1 0 0 0 0 1 
+CurrentState.STATE_INC_GET 1 0 0 0 0 0 1 
+
 State Machine - |SpaceInvaders|Keyboard_Reader:U0|Key_Decode:U0|Key_Control:U1|currentState
 Name currentState.STATE_3 currentState.STATE_2 currentState.STATE_1 
 currentState.STATE_1 0 0 0 
