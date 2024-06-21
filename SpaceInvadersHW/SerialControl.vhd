@@ -44,6 +44,8 @@ process (CURRENT_STATE,enRx, accept, pFlag, dFlag, RXerror)
 								else 
 								NEXT_STATE <= STATE_4;
 								end if;
+		when others =>
+				NEXT_STATE <= STATE_1;
 		end case;
 end process;    
 init<= '1' 		when ((CURRENT_STATE = STATE_1))

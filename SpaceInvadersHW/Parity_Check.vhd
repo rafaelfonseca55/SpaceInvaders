@@ -14,23 +14,22 @@ end Parity_Check;
 
 architecture Structure of Parity_Check is
 
-component FFD is
-port
-(    
-CLK : in std_logic;
-RESET : in STD_LOGIC;
-SET : in std_logic;
-D : IN STD_LOGIC;
-EN : IN STD_LOGIC;
-Q : out std_logic
-);
-end component;
-
-signal sr :std_logic;
+signal sr, next_sr : std_logic := '0';
 
 begin
 
-U3 : FFD port map(clk=>clk, reset=>init, set=> '0',D=>data, en=>'1', Q=>sr);
-Err <= sr xor data;
+    process(CLK)
+    begin
+        if rising_edge(CLK) then
+            if init = '1' then
+                sr <= '0';
+            else
+                sr <= next_sr;
+            end if;
+        end if;
+    end process;
 
-end structure;
+    next_sr <= sr xor Data;  
+    
+    Err <= next_sr;
+end Structure;
