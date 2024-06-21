@@ -26,12 +26,11 @@ Q : out std_logic
 );
 end component;
 
-signal sr,entry_signal :std_logic;
+signal sr :std_logic;
 
 begin
 
-entry_signal<= data xor sr;
-U3 : FFD port map(clk=>clk, reset=>init, set=> '0',D=>entry_signal, en=>'1', Q=>sr);
-Err <= sr;
+U3 : FFD port map(clk=>clk, reset=>init, set=> '0',D=>data, en=>'1', Q=>sr);
+Err <= sr xor data;
 
 end structure;

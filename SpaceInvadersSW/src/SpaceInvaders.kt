@@ -121,12 +121,12 @@ object SpaceInvaders {
                 LCD.cursor(spaceshipY, 0)
                 LCD.write(randomNumber.toString())
 
-                continue // Skip to the next iteration to redraw everything else
+                continue
             }
 
 
             // Move and display active aliens
-            for (i in activeAliens.indices) { // Iterate in reverse to avoid index issues when removing
+            for (i in activeAliens.indices) {
                 var (alienX, alienY) = activeAliens[i]
 
                 // Clear previous alien position before moving
@@ -141,7 +141,6 @@ object SpaceInvaders {
                 LCD.cursor(alienY, alienX)
                 LCD.writeDATA(0x01)
 
-                // Corrected cursor positioning:
                 LCD.cursor(alienY, alienX) // Move cursor based on alien's current position
                 LCD.writeDATA(0x01)
 
