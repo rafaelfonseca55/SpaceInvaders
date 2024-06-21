@@ -27,10 +27,9 @@ object SerialEmitter {
         var accum = 0
 
         for (i in size downTo 0) { // Loop agora executa 'size' vezes
-            HAL.clearBits(SCLK_MASK)
             Thread.sleep(1)
 
-            if ((dataTx.shr(i) and 0x01) == 1) {
+            if (dataTx.and(1.shl(i)) == 1) {
                 HAL.setBits(SDX_MASK)
                 Thread.sleep(1)
                 accum++
@@ -40,24 +39,21 @@ object SerialEmitter {
             }
             HAL.setBits(SCLK_MASK)
             Thread.sleep(1)
+            HAL.clearBits(SCLK_MASK)
         }
 
         if (accum % 2 == 0) {
-            HAL.clearBits(SCLK_MASK)
-            Thread.sleep(1)
             HAL.clearBits(SDX_MASK)
             Thread.sleep(1)
-            HAL.setBits(SCLK_MASK)
-            Thread.sleep(1)
         } else {
-            HAL.clearBits(SCLK_MASK)
-            Thread.sleep(1)
             HAL.setBits(SDX_MASK)
-            Thread.sleep(1)
-            HAL.setBits(SCLK_MASK)
             Thread.sleep(1)
         }
 
+        HAL.setBits(SCLK_MASK)
+        Thread.sleep(1)
+        HAL.clearBits(SCLK_MASK)
+        Thread.sleep(1)
         HAL.setBits(nLCDsel_MASK)
         Thread.sleep(1)
     }
