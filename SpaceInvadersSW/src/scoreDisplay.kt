@@ -1,41 +1,70 @@
-
 object ScoreDisplay {
 
-    enum class HEX(val code: Int) {
-        ZERO(Integer.toBinaryString(0).toInt()),
-        ONE(Integer.toBinaryString(1).toInt()),
-        TWO(Integer.toBinaryString(2).toInt()),
-        THREE(Integer.toBinaryString(3).toInt()),
-        FOUR(Integer.toBinaryString(4).toInt()),
-        FIVE(Integer.toBinaryString(5).toInt()),
-    }
+    private const val CMD_UPDATE_DIGIT_0 = 0b000
+    private const val CMD_UPDATE_DIGIT_1 = 0b001
+    private const val CMD_UPDATE_DIGIT_2 = 0b010
+    private const val CMD_UPDATE_DIGIT_3 = 0b011
+    private const val CMD_UPDATE_DIGIT_4 = 0b100
+    private const val CMD_UPDATE_DIGIT_5 = 0b101
+    private const val CMD_UPDATE_DISPLAY = 0b110
+    private const val CMD_DISPLAY_ON_OFF = 0b111
+
+    private val registers = IntArray(6)
 
     fun init() {
-        // Initialize the display to 0
-        setScore(0)
+        SerialEmitter.init()
     }
 
-    fun setScore(value: Int){
-        val valueStr = value.toString()
-        //val valToBits = Integer.toBinaryString(value)
-        val size = valueStr.length
-        for (i in 0..<size) {
-            val digit = Integer.toBinaryString(valueStr[i].code)
-            SerialEmitter.send(SerialEmitter.Destination.SCORE, (digit.toString() + HEX.entries[i].code.toString()).toInt() , 7)
+    fun setScore(value: Int) {
+        val valor = value.toString().padStart(6, '0').reversed()
+        for (i in valor.indices) {
+            val digit = valor[i].digitToInt()
+            val cmd = when (i) {
+                0 -> CMD_UPDATE_DIGIT_0
+                1 -> CMD_UPDATE_DIGIT_1
+                2 -> CMD_UPDATE_DIGIT_2
+                3 -> CMD_UPDATE_DIGIT_3
+                4 -> CMD_UPDATE_DIGIT_4
+                5 -> CMD_UPDATE_DIGIT_5
+                else -> continue
+            }
+            registers[i] = digit
+            //val data = decToHex(digit)
+            SerialEmitter.send(SerialEmitter.Destination.SCORE, digit.shl(3) or cmd, 7)
+            println(digit.shl(4) or cmd)
         }
+
+        SerialEmitter.send(SerialEmitter.Destination.SCORE, CMD_UPDATE_DISPLAY, 7)
     }
 
-    // Envia comando para desativar/ativar a visualização do mostrador de pontuação
-    // Se value for true, o mostrador é ativado, caso contrário é desativado
+
     fun off(value: Boolean) {
-        if (value) SerialEmitter.send(SerialEmitter.Destination.SCORE, 0x0F, 7) //1111110 = 126  Display ON
-        else SerialEmitter.send(SerialEmitter.Destination.SCORE, 0x07, 7) // 1111111 = 127 Display OFF
+        val cmd = CMD_DISPLAY_ON_OFF
+        val data = if (value) 0b0000000 else 0b0001000
+        SerialEmitter.send(SerialEmitter.Destination.SCORE, cmd or data, 7)
     }
-}
 
+    /*
+        private fun decToHex(digit: Int): Int {
+            return when (digit) {
+                0 -> 0x3F // 0
+                1 -> 0x06 // 1
+                2 -> 0x5B // 2
+                3 -> 0x4F // 3
+                4 -> 0x66 // 4
+                5 -> 0x6D // 5
+                6 -> 0x7D // 6
+                7 -> 0x07 // 7
+                8 -> 0x7F // 8
+                9 -> 0x6F // 9
+                else -> 0x00 // Blank
+            }
+        }
+        */
+}
 
 fun main() {
     ScoreDisplay.init()
-    ScoreDisplay.off(true)
-    ScoreDisplay.setScore(1)
+    ScoreDisplay.off(true) // Turn on the display
+    ScoreDisplay.setScore(141311) // Set the score to display all 1s from D0 to D5
 }
