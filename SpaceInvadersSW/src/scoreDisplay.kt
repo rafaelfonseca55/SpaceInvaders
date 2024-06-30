@@ -16,10 +16,6 @@ object ScoreDisplay {
     }
 
     fun setScore(value: Int) {
-<<<<<<< Updated upstream
-        if (value < 0 || value > 999999) throw IllegalArgumentException("Invalid score value")
-=======
->>>>>>> Stashed changes
         val valor = value.toString().padStart(6, '0').reversed()
         for (i in valor.indices) {
             val digit = valor[i].digitToInt()
@@ -33,7 +29,6 @@ object ScoreDisplay {
                 else -> continue
             }
             registers[i] = digit
-            //val data = decToHex(digit)
             SerialEmitter.send(SerialEmitter.Destination.SCORE, digit.shl(3) or cmd, 7)
             println(digit.shl(4) or cmd)
         }
@@ -71,8 +66,4 @@ fun main() {
     ScoreDisplay.init()
     ScoreDisplay.off(true) // Turn on the display
     ScoreDisplay.setScore(141311) // Set the score to display all 1s from D0 to D5
-<<<<<<< Updated upstream
 }
-=======
-}
->>>>>>> Stashed changes

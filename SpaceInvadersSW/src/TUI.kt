@@ -27,16 +27,13 @@ object TUI{
         return false
     }
 
-<<<<<<< Updated upstream
-=======
     fun clearLine(line: Int) {
         if (line == 0 || line == 1)
-        for (location in Location.entries){
-            write(" ".repeat(16), line, location)
-        }
+            for (location in Location.entries){
+                write(" ".repeat(16), line, location)
+            }
     }
 
->>>>>>> Stashed changes
     //Lê do keyboard uma tecla e escreve-a no LCD
     fun writeFromKeyboard() {
         val key = read()

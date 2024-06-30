@@ -83,8 +83,6 @@ object LCD {
 
 fun main() {
     HAL.init()
-    SerialEmitter.init()
     LCD.init()
-    LCD.clear()
-    LCD.write("Hello, World!")
+    //LCD.write("Hello, World!")
 }

@@ -1,30 +1,8 @@
-<<<<<<< Updated upstream
-import SpaceInvaders.STATISTICS_FILE
-=======
->>>>>>> Stashed changes
 import java.io.File
 import kotlin.random.Random
 
 object SpaceInvaders {
     const val MAX_ALIENS_ON_SCREEN = 3
-<<<<<<< Updated upstream
-    const val ALIEN_MOVE_DELAY = 500L
-    private const val NONE = 0
-    const val STATISTICS_FILE = "Statistics.txt"
-
-    var aliensKilled = 0
-    var coins = 0
-    var gameCount = 0
-
-    fun init() {
-        TUI.init()
-        clearStatisticsFile()
-    }
-
-    fun startUp() {
-        aliensKilled = 0
-        ScoreDisplay.setScore(aliensKilled)
-=======
     const val ALIEN_MOVE_DELAY = 800L
     private const val NONE = 0
 
@@ -40,16 +18,12 @@ object SpaceInvaders {
     }
 
     fun showInitialScreen() {
->>>>>>> Stashed changes
         TUI.write("Space Invaders", 0, TUI.Location.CENTER)
-        Thread.sleep(5)
+        Thread.sleep(500)
         val spaceship = intArrayOf(
             0x1E, 0x18, 0x1C, 0x1F, 0x1C, 0x18, 0x1E, 0x00
         )
         val effects = intArrayOf(
-<<<<<<< Updated upstream
-            0x1F, 0x0E, 0x0E, 0x04, 0x04, 0x0E, 0x0E, 0x1F
-=======
             0x1F,
             0x1F,
             0x15,
@@ -58,7 +32,6 @@ object SpaceInvaders {
             0x11,
             0x11,
             0x00
->>>>>>> Stashed changes
         )
 
         LCD.cursor(1, 1)
@@ -67,25 +40,6 @@ object SpaceInvaders {
         LCD.createChar(3, effects)
         LCD.cursor(1, 6)
         LCD.writeDATA(0x00)
-<<<<<<< Updated upstream
-        updateCoinsDisplay() // Ensure initial coin value is displayed
-        Thread.sleep(500)
-
-        // Main menu loop
-        while (true) {
-            val key = KBD.getKey()
-            if (TUI.acceptCoin()) {
-                coins++
-                updateCoinsDisplay()
-            }
-            if (key == '#') {
-                if (coins == 0) {
-                    TUI.clear()
-                    Thread.sleep(500)
-                    startGame()
-                    TUI.clear()
-                    startUp()
-=======
         LCD.cursor(1, 9)
         LCD.writeDATA(0x03)
         LCD.cursor(1, 11)
@@ -150,7 +104,6 @@ object SpaceInvaders {
                                 Statistics.showStatistics("Statistics", "Statistics.txt")
                         }
                     }
->>>>>>> Stashed changes
                 }
             }
         }
@@ -211,10 +164,6 @@ object SpaceInvaders {
                     gameOver = true
                     TUI.clear()
                     TUI.write("Game Over!", 0, TUI.Location.CENTER)
-<<<<<<< Updated upstream
-                    Thread.sleep(2000)
-                    saveScoreToFile()
-=======
                     Thread.sleep(700)
                     TUI.clear()
                     println("Game Over reached") // Log for debugging
@@ -225,13 +174,8 @@ object SpaceInvaders {
                         //Statistics.
                     }
                     TUI.clear()
->>>>>>> Stashed changes
                     break
 
-                }
-
-                if (alienX < 0) {
-                    aliensToRemove.add(activeAliens[i])
                 }
 
                 if (alienX < 0) {
@@ -289,23 +233,6 @@ object SpaceInvaders {
 
             Thread.sleep(ALIEN_MOVE_DELAY)
         }
-<<<<<<< Updated upstream
-    }
-
-    private fun updateCoinsDisplay() {
-        LCD.cursor(1, 12)
-        LCD.write(" ")
-        LCD.write("$$coins")
-    }
-
-    private fun saveScoreToFile() {
-        File(STATISTICS_FILE).appendText("${aliensKilled};${gameCount}\n")
-    }
-
-    fun clearStatisticsFile() {
-        File(STATISTICS_FILE).writeText("")
-=======
->>>>>>> Stashed changes
     }
 
     private fun updateCoinsDisplay() {
@@ -318,13 +245,6 @@ object SpaceInvaders {
 }
 
 fun main() {
-//    Runtime.getRuntime().addShutdownHook(Thread {
-//        SpaceInvaders.clearStatisticsFile()
-//    })
     SpaceInvaders.init()
     SpaceInvaders.startUp()
-<<<<<<< Updated upstream
 }
-=======
-}
->>>>>>> Stashed changes
