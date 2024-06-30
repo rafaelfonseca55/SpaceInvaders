@@ -10,7 +10,11 @@ object SerialEmitter {
 
     // Inicia a classe
     fun init() {
+<<<<<<< Updated upstream
        HAL.init()
+=======
+        HAL.init()
+>>>>>>> Stashed changes
         HAL.clearBits(SDX_MASK)
         HAL.setBits(nLCDsel_MASK.or(nSDCsel_MASK))
         HAL.clearBits(SCLK_MASK)
@@ -20,12 +24,19 @@ object SerialEmitter {
         if (addr == Destination.LCD) HAL.clearBits(nLCDsel_MASK)
         else HAL.clearBits(nSDCsel_MASK)
 
+<<<<<<< Updated upstream
         val dataTx = data
         var accum = 0
 
         for (i in 0..size-1) { // Loop agora executa 'size' vezes
 
             if (dataTx.and(1.shl(i)) != 0) {
+=======
+        var accum = 0
+
+        for (i in 0..<size) { // Loop agora executa 'size' vezes
+            if (data.and(1.shl(i)) != 0) {
+>>>>>>> Stashed changes
                 HAL.setBits(SDX_MASK)
                 accum++
             } else {

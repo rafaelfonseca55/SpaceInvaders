@@ -27,6 +27,16 @@ object TUI{
         return false
     }
 
+<<<<<<< Updated upstream
+=======
+    fun clearLine(line: Int) {
+        if (line == 0 || line == 1)
+        for (location in Location.entries){
+            write(" ".repeat(16), line, location)
+        }
+    }
+
+>>>>>>> Stashed changes
     //Lê do keyboard uma tecla e escreve-a no LCD
     fun writeFromKeyboard() {
         val key = read()
@@ -41,11 +51,11 @@ object TUI{
     }
 
     //Escreve no LCD, numa linha e num local passado como parâmetro
-    fun write(text: String, line: Int, location: TUI.Location) {
+    fun write(text: String, line: Int, location: Location) {
         when (location) {
-            TUI.Location.LEFT -> LCD.cursor(line, location.offset)
-            TUI.Location.RIGHT -> LCD.cursor(line, (location.offset - text.length))
-            TUI.Location.CENTER -> LCD.cursor(line, (location.offset - (text.length / 2)))
+            Location.LEFT -> LCD.cursor(line, location.offset)
+            Location.RIGHT -> LCD.cursor(line, (location.offset - text.length))
+            Location.CENTER -> LCD.cursor(line, (location.offset - (text.length / 2)))
         }
         LCD.write(text)
     }

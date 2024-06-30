@@ -48,7 +48,6 @@ object LCD {
 
     // Envia a sequência de iniciação para comunicação a 8 bits.
     fun init() {
-        println("Initializing LCD...")
         Thread.sleep(16)
         writeCMD(functionSet)
         Thread.sleep(5)
@@ -75,9 +74,10 @@ object LCD {
 
     // Envia comando para limpar o ecrã e posicionar o cursor em (0,0)
     fun clear() {
+        Time.sleep(300)
         writeCMD(1)
-        Thread.sleep(2)
         cursor(0,0)
+        Time.sleep(300)
     }
 }
 

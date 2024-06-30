@@ -1,9 +1,13 @@
+<<<<<<< Updated upstream
 import SpaceInvaders.STATISTICS_FILE
+=======
+>>>>>>> Stashed changes
 import java.io.File
 import kotlin.random.Random
 
 object SpaceInvaders {
     const val MAX_ALIENS_ON_SCREEN = 3
+<<<<<<< Updated upstream
     const val ALIEN_MOVE_DELAY = 500L
     private const val NONE = 0
     const val STATISTICS_FILE = "Statistics.txt"
@@ -20,13 +24,41 @@ object SpaceInvaders {
     fun startUp() {
         aliensKilled = 0
         ScoreDisplay.setScore(aliensKilled)
+=======
+    const val ALIEN_MOVE_DELAY = 800L
+    private const val NONE = 0
+
+    var aliensKilled = 0
+    var coins = 0
+    var totalCoins = 0
+    var gameCount = 0
+    var playerName = ""
+
+    fun init() {
+        TUI.init()
+        //clearStatisticsFile()
+    }
+
+    fun showInitialScreen() {
+>>>>>>> Stashed changes
         TUI.write("Space Invaders", 0, TUI.Location.CENTER)
         Thread.sleep(5)
         val spaceship = intArrayOf(
             0x1E, 0x18, 0x1C, 0x1F, 0x1C, 0x18, 0x1E, 0x00
         )
         val effects = intArrayOf(
+<<<<<<< Updated upstream
             0x1F, 0x0E, 0x0E, 0x04, 0x04, 0x0E, 0x0E, 0x1F
+=======
+            0x1F,
+            0x1F,
+            0x15,
+            0x1F,
+            0x1F,
+            0x11,
+            0x11,
+            0x00
+>>>>>>> Stashed changes
         )
 
         LCD.cursor(1, 1)
@@ -35,6 +67,7 @@ object SpaceInvaders {
         LCD.createChar(3, effects)
         LCD.cursor(1, 6)
         LCD.writeDATA(0x00)
+<<<<<<< Updated upstream
         updateCoinsDisplay() // Ensure initial coin value is displayed
         Thread.sleep(500)
 
@@ -52,6 +85,72 @@ object SpaceInvaders {
                     startGame()
                     TUI.clear()
                     startUp()
+=======
+        LCD.cursor(1, 9)
+        LCD.writeDATA(0x03)
+        LCD.cursor(1, 11)
+        LCD.writeDATA(0x03)
+        updateCoinsDisplay()
+        Thread.sleep(5)
+    }
+
+    fun startUp() {
+        aliensKilled = 0
+        ScoreDisplay.setScore(aliensKilled)
+        showInitialScreen()
+
+        // Main menu loop
+        while (true) {
+            var startTime = System.currentTimeMillis()
+            while (true) {
+                val key = KBD.getKey()
+                if (TUI.acceptCoin()) {
+                    coins++
+                    totalCoins++
+                    updateCoinsDisplay()
+                }
+                if ((System.currentTimeMillis() - startTime).toInt() == 10000) {
+                    Statistics.showStatistics("SIG_scores", "SIG_scores.txt")
+                    startTime = System.currentTimeMillis()
+                }
+                if (key == '#') {
+                    if (coins > 0) {
+                        TUI.clear()
+                        Thread.sleep(500)
+                        startGame()
+                        TUI.clear()
+                        startUp()
+                    }
+                }
+                if (HAL.isBit(M_MASK)) {
+                    var startTime1 = System.currentTimeMillis()
+                    while (true) {
+                        val key = KBD.getKey()
+
+                        if ((System.currentTimeMillis() - startTime1).toInt() == 5000) {
+                            TUI.clear()
+                            Thread.sleep(500)
+                            startGame()
+                            TUI.clear()
+                            startUp()
+                            startTime1 = System.currentTimeMillis()
+                        }
+
+                        if (key == '#') { // Reset statistics
+                            Thread.sleep(1000) // ??
+                            if (key == '*') {
+                                Statistics.clearStatisticsFile("Statistics.txt")
+                                totalCoins = 0
+                                gameCount = 0
+                                TUI.clear()
+                                TUI.write("Statistics cleared", 0, TUI.Location.CENTER)
+                                Thread.sleep(1000)
+                                TUI.clear()
+                            } else
+                                Statistics.showStatistics("Statistics", "Statistics.txt")
+                        }
+                    }
+>>>>>>> Stashed changes
                 }
             }
         }
@@ -112,9 +211,27 @@ object SpaceInvaders {
                     gameOver = true
                     TUI.clear()
                     TUI.write("Game Over!", 0, TUI.Location.CENTER)
+<<<<<<< Updated upstream
                     Thread.sleep(2000)
                     saveScoreToFile()
+=======
+                    Thread.sleep(700)
+                    TUI.clear()
+                    println("Game Over reached") // Log for debugging
+                    if (Statistics.isHighscore(aliensKilled)) {
+                        println("Entered player name") // Log for debugging
+                        Statistics.enterPlayerName()
+                        Statistics.saveScoreToFileOrdered()
+                        //Statistics.
+                    }
+                    TUI.clear()
+>>>>>>> Stashed changes
                     break
+
+                }
+
+                if (alienX < 0) {
+                    aliensToRemove.add(activeAliens[i])
                 }
 
                 if (alienX < 0) {
@@ -172,6 +289,7 @@ object SpaceInvaders {
 
             Thread.sleep(ALIEN_MOVE_DELAY)
         }
+<<<<<<< Updated upstream
     }
 
     private fun updateCoinsDisplay() {
@@ -186,7 +304,17 @@ object SpaceInvaders {
 
     fun clearStatisticsFile() {
         File(STATISTICS_FILE).writeText("")
+=======
+>>>>>>> Stashed changes
     }
+
+    private fun updateCoinsDisplay() {
+        LCD.cursor(1, 12)
+        LCD.write(" ")
+        LCD.write("$$coins")
+    }
+
+
 }
 
 fun main() {
@@ -195,4 +323,8 @@ fun main() {
 //    })
     SpaceInvaders.init()
     SpaceInvaders.startUp()
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes
