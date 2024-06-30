@@ -64,7 +64,7 @@ object SpaceInvaders {
                     updateCoinsDisplay()
                 }
                 if ((System.currentTimeMillis() - startTime).toInt() == 10000) {
-                    Statistics.showStatistics("SIG_scores", "SIG_scores.txt")
+                    Statistics.showStatistics("Highscores", "SIG_scores.txt")
                     startTime = System.currentTimeMillis()
                 }
                 if (key == '#') {
@@ -79,7 +79,7 @@ object SpaceInvaders {
                 if (HAL.isBit(M_MASK)) {
                     var startTime1 = System.currentTimeMillis()
                     while (true) {
-                        val key = KBD.getKey()
+                        var key = KBD.getKey()
 
                         if ((System.currentTimeMillis() - startTime1).toInt() == 5000) {
                             TUI.clear()
@@ -90,18 +90,29 @@ object SpaceInvaders {
                             startTime1 = System.currentTimeMillis()
                         }
 
-                        if (key == '#') { // Reset statistics
-                            Thread.sleep(1000) // ??
-                            if (key == '*') {
-                                Statistics.clearStatisticsFile("Statistics.txt")
+                        if (key == '5') {
+                            M.turnOff()
+                        }
+
+                        if (key == '#') {
+                            val resetStartTime = System.currentTimeMillis()
+                            while ((System.currentTimeMillis() - resetStartTime) < 3000) {
+                                key = KBD.getKey()
+                                if (key == '*') break
+                            }
+
+                            if (key == '*') { // Reset game statistics
+                                Statistics.resetStatisticsFile()
                                 totalCoins = 0
                                 gameCount = 0
                                 TUI.clear()
-                                TUI.write("Statistics cleared", 0, TUI.Location.CENTER)
-                                Thread.sleep(1000)
+                                TUI.write("Cleared", 0, TUI.Location.CENTER)
+                                TUI.write("Statistics", 1, TUI.Location.CENTER)
+                                Thread.sleep(3000)
                                 TUI.clear()
-                            } else
-                                Statistics.showStatistics("Statistics", "Statistics.txt")
+                                showInitialScreen()
+                            } else // Show game statistics
+                                Statistics.showGameStatistics()
                         }
                     }
                 }
@@ -171,7 +182,7 @@ object SpaceInvaders {
                         println("Entered player name") // Log for debugging
                         Statistics.enterPlayerName()
                         Statistics.saveScoreToFileOrdered()
-                        //Statistics.
+                        Statistics.saveGameStatistics()
                     }
                     TUI.clear()
                     break
@@ -245,6 +256,9 @@ object SpaceInvaders {
 }
 
 fun main() {
+
+
+
     SpaceInvaders.init()
     SpaceInvaders.startUp()
 }

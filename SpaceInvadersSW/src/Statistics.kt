@@ -1,6 +1,8 @@
 import SpaceInvaders.aliensKilled
+import SpaceInvaders.gameCount
 import SpaceInvaders.playerName
 import SpaceInvaders.showInitialScreen
+import SpaceInvaders.totalCoins
 import java.io.File
 
 object Statistics {
@@ -27,6 +29,51 @@ object Statistics {
             TUI.clearLine(1)
             TUI.write(topScores[i], 1, TUI.Location.CENTER)
             Thread.sleep(2000)
+        }
+
+        TUI.clear()
+        showInitialScreen()
+    }
+
+    fun saveGameStatistics() {
+        val file = File(STATISTICS_FILE)
+
+        if (!file.exists()) {
+            file.writeText("$gameCount\n$totalCoins")
+        } else {
+            val lines = file.readLines()
+            var games = lines.getOrNull(0)?.toIntOrNull() ?: 0
+            var coins = lines.getOrNull(1)?.toIntOrNull() ?: 0
+
+            gameCount += games
+            totalCoins += coins
+
+            file.writeText("$gameCount\n$totalCoins")
+        }
+    }
+
+    fun showGameStatistics() {
+        TUI.clear()
+        LCD.cursor(0, 1)
+        LCD.writeDATA(0x03)
+        LCD.cursor(0, 14)
+        LCD.writeDATA(0x03)
+        TUI.write("Statistics", 0, TUI.Location.CENTER)
+
+        val file = File(STATISTICS_FILE)
+        if (file.exists()) {
+            val lines = file.readLines()
+            val totalGames = lines.getOrNull(0)?.toIntOrNull() ?: 0
+            val totalCoins = lines.getOrNull(1)?.toIntOrNull() ?: 0
+
+            TUI.write("Total games: $totalGames", 1, TUI.Location.LEFT)
+            Thread.sleep(3000)
+            TUI.clearLine(1)
+            TUI.write("Total coins: $totalCoins", 1, TUI.Location.LEFT)
+            Thread.sleep(3000)
+        } else {
+            TUI.write("No statistics yet", 1, TUI.Location.CENTER)
+            Thread.sleep(3000)
         }
 
         TUI.clear()
@@ -145,6 +192,10 @@ object Statistics {
 
      fun clearStatisticsFile(path: String) {
         File(path).writeText("")
+    }
+
+    fun resetStatisticsFile() {
+        File(STATISTICS_FILE).writeText("0\n0")
     }
 
 }
