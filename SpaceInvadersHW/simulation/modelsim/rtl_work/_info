@@ -8,81 +8,79 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dC:/Users/fonseca/Desktop/SpaceInvaders/simulation/modelsim
-Eclkdiv
-Z1 w1709115684
-Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
-Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 10
+Z0 dC:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/simulation/modelsim
+Ereg_4bit
+Z1 w1718721271
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 1
 R0
-Z5 8C:/Users/fonseca/Desktop/SpaceInvaders/CLKDIV.vhd
-Z6 FC:/Users/fonseca/Desktop/SpaceInvaders/CLKDIV.vhd
+Z4 8C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/reg_4bit.vhd
+Z5 FC:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/reg_4bit.vhd
 l0
-L5 1
-VZ=f7g^c?a5zF`2O:4UlYN0
-!s100 `V>M>?BkYR7zEBSMA5V8A0
+Z6 L20 1
+V9B1KWI_Q@IjdGbAD6TOdQ3
+!s100 idUPC7RNXo020WO5n50XK3
 Z7 OV;C;2020.1;71
 31
-Z8 !s110 1710327339
+Z8 !s110 1719596702
 !i10b 1
-Z9 !s108 1710327339.000000
-Z10 !s90 -reportprogress|300|-93|-work|work|C:/Users/fonseca/Desktop/SpaceInvaders/CLKDIV.vhd|
-Z11 !s107 C:/Users/fonseca/Desktop/SpaceInvaders/CLKDIV.vhd|
+Z9 !s108 1719596702.000000
+Z10 !s90 -reportprogress|300|-93|-work|work|C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/reg_4bit.vhd|
+!s107 C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/reg_4bit.vhd|
 !i113 1
-Z12 o-93 -work work
-Z13 tExplicit 1 CvgOpt 0
-Abhv
+Z11 o-93 -work work
+Z12 tExplicit 1 CvgOpt 0
+Areg_4bit_arch
 R2
 R3
-R4
-DEx4 work 6 clkdiv 0 22 Z=f7g^c?a5zF`2O:4UlYN0
-!i122 10
-l16
-L11 22
-VgbaYXVPKT2[U5kSbZMFS63
-!s100 <1TaS59>[IjzZo4K_;_?R1
+DEx4 work 8 reg_4bit 0 22 9B1KWI_Q@IjdGbAD6TOdQ3
+!i122 1
+l40
+L30 18
+Va8fA?Z<Kl9bPXhBMKdO7W1
+!s100 VSkl<?XYKO^_PJdZ:a;UQ0
 R7
 31
 R8
 !i10b 1
 R9
 R10
-R11
+Z13 !s107 C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/reg_4bit.vhd|
 !i113 1
+R11
 R12
-R13
-Ecounter_keyscan
+Escoredisplay
 R1
+R2
 R3
-R4
-!i122 9
+!i122 0
 R0
-Z14 8C:/Users/fonseca/Desktop/SpaceInvaders/Counter_KeyScan.vhd
-Z15 FC:/Users/fonseca/Desktop/SpaceInvaders/Counter_KeyScan.vhd
+Z14 8C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/scoreDisplay.vhd
+Z15 FC:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/scoreDisplay.vhd
 l0
-L3 1
-VG`KhhamCUcR?C`b?D9bdE0
-!s100 P>a<_`zS=C2RTSIa]nL;m1
+R6
+VDY?_ogW9A0@dGoG?RWI6O1
+!s100 ^CUmB2PR6oLA0Kb7BWM?:0
 R7
 31
 R8
 !i10b 1
 R9
-Z16 !s90 -reportprogress|300|-93|-work|work|C:/Users/fonseca/Desktop/SpaceInvaders/Counter_KeyScan.vhd|
-Z17 !s107 C:/Users/fonseca/Desktop/SpaceInvaders/Counter_KeyScan.vhd|
+Z16 !s90 -reportprogress|300|-93|-work|work|C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/scoreDisplay.vhd|
+Z17 !s107 C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/scoreDisplay.vhd|
 !i113 1
+R11
 R12
-R13
-Astructure
+Astructural
+R2
 R3
-R4
-DEx4 work 15 counter_keyscan 0 22 G`KhhamCUcR?C`b?D9bdE0
-!i122 9
-l38
-L12 33
-Vh51hSA96m9o_7K5i]LVH`0
-!s100 JM>OP`PiPl>Y`2gOl3Rg12
+DEx4 work 12 scoredisplay 0 22 DY?_ogW9A0@dGoG?RWI6O1
+!i122 0
+l75
+L33 62
+VC7e7X`fd:PFNMj7g_Zim22
+!s100 f]Z1Oa[010OLoFQWCV]gn0
 R7
 31
 R8
@@ -91,456 +89,5 @@ R9
 R16
 R17
 !i113 1
+R11
 R12
-R13
-Edecoder
-Z18 w1709116274
-R3
-R4
-!i122 3
-R0
-Z19 8C:/Users/fonseca/Desktop/SpaceInvaders/Decoder.vhd
-Z20 FC:/Users/fonseca/Desktop/SpaceInvaders/Decoder.vhd
-l0
-L3 1
-VDmKDfY2JanI<[m;6CbH]K3
-!s100 [n6XOnanN=gNX25BkL=l<2
-R7
-31
-Z21 !s110 1710327338
-!i10b 1
-Z22 !s108 1710327338.000000
-Z23 !s90 -reportprogress|300|-93|-work|work|C:/Users/fonseca/Desktop/SpaceInvaders/Decoder.vhd|
-Z24 !s107 C:/Users/fonseca/Desktop/SpaceInvaders/Decoder.vhd|
-!i113 1
-R12
-R13
-Alogicfunction
-R3
-R4
-DEx4 work 7 decoder 0 22 DmKDfY2JanI<[m;6CbH]K3
-!i122 3
-l11
-L10 7
-V^jFz8B5_hQ`>?SE55Pl1`2
-!s100 [Fd@kfoH4[hTRa2fY]7QC1
-R7
-31
-R21
-!i10b 1
-R22
-R23
-R24
-!i113 1
-R12
-R13
-Efa
-Z25 w1709116329
-R3
-R4
-!i122 1
-R0
-Z26 8C:/Users/fonseca/Desktop/SpaceInvaders/FA.vhd
-Z27 FC:/Users/fonseca/Desktop/SpaceInvaders/FA.vhd
-l0
-L3 1
-VR<^TWL7`3o]Gn`mk0<=R51
-!s100 WSFT=>7?6<YPfiFjPUlU02
-R7
-31
-R21
-!i10b 1
-R22
-Z28 !s90 -reportprogress|300|-93|-work|work|C:/Users/fonseca/Desktop/SpaceInvaders/FA.vhd|
-Z29 !s107 C:/Users/fonseca/Desktop/SpaceInvaders/FA.vhd|
-!i113 1
-R12
-R13
-Alogicfunction
-R3
-R4
-DEx4 work 2 fa 0 22 R<^TWL7`3o]Gn`mk0<=R51
-!i122 1
-l17
-L16 5
-VoN@o@zb9Sf`=A7gQ907gD1
-!s100 [K>cHhh@3n<MD_Kobe?1W2
-R7
-31
-R21
-!i10b 1
-R22
-R28
-R29
-!i113 1
-R12
-R13
-Effd
-R25
-R3
-R4
-!i122 0
-R0
-Z30 8C:/Users/fonseca/Desktop/SpaceInvaders/FFD.vhd
-Z31 FC:/Users/fonseca/Desktop/SpaceInvaders/FFD.vhd
-l0
-L4 1
-V0bUY?o=dEZAYJNo9f>bVW1
-!s100 1d3BMLW4E@EoRm3F386?Q2
-R7
-31
-R21
-!i10b 1
-R22
-Z32 !s90 -reportprogress|300|-93|-work|work|C:/Users/fonseca/Desktop/SpaceInvaders/FFD.vhd|
-Z33 !s107 C:/Users/fonseca/Desktop/SpaceInvaders/FFD.vhd|
-!i113 1
-R12
-R13
-Alogicfunction
-R3
-R4
-DEx4 work 3 ffd 0 22 0bUY?o=dEZAYJNo9f>bVW1
-!i122 0
-l18
-L16 9
-V3kUPSgm]Hlb3ngn2foA<Y0
-!s100 A@J83n>N1L?Ndlz;?>?B51
-R7
-31
-R21
-!i10b 1
-R22
-R32
-R33
-!i113 1
-R12
-R13
-Ekey_control
-R1
-R3
-R4
-!i122 7
-R0
-Z34 8C:/Users/fonseca/Desktop/SpaceInvaders/Key_Control.vhd
-Z35 FC:/Users/fonseca/Desktop/SpaceInvaders/Key_Control.vhd
-l0
-L3 1
-VT_kZhejPmEb[n`b3>WJM_3
-!s100 <41BmV=31oz=6OMmRJ8850
-R7
-31
-R8
-!i10b 1
-R22
-Z36 !s90 -reportprogress|300|-93|-work|work|C:/Users/fonseca/Desktop/SpaceInvaders/Key_Control.vhd|
-Z37 !s107 C:/Users/fonseca/Desktop/SpaceInvaders/Key_Control.vhd|
-!i113 1
-R12
-R13
-Abehavorial
-R3
-R4
-DEx4 work 11 key_control 0 22 T_kZhejPmEb[n`b3>WJM_3
-!i122 7
-l21
-L15 43
-Vl:hPI[WJzSdZbO?OI9LNT1
-!s100 bdJ:>bU7NEBNlc0PN?;0:1
-R7
-31
-R8
-!i10b 1
-R22
-R36
-R37
-!i113 1
-R12
-R13
-Ekey_decode
-R1
-R3
-R4
-!i122 5
-R0
-Z38 8C:/Users/fonseca/Desktop/SpaceInvaders/Key_Decode.vhd
-Z39 FC:/Users/fonseca/Desktop/SpaceInvaders/Key_Decode.vhd
-l0
-L4 1
-V18jjOBUNfJE@mz8P:[Si80
-!s100 jVD;z>Ge@;^^5fTZKHza_2
-R7
-31
-R21
-!i10b 1
-R22
-Z40 !s90 -reportprogress|300|-93|-work|work|C:/Users/fonseca/Desktop/SpaceInvaders/Key_Decode.vhd|
-Z41 !s107 C:/Users/fonseca/Desktop/SpaceInvaders/Key_Decode.vhd|
-!i113 1
-R12
-R13
-Astructure
-R3
-R4
-DEx4 work 10 key_decode 0 22 18jjOBUNfJE@mz8P:[Si80
-!i122 5
-l45
-L17 44
-VJHEzPTofJNQ=[eS]1R=Hc0
-!s100 i]:lS;AjI^TOC]6kXY`:M2
-R7
-31
-R21
-!i10b 1
-R22
-R40
-R41
-!i113 1
-R12
-R13
-Ekey_decode_tb
-Z42 w1709118029
-R3
-R4
-!i122 12
-R0
-Z43 8C:/Users/fonseca/Desktop/SpaceInvaders/Key_Decode_tb.vhd
-Z44 FC:/Users/fonseca/Desktop/SpaceInvaders/Key_Decode_tb.vhd
-l0
-L4 1
-VNn3`lBV0V[?a`78c=D0b=2
-!s100 @]ZOMPzMgaM77R<m16SBJ0
-R7
-31
-R8
-!i10b 1
-R9
-Z45 !s90 -reportprogress|300|-93|-work|work|C:/Users/fonseca/Desktop/SpaceInvaders/Key_Decode_tb.vhd|
-!s107 C:/Users/fonseca/Desktop/SpaceInvaders/Key_Decode_tb.vhd|
-!i113 1
-R12
-R13
-Abehavioral
-R3
-R4
-DEx4 work 13 key_decode_tb 0 22 Nn3`lBV0V[?a`78c=D0b=2
-!i122 12
-l33
-L7 80
-VM[^Pm7U`MOD?ZA^RDAEMF2
-!s100 K<YmH6?IU]lk<zMPl9iWz2
-R7
-31
-R8
-!i10b 1
-R9
-R45
-Z46 !s107 C:/Users/fonseca/Desktop/SpaceInvaders/Key_Decode_tb.vhd|
-!i113 1
-R12
-R13
-Ekey_scan
-Z47 w1709121557
-R3
-R4
-!i122 6
-R0
-Z48 8C:/Users/fonseca/Desktop/SpaceInvaders/Key_Scan.vhd
-Z49 FC:/Users/fonseca/Desktop/SpaceInvaders/Key_Scan.vhd
-l0
-L3 1
-V:m26nAfdehYEJ^l0UlHBh0
-!s100 ^Oh:Lk0SGLbRhY>bLQBj33
-R7
-31
-R21
-!i10b 1
-R22
-Z50 !s90 -reportprogress|300|-93|-work|work|C:/Users/fonseca/Desktop/SpaceInvaders/Key_Scan.vhd|
-Z51 !s107 C:/Users/fonseca/Desktop/SpaceInvaders/Key_Scan.vhd|
-!i113 1
-R12
-R13
-Astructure
-R3
-R4
-DEx4 work 8 key_scan 0 22 :m26nAfdehYEJ^l0UlHBh0
-!i122 6
-l52
-L15 47
-VT8nMh^Lz2THV8c]?Y59Pd1
-!s100 V5M]kJl5^SSS^3N93K7bJ0
-R7
-31
-R21
-!i10b 1
-R22
-R50
-R51
-!i113 1
-R12
-R13
-Ekeyboard_reader
-Z52 w1709722226
-R3
-R4
-!i122 11
-R0
-Z53 8C:/Users/fonseca/Desktop/SpaceInvaders/Keyboard_Reader.vhd
-Z54 FC:/Users/fonseca/Desktop/SpaceInvaders/Keyboard_Reader.vhd
-l0
-L4 1
-VENe:UoZaLd_YTI9=0SF1o1
-!s100 R@7If5JBJRU;47Sf]P5gQ3
-R7
-31
-R8
-!i10b 1
-R9
-Z55 !s90 -reportprogress|300|-93|-work|work|C:/Users/fonseca/Desktop/SpaceInvaders/Keyboard_Reader.vhd|
-Z56 !s107 C:/Users/fonseca/Desktop/SpaceInvaders/Keyboard_Reader.vhd|
-!i113 1
-R12
-R13
-Astructure
-R3
-R4
-DEx4 work 15 keyboard_reader 0 22 ENe:UoZaLd_YTI9=0SF1o1
-!i122 11
-l31
-L17 20
-V^6l>@Do@gjeFjed1=1UgE3
-!s100 WjDDW^ng3APHOfGN4R8:;0
-R7
-31
-R8
-!i10b 1
-R9
-R55
-R56
-!i113 1
-R12
-R13
-Emux
-R1
-R3
-R4
-!i122 8
-R0
-Z57 8C:/Users/fonseca/Desktop/SpaceInvaders/MUX.vhd
-Z58 FC:/Users/fonseca/Desktop/SpaceInvaders/MUX.vhd
-l0
-L3 1
-V;zG2PeC1gX;2lb3dKQi>13
-!s100 CBY8EbQQ2Jdn3=P3JcSU_2
-R7
-31
-R8
-!i10b 1
-R9
-Z59 !s90 -reportprogress|300|-93|-work|work|C:/Users/fonseca/Desktop/SpaceInvaders/MUX.vhd|
-Z60 !s107 C:/Users/fonseca/Desktop/SpaceInvaders/MUX.vhd|
-!i113 1
-R12
-R13
-Alogicfunction
-R3
-R4
-DEx4 work 3 mux 0 22 ;zG2PeC1gX;2lb3dKQi>13
-!i122 8
-l12
-L11 4
-V0[a@5K82R6In3zE^fgX7_3
-!s100 0WDgN23OgcaV6XGzGn^Pn1
-R7
-31
-R8
-!i10b 1
-R9
-R59
-R60
-!i113 1
-R12
-R13
-Ereg
-Z61 w1709116207
-R3
-R4
-!i122 4
-R0
-Z62 8C:/Users/fonseca/Desktop/SpaceInvaders/REG.vhd
-Z63 FC:/Users/fonseca/Desktop/SpaceInvaders/REG.vhd
-l0
-L4 1
-V65]_Fj?Uz4?lCGed3@0mc0
-!s100 U3bAWD499bFML344HOo6B2
-R7
-31
-R21
-!i10b 1
-R22
-Z64 !s90 -reportprogress|300|-93|-work|work|C:/Users/fonseca/Desktop/SpaceInvaders/REG.vhd|
-Z65 !s107 C:/Users/fonseca/Desktop/SpaceInvaders/REG.vhd|
-!i113 1
-R12
-R13
-Astructure
-R3
-R4
-DEx4 work 3 reg 0 22 65]_Fj?Uz4?lCGed3@0mc0
-!i122 4
-l28
-L15 21
-V]c8BAY6g68>MCQo=0^;KQ3
-!s100 LcWDUjW5H:8SVf;eAj4N@2
-R7
-31
-R21
-!i10b 1
-R22
-R64
-R65
-!i113 1
-R12
-R13
-Esomador
-R18
-R3
-R4
-!i122 2
-R0
-Z66 8C:/Users/fonseca/Desktop/SpaceInvaders/Somador.vhd
-Z67 FC:/Users/fonseca/Desktop/SpaceInvaders/Somador.vhd
-l0
-L3 1
-VfYQe6Y@eMdD]7]`1j1G8G1
-!s100 nAfZbWiim7anLS[kGhgCQ2
-R7
-31
-R21
-!i10b 1
-R22
-Z68 !s90 -reportprogress|300|-93|-work|work|C:/Users/fonseca/Desktop/SpaceInvaders/Somador.vhd|
-Z69 !s107 C:/Users/fonseca/Desktop/SpaceInvaders/Somador.vhd|
-!i113 1
-R12
-R13
-Astructural
-R3
-R4
-DEx4 work 7 somador 0 22 fYQe6Y@eMdD]7]`1j1G8G1
-!i122 2
-l32
-L15 26
-V<[e>OIQ@UUB_6AX]07dj12
-!s100 z=46Mk9Q^bPFM01i5mLS@2
-R7
-31
-R21
-!i10b 1
-R22
-R68
-R69
-!i113 1
-R12
-R13

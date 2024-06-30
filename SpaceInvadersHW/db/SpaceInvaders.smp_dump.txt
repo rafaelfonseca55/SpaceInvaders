@@ -5,25 +5,25 @@ CurrentState.STATE_WAITING 0 0 0
 CurrentState.STATE_TRAMA_RECEBIDA 0 1 1 
 CurrentState.STATE_DONE 1 0 1 
 
-State Machine - |SpaceInvaders|SerialScoreController:U3|SerialReceiverScore:U0|SerialControl:UO|CurrentState
-Name CurrentState.STATE_4 CurrentState.STATE_3 CurrentState.STATE_2 CurrentState.STATE_1 
-CurrentState.STATE_1 0 0 0 0 
-CurrentState.STATE_2 0 0 1 1 
-CurrentState.STATE_3 0 1 0 1 
-CurrentState.STATE_4 1 0 0 1 
+State Machine - |SpaceInvaders|SerialScoreController:U3|SerialReceiverScore:U0|SERIALCONTROL:UO|CURRENT_STATE
+Name CURRENT_STATE.STATE_4 CURRENT_STATE.STATE_3 CURRENT_STATE.STATE_2 CURRENT_STATE.STATE_1 
+CURRENT_STATE.STATE_1 0 0 0 0 
+CURRENT_STATE.STATE_2 0 0 1 1 
+CURRENT_STATE.STATE_3 0 1 0 1 
+CURRENT_STATE.STATE_4 1 0 0 1 
 
-State Machine - |SpaceInvaders|SerialLCDController:U2|Dispatcher:U1|CurrentState
+State Machine - |SpaceInvaders|SLCDCvhd:U2|Dispatcher:U1|CurrentState
 Name CurrentState.STATE_DONE CurrentState.STATE_TRAMA_RECEBIDA CurrentState.STATE_WAITING 
 CurrentState.STATE_WAITING 0 0 0 
 CurrentState.STATE_TRAMA_RECEBIDA 0 1 1 
 CurrentState.STATE_DONE 1 0 1 
 
-State Machine - |SpaceInvaders|SerialLCDController:U2|SerialReceiver:U0|SerialControl:UO|CurrentState
-Name CurrentState.STATE_4 CurrentState.STATE_3 CurrentState.STATE_2 CurrentState.STATE_1 
-CurrentState.STATE_1 0 0 0 0 
-CurrentState.STATE_2 0 0 1 1 
-CurrentState.STATE_3 0 1 0 1 
-CurrentState.STATE_4 1 0 0 1 
+State Machine - |SpaceInvaders|SLCDCvhd:U2|SerialReceiver:U0|SERIALCONTROL:UO|CURRENT_STATE
+Name CURRENT_STATE.STATE_4 CURRENT_STATE.STATE_3 CURRENT_STATE.STATE_2 CURRENT_STATE.STATE_1 
+CURRENT_STATE.STATE_1 0 0 0 0 
+CURRENT_STATE.STATE_2 0 0 1 1 
+CURRENT_STATE.STATE_3 0 1 0 1 
+CURRENT_STATE.STATE_4 1 0 0 1 
 
 State Machine - |SpaceInvaders|Keyboard_Reader:U0|OutputBuffer:U2|BufferControl:U0|CurrentState
 Name CurrentState.STATE_END CurrentState.STATE_ACKNOWLEDGED CurrentState.STATE_RECEIVING CurrentState.STATE_WAITING 

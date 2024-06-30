@@ -12,7 +12,7 @@ object LCD {
 
     // Escreve um byte de comando/dados no LCD em paralelo
     private fun writeByteParallel(rs: Boolean, data: Int) {
-        if (rs) HAL.setBits(LCD_RS_MASK) else HAL.clearBits(LCD_RS_MASK)
+        //if (rs) HAL.setBits(LCD_RS_MASK) else HAL.clearBits(LCD_RS_MASK)
         HAL.clearBits(LCD_E_MASK) // Clear enable
         HAL.writeBits(LCD_DATA_MASK, data.shr(4))
         HAL.setBits(SCLK_MASK) // First clock
@@ -83,6 +83,8 @@ object LCD {
 
 fun main() {
     HAL.init()
+    SerialEmitter.init()
     LCD.init()
-    //LCD.write("Hello, World!")
+    LCD.clear()
+    LCD.write("Hello, World!")
 }

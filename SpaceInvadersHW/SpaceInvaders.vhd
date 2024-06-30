@@ -34,7 +34,7 @@ component Keyboard_Reader is
 	);
 end component;
 
-component SerialLCDController is 
+component SLCDCvhd is 
 	port
 	(
 		-- Input ports
@@ -114,7 +114,7 @@ begin
 		inputPort(4) => Dval_signal,
 		outputPort => outputPort_signal);
 		
-	 U2: SerialLCDController port map(
+	 U2: SLCDCvhd port map(
 		 LCDsel => outputPort_signal(0),
 		 SClk => outputPort_signal(4),
 		 MClk => Mclk,
@@ -125,7 +125,7 @@ begin
 	 );
 	 
 	 U3: SerialScoreController port map(
-		 SCsel => outputPort_signal(0),
+		 SCsel => outputPort_signal(1),
 		 SClk => outputPort_signal(4),
 		 MClk => MClk,
 		 SDX => outputPort_signal(3),
@@ -145,9 +145,6 @@ begin
 	 HEX4 => SHEX4,
 	 HEX5 => SHEX5
 	 );
-	 
-	 
-	 
 	 
 	 LCDDout <= outputLCD;
     

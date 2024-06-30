@@ -1,5 +1,5 @@
 Timing Analyzer report for SpaceInvaders
-Thu May 23 03:32:07 2024
+Fri Jun 28 18:44:51 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -91,17 +91,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 6           ;
-; Maximum allowed            ; 6           ;
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.28        ;
-; Maximum used               ; 6           ;
+; Average used               ; 1.16        ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   5.8%      ;
-;     Processor 3            ;   5.6%      ;
-;     Processors 4-6         ;   5.6%      ;
+;     Processors 2-4         ;   5.3%      ;
 +----------------------------+-------------+
 
 
@@ -119,7 +117,7 @@ https://fpgasoftware.intel.com/eula.
 +------------+-----------------+---------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name          ; Note ;
 +------------+-----------------+---------------------+------+
-; 135.54 MHz ; 135.54 MHz      ; altera_reserved_tck ;      ;
+; 153.85 MHz ; 153.85 MHz      ; altera_reserved_tck ;      ;
 +------------+-----------------+---------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -129,7 +127,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------+--------+---------------+
 ; Clock               ; Slack  ; End Point TNS ;
 +---------------------+--------+---------------+
-; altera_reserved_tck ; 46.311 ; 0.000         ;
+; altera_reserved_tck ; 46.750 ; 0.000         ;
 +---------------------+--------+---------------+
 
 
@@ -138,7 +136,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------+-------+---------------+
 ; Clock               ; Slack ; End Point TNS ;
 +---------------------+-------+---------------+
-; altera_reserved_tck ; 0.324 ; 0.000         ;
+; altera_reserved_tck ; 0.323 ; 0.000         ;
 +---------------------+-------+---------------+
 
 
@@ -147,7 +145,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------+--------+---------------+
 ; Clock               ; Slack  ; End Point TNS ;
 +---------------------+--------+---------------+
-; altera_reserved_tck ; 95.999 ; 0.000         ;
+; altera_reserved_tck ; 95.945 ; 0.000         ;
 +---------------------+--------+---------------+
 
 
@@ -156,7 +154,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------+-------+---------------+
 ; Clock               ; Slack ; End Point TNS ;
 +---------------------+-------+---------------+
-; altera_reserved_tck ; 1.013 ; 0.000         ;
+; altera_reserved_tck ; 0.871 ; 0.000         ;
 +---------------------+-------+---------------+
 
 
@@ -165,7 +163,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------+--------+--------------------+
 ; Clock               ; Slack  ; End Point TNS      ;
 +---------------------+--------+--------------------+
-; altera_reserved_tck ; 49.567 ; 0.000              ;
+; altera_reserved_tck ; 49.576 ; 0.000              ;
 +---------------------+--------+--------------------+
 
 
@@ -176,7 +174,7 @@ The design MTBF is not calculated because there are no specified synchronizers i
 Number of Synchronizer Chains Found: 1
 Shortest Synchronizer Chain: 5 Registers
 Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-Worst Case Available Settling Time: 344.506 ns
+Worst Case Available Settling Time: 344.285 ns
 
 
 
@@ -186,7 +184,7 @@ Worst Case Available Settling Time: 344.506 ns
 +------------+-----------------+---------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name          ; Note ;
 +------------+-----------------+---------------------+------+
-; 148.94 MHz ; 148.94 MHz      ; altera_reserved_tck ;      ;
+; 169.78 MHz ; 169.78 MHz      ; altera_reserved_tck ;      ;
 +------------+-----------------+---------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -196,7 +194,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------+--------+---------------+
 ; Clock               ; Slack  ; End Point TNS ;
 +---------------------+--------+---------------+
-; altera_reserved_tck ; 46.643 ; 0.000         ;
+; altera_reserved_tck ; 47.055 ; 0.000         ;
 +---------------------+--------+---------------+
 
 
@@ -205,7 +203,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------+-------+---------------+
 ; Clock               ; Slack ; End Point TNS ;
 +---------------------+-------+---------------+
-; altera_reserved_tck ; 0.294 ; 0.000         ;
+; altera_reserved_tck ; 0.293 ; 0.000         ;
 +---------------------+-------+---------------+
 
 
@@ -214,7 +212,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------+--------+---------------+
 ; Clock               ; Slack  ; End Point TNS ;
 +---------------------+--------+---------------+
-; altera_reserved_tck ; 96.364 ; 0.000         ;
+; altera_reserved_tck ; 96.330 ; 0.000         ;
 +---------------------+--------+---------------+
 
 
@@ -223,7 +221,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------+-------+---------------+
 ; Clock               ; Slack ; End Point TNS ;
 +---------------------+-------+---------------+
-; altera_reserved_tck ; 0.935 ; 0.000         ;
+; altera_reserved_tck ; 0.800 ; 0.000         ;
 +---------------------+-------+---------------+
 
 
@@ -232,7 +230,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------+--------+-------------------+
 ; Clock               ; Slack  ; End Point TNS     ;
 +---------------------+--------+-------------------+
-; altera_reserved_tck ; 49.593 ; 0.000             ;
+; altera_reserved_tck ; 49.600 ; 0.000             ;
 +---------------------+--------+-------------------+
 
 
@@ -243,7 +241,7 @@ The design MTBF is not calculated because there are no specified synchronizers i
 Number of Synchronizer Chains Found: 1
 Shortest Synchronizer Chain: 5 Registers
 Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-Worst Case Available Settling Time: 344.978 ns
+Worst Case Available Settling Time: 344.794 ns
 
 
 
@@ -253,7 +251,7 @@ Worst Case Available Settling Time: 344.978 ns
 +---------------------+--------+---------------+
 ; Clock               ; Slack  ; End Point TNS ;
 +---------------------+--------+---------------+
-; altera_reserved_tck ; 48.438 ; 0.000         ;
+; altera_reserved_tck ; 48.678 ; 0.000         ;
 +---------------------+--------+---------------+
 
 
@@ -262,7 +260,7 @@ Worst Case Available Settling Time: 344.978 ns
 +---------------------+-------+---------------+
 ; Clock               ; Slack ; End Point TNS ;
 +---------------------+-------+---------------+
-; altera_reserved_tck ; 0.148 ; 0.000         ;
+; altera_reserved_tck ; 0.147 ; 0.000         ;
 +---------------------+-------+---------------+
 
 
@@ -271,7 +269,7 @@ Worst Case Available Settling Time: 344.978 ns
 +---------------------+--------+---------------+
 ; Clock               ; Slack  ; End Point TNS ;
 +---------------------+--------+---------------+
-; altera_reserved_tck ; 97.874 ; 0.000         ;
+; altera_reserved_tck ; 97.840 ; 0.000         ;
 +---------------------+--------+---------------+
 
 
@@ -280,7 +278,7 @@ Worst Case Available Settling Time: 344.978 ns
 +---------------------+-------+---------------+
 ; Clock               ; Slack ; End Point TNS ;
 +---------------------+-------+---------------+
-; altera_reserved_tck ; 0.473 ; 0.000         ;
+; altera_reserved_tck ; 0.413 ; 0.000         ;
 +---------------------+-------+---------------+
 
 
@@ -289,7 +287,7 @@ Worst Case Available Settling Time: 344.978 ns
 +---------------------+--------+-------------------+
 ; Clock               ; Slack  ; End Point TNS     ;
 +---------------------+--------+-------------------+
-; altera_reserved_tck ; 49.421 ; 0.000             ;
+; altera_reserved_tck ; 49.425 ; 0.000             ;
 +---------------------+--------+-------------------+
 
 
@@ -300,7 +298,7 @@ The design MTBF is not calculated because there are no specified synchronizers i
 Number of Synchronizer Chains Found: 1
 Shortest Synchronizer Chain: 5 Registers
 Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-Worst Case Available Settling Time: 347.689 ns
+Worst Case Available Settling Time: 347.608 ns
 
 
 
@@ -310,8 +308,8 @@ Worst Case Available Settling Time: 347.689 ns
 +----------------------+--------+-------+----------+---------+---------------------+
 ; Clock                ; Setup  ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +----------------------+--------+-------+----------+---------+---------------------+
-; Worst-case Slack     ; 46.311 ; 0.148 ; 95.999   ; 0.473   ; 49.421              ;
-;  altera_reserved_tck ; 46.311 ; 0.148 ; 95.999   ; 0.473   ; 49.421              ;
+; Worst-case Slack     ; 46.750 ; 0.147 ; 95.945   ; 0.413   ; 49.425              ;
+;  altera_reserved_tck ; 46.750 ; 0.147 ; 95.945   ; 0.413   ; 49.425              ;
 ; Design-wide TNS      ; 0.0    ; 0.0   ; 0.0      ; 0.0     ; 0.0                 ;
 ;  altera_reserved_tck ; 0.000  ; 0.000 ; 0.000    ; 0.000   ; 0.000               ;
 +----------------------+--------+-------+----------+---------+---------------------+
@@ -681,7 +679,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; Property                        ; Setup ; Hold ;
 +---------------------------------+-------+------+
 ; Illegal Clocks                  ; 0     ; 0    ;
-; Unconstrained Clocks            ; 6     ; 6    ;
+; Unconstrained Clocks            ; 5     ; 5    ;
 ; Unconstrained Input Ports       ; 7     ; 7    ;
 ; Unconstrained Input Port Paths  ; 110   ; 110  ;
 ; Unconstrained Output Ports      ; 56    ; 56   ;
@@ -697,7 +695,6 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; Keyboard_Reader:U0|OutputBuffer:U2|BufferControl:U0|CurrentState.STATE_RECEIVING                                                                                                                                                                                                                                               ;                     ; Base ; Unconstrained ;
 ; Keyboard_Reader:U0|RingBuffer:U1|MemoryAddressControl:U1|CounterLimit:U3|Count[0]                                                                                                                                                                                                                                              ;                     ; Base ; Unconstrained ;
 ; Mclk                                                                                                                                                                                                                                                                                                                           ;                     ; Base ; Unconstrained ;
-; SerialLCDController:U2|CLKDIV:U2|tmp                                                                                                                                                                                                                                                                                           ;                     ; Base ; Unconstrained ;
 ; SerialScoreController:U3|ScoreDispatcher:U1|CurrentState.STATE_WAITING                                                                                                                                                                                                                                                         ;                     ; Base ; Unconstrained ;
 ; altera_reserved_tck                                                                                                                                                                                                                                                                                                            ; altera_reserved_tck ; Base ; Constrained   ;
 ; sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][4] ;                     ; Base ; Unconstrained ;
@@ -868,11 +865,11 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Thu May 23 03:32:04 2024
+    Info: Processing started: Fri Jun 28 18:44:49 2024
 Info: Command: quartus_sta SpaceInvaders -c SpaceInvaders
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
 Warning (335093): The Timing Analyzer is analyzing 32 combinational loops as latches. For more details, run the Check Timing command in the Timing Analyzer or view the "User-Specified and Inferred Latches" table in the Analysis & Synthesis report.
@@ -886,11 +883,9 @@ Warning (332060): Node: Mclk was determined to be a clock but was found without 
 Warning (332060): Node: Keyboard_Reader:U0|OutputBuffer:U2|BufferControl:U0|CurrentState.STATE_RECEIVING was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register Keyboard_Reader:U0|OutputBuffer:U2|OutputRegister:U1|D_X[1] is being clocked by Keyboard_Reader:U0|OutputBuffer:U2|BufferControl:U0|CurrentState.STATE_RECEIVING
 Warning (332060): Node: Keyboard_Reader:U0|RingBuffer:U1|MemoryAddressControl:U1|CounterLimit:U3|Count[0] was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Latch Keyboard_Reader:U0|RingBuffer:U1|RAM:U2|ram~17 is being clocked by Keyboard_Reader:U0|RingBuffer:U1|MemoryAddressControl:U1|CounterLimit:U3|Count[0]
+    Info (13166): Latch Keyboard_Reader:U0|RingBuffer:U1|RAM:U2|ram~13 is being clocked by Keyboard_Reader:U0|RingBuffer:U1|MemoryAddressControl:U1|CounterLimit:U3|Count[0]
 Warning (332060): Node: sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][4] was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register SerialLCDController:U2|SerialReceiver:U0|ShiftRegister:U3|FFD:Sc8|Q is being clocked by sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][4]
-Warning (332060): Node: SerialLCDController:U2|CLKDIV:U2|tmp was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register SerialLCDController:U2|SerialReceiver:U0|SerialControl:UO|CurrentState.STATE_2 is being clocked by SerialLCDController:U2|CLKDIV:U2|tmp
+    Info (13166): Register SLCDCvhd:U2|SerialReceiver:U0|ShiftRegister:U3|FFD:Sc8|Q is being clocked by sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][4]
 Warning (332060): Node: SerialScoreController:U3|ScoreDispatcher:U1|CurrentState.STATE_WAITING was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register scoreDisplay:U4|reg_4bit:\circuit_gen:0:out_reg|FFD:u3|Q is being clocked by SerialScoreController:U3|ScoreDispatcher:U1|CurrentState.STATE_WAITING
 Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
@@ -901,32 +896,32 @@ Critical Warning (332168): The following clock transfers have no clock uncertain
 Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1200mV 85C Model
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
-Info (332146): Worst-case setup slack is 46.311
+Info (332146): Worst-case setup slack is 46.750
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    46.311               0.000 altera_reserved_tck 
-Info (332146): Worst-case hold slack is 0.324
+    Info (332119):    46.750               0.000 altera_reserved_tck 
+Info (332146): Worst-case hold slack is 0.323
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.324               0.000 altera_reserved_tck 
-Info (332146): Worst-case recovery slack is 95.999
+    Info (332119):     0.323               0.000 altera_reserved_tck 
+Info (332146): Worst-case recovery slack is 95.945
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    95.999               0.000 altera_reserved_tck 
-Info (332146): Worst-case removal slack is 1.013
+    Info (332119):    95.945               0.000 altera_reserved_tck 
+Info (332146): Worst-case removal slack is 0.871
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     1.013               0.000 altera_reserved_tck 
-Info (332146): Worst-case minimum pulse width slack is 49.567
+    Info (332119):     0.871               0.000 altera_reserved_tck 
+Info (332146): Worst-case minimum pulse width slack is 49.576
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    49.567               0.000 altera_reserved_tck 
+    Info (332119):    49.576               0.000 altera_reserved_tck 
 Info (332114): Report Metastability: Found 1 synchronizer chains.
     Info (332114): The design MTBF is not calculated because there are no specified synchronizers in the design.
     Info (332114): Number of Synchronizer Chains Found: 1
     Info (332114): Shortest Synchronizer Chain: 5 Registers
     Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-    Info (332114): Worst Case Available Settling Time: 344.506 ns
+    Info (332114): Worst Case Available Settling Time: 344.285 ns
     Info (332114): 
 Info: Analyzing Slow 1200mV 0C Model
 Info (334003): Started post-fitting delay annotation
@@ -937,11 +932,9 @@ Warning (332060): Node: Mclk was determined to be a clock but was found without 
 Warning (332060): Node: Keyboard_Reader:U0|OutputBuffer:U2|BufferControl:U0|CurrentState.STATE_RECEIVING was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register Keyboard_Reader:U0|OutputBuffer:U2|OutputRegister:U1|D_X[1] is being clocked by Keyboard_Reader:U0|OutputBuffer:U2|BufferControl:U0|CurrentState.STATE_RECEIVING
 Warning (332060): Node: Keyboard_Reader:U0|RingBuffer:U1|MemoryAddressControl:U1|CounterLimit:U3|Count[0] was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Latch Keyboard_Reader:U0|RingBuffer:U1|RAM:U2|ram~17 is being clocked by Keyboard_Reader:U0|RingBuffer:U1|MemoryAddressControl:U1|CounterLimit:U3|Count[0]
+    Info (13166): Latch Keyboard_Reader:U0|RingBuffer:U1|RAM:U2|ram~13 is being clocked by Keyboard_Reader:U0|RingBuffer:U1|MemoryAddressControl:U1|CounterLimit:U3|Count[0]
 Warning (332060): Node: sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][4] was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register SerialLCDController:U2|SerialReceiver:U0|ShiftRegister:U3|FFD:Sc8|Q is being clocked by sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][4]
-Warning (332060): Node: SerialLCDController:U2|CLKDIV:U2|tmp was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register SerialLCDController:U2|SerialReceiver:U0|SerialControl:UO|CurrentState.STATE_2 is being clocked by SerialLCDController:U2|CLKDIV:U2|tmp
+    Info (13166): Register SLCDCvhd:U2|SerialReceiver:U0|ShiftRegister:U3|FFD:Sc8|Q is being clocked by sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][4]
 Warning (332060): Node: SerialScoreController:U3|ScoreDispatcher:U1|CurrentState.STATE_WAITING was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register scoreDisplay:U4|reg_4bit:\circuit_gen:0:out_reg|FFD:u3|Q is being clocked by SerialScoreController:U3|ScoreDispatcher:U1|CurrentState.STATE_WAITING
 Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
@@ -949,32 +942,32 @@ Info (332097): The following timing edges are non-unate.  The Timing Analyzer wi
 Critical Warning (332168): The following clock transfers have no clock uncertainty assignment. For more accurate results, apply clock uncertainty assignments or use the derive_clock_uncertainty command.
     Critical Warning (332169): From altera_reserved_tck (Rise) to altera_reserved_tck (Rise) (setup and hold)
     Critical Warning (332169): From altera_reserved_tck (Rise) to altera_reserved_tck (Fall) (setup and hold)
-Info (332146): Worst-case setup slack is 46.643
+Info (332146): Worst-case setup slack is 47.055
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    46.643               0.000 altera_reserved_tck 
-Info (332146): Worst-case hold slack is 0.294
+    Info (332119):    47.055               0.000 altera_reserved_tck 
+Info (332146): Worst-case hold slack is 0.293
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.294               0.000 altera_reserved_tck 
-Info (332146): Worst-case recovery slack is 96.364
+    Info (332119):     0.293               0.000 altera_reserved_tck 
+Info (332146): Worst-case recovery slack is 96.330
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    96.364               0.000 altera_reserved_tck 
-Info (332146): Worst-case removal slack is 0.935
+    Info (332119):    96.330               0.000 altera_reserved_tck 
+Info (332146): Worst-case removal slack is 0.800
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.935               0.000 altera_reserved_tck 
-Info (332146): Worst-case minimum pulse width slack is 49.593
+    Info (332119):     0.800               0.000 altera_reserved_tck 
+Info (332146): Worst-case minimum pulse width slack is 49.600
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    49.593               0.000 altera_reserved_tck 
+    Info (332119):    49.600               0.000 altera_reserved_tck 
 Info (332114): Report Metastability: Found 1 synchronizer chains.
     Info (332114): The design MTBF is not calculated because there are no specified synchronizers in the design.
     Info (332114): Number of Synchronizer Chains Found: 1
     Info (332114): Shortest Synchronizer Chain: 5 Registers
     Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-    Info (332114): Worst Case Available Settling Time: 344.978 ns
+    Info (332114): Worst Case Available Settling Time: 344.794 ns
     Info (332114): 
 Info: Analyzing Fast 1200mV 0C Model
 Warning (332060): Node: Mclk was determined to be a clock but was found without an associated clock assignment.
@@ -982,11 +975,9 @@ Warning (332060): Node: Mclk was determined to be a clock but was found without 
 Warning (332060): Node: Keyboard_Reader:U0|OutputBuffer:U2|BufferControl:U0|CurrentState.STATE_RECEIVING was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register Keyboard_Reader:U0|OutputBuffer:U2|OutputRegister:U1|D_X[1] is being clocked by Keyboard_Reader:U0|OutputBuffer:U2|BufferControl:U0|CurrentState.STATE_RECEIVING
 Warning (332060): Node: Keyboard_Reader:U0|RingBuffer:U1|MemoryAddressControl:U1|CounterLimit:U3|Count[0] was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Latch Keyboard_Reader:U0|RingBuffer:U1|RAM:U2|ram~17 is being clocked by Keyboard_Reader:U0|RingBuffer:U1|MemoryAddressControl:U1|CounterLimit:U3|Count[0]
+    Info (13166): Latch Keyboard_Reader:U0|RingBuffer:U1|RAM:U2|ram~13 is being clocked by Keyboard_Reader:U0|RingBuffer:U1|MemoryAddressControl:U1|CounterLimit:U3|Count[0]
 Warning (332060): Node: sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][4] was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register SerialLCDController:U2|SerialReceiver:U0|ShiftRegister:U3|FFD:Sc8|Q is being clocked by sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][4]
-Warning (332060): Node: SerialLCDController:U2|CLKDIV:U2|tmp was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register SerialLCDController:U2|SerialReceiver:U0|SerialControl:UO|CurrentState.STATE_2 is being clocked by SerialLCDController:U2|CLKDIV:U2|tmp
+    Info (13166): Register SLCDCvhd:U2|SerialReceiver:U0|ShiftRegister:U3|FFD:Sc8|Q is being clocked by sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][4]
 Warning (332060): Node: SerialScoreController:U3|ScoreDispatcher:U1|CurrentState.STATE_WAITING was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register scoreDisplay:U4|reg_4bit:\circuit_gen:0:out_reg|FFD:u3|Q is being clocked by SerialScoreController:U3|ScoreDispatcher:U1|CurrentState.STATE_WAITING
 Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
@@ -994,39 +985,39 @@ Info (332097): The following timing edges are non-unate.  The Timing Analyzer wi
 Critical Warning (332168): The following clock transfers have no clock uncertainty assignment. For more accurate results, apply clock uncertainty assignments or use the derive_clock_uncertainty command.
     Critical Warning (332169): From altera_reserved_tck (Rise) to altera_reserved_tck (Rise) (setup and hold)
     Critical Warning (332169): From altera_reserved_tck (Rise) to altera_reserved_tck (Fall) (setup and hold)
-Info (332146): Worst-case setup slack is 48.438
+Info (332146): Worst-case setup slack is 48.678
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    48.438               0.000 altera_reserved_tck 
-Info (332146): Worst-case hold slack is 0.148
+    Info (332119):    48.678               0.000 altera_reserved_tck 
+Info (332146): Worst-case hold slack is 0.147
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.148               0.000 altera_reserved_tck 
-Info (332146): Worst-case recovery slack is 97.874
+    Info (332119):     0.147               0.000 altera_reserved_tck 
+Info (332146): Worst-case recovery slack is 97.840
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    97.874               0.000 altera_reserved_tck 
-Info (332146): Worst-case removal slack is 0.473
+    Info (332119):    97.840               0.000 altera_reserved_tck 
+Info (332146): Worst-case removal slack is 0.413
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.473               0.000 altera_reserved_tck 
-Info (332146): Worst-case minimum pulse width slack is 49.421
+    Info (332119):     0.413               0.000 altera_reserved_tck 
+Info (332146): Worst-case minimum pulse width slack is 49.425
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    49.421               0.000 altera_reserved_tck 
+    Info (332119):    49.425               0.000 altera_reserved_tck 
 Info (332114): Report Metastability: Found 1 synchronizer chains.
     Info (332114): The design MTBF is not calculated because there are no specified synchronizers in the design.
     Info (332114): Number of Synchronizer Chains Found: 1
     Info (332114): Shortest Synchronizer Chain: 5 Registers
     Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-    Info (332114): Worst Case Available Settling Time: 347.689 ns
+    Info (332114): Worst Case Available Settling Time: 347.608 ns
     Info (332114): 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
-Info: Quartus Prime Timing Analyzer was successful. 0 errors, 31 warnings
-    Info: Peak virtual memory: 2102005 megabytes
-    Info: Processing ended: Thu May 23 03:32:07 2024
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:03
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 28 warnings
+    Info: Peak virtual memory: 4832 megabytes
+    Info: Processing ended: Fri Jun 28 18:44:51 2024
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
 
 

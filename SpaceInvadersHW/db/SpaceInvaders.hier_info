@@ -1,9 +1,9 @@
 |SpaceInvaders
 Mclk => Keyboard_Reader:U0.Mclk
-Mclk => SerialLCDController:U2.MClk
+Mclk => SLCDCvhd:U2.MClk
 Mclk => SerialScoreController:U3.MClk
 reset => Keyboard_Reader:U0.reset
-reset => SerialLCDController:U2.Reset
+reset => SLCDCvhd:U2.Reset
 reset => SerialScoreController:U3.Reset
 ack => ~NO_FANOUT~
 Lines[0] => Keyboard_Reader:U0.Lines[0]
@@ -14,16 +14,16 @@ Columns[0] <= Keyboard_Reader:U0.Columns[0]
 Columns[1] <= Keyboard_Reader:U0.Columns[1]
 Columns[2] <= Keyboard_Reader:U0.Columns[2]
 Dval <= comb.DB_MAX_OUTPUT_PORT_TYPE
-LCDDout[0] <= SerialLCDController:U2.Dout[0]
-LCDDout[1] <= SerialLCDController:U2.Dout[1]
-LCDDout[2] <= SerialLCDController:U2.Dout[2]
-LCDDout[3] <= SerialLCDController:U2.Dout[3]
-LCDDout[4] <= SerialLCDController:U2.Dout[4]
-LCDDout[5] <= SerialLCDController:U2.Dout[5]
-LCDDout[6] <= SerialLCDController:U2.Dout[6]
-LCDDout[7] <= SerialLCDController:U2.Dout[7]
-LCDDout[8] <= SerialLCDController:U2.Dout[8]
-e <= SerialLCDController:U2.WrL
+LCDDout[0] <= SLCDCvhd:U2.Dout[0]
+LCDDout[1] <= SLCDCvhd:U2.Dout[1]
+LCDDout[2] <= SLCDCvhd:U2.Dout[2]
+LCDDout[3] <= SLCDCvhd:U2.Dout[3]
+LCDDout[4] <= SLCDCvhd:U2.Dout[4]
+LCDDout[5] <= SLCDCvhd:U2.Dout[5]
+LCDDout[6] <= SLCDCvhd:U2.Dout[6]
+LCDDout[7] <= SLCDCvhd:U2.Dout[7]
+LCDDout[8] <= SLCDCvhd:U2.Dout[8]
+e <= SLCDCvhd:U2.WrL
 SHEX0[0] <= scoreDisplay:U4.HEX0[0]
 SHEX0[1] <= scoreDisplay:U4.HEX0[1]
 SHEX0[2] <= scoreDisplay:U4.HEX0[2]
@@ -1273,10 +1273,11 @@ adapted_ir_out[6] => ir_out[6].DATAIN
 adapted_ir_out[7] => ir_out[7].DATAIN
 
 
-|SpaceInvaders|SerialLCDController:U2
+|SpaceInvaders|SLCDCvhd:U2
 LCDsel => SerialReceiver:U0.SS
 SClk => SerialReceiver:U0.SCLK
-MClk => ClkDiv:U2.Clk_in
+MClk => SerialReceiver:U0.MCLK
+MClk => Dispatcher:U1.Clk
 SDX => SerialReceiver:U0.SDX
 Reset => SerialReceiver:U0.reset
 Reset => Dispatcher:U1.Reset
@@ -1292,7 +1293,7 @@ Dout[8] <= Dispatcher:U1.Dout[8]
 WrL <= Dispatcher:U1.WrL
 
 
-|SpaceInvaders|SerialLCDController:U2|SerialReceiver:U0
+|SpaceInvaders|SLCDCvhd:U2|SerialReceiver:U0
 SS => SerialControl:UO.enRx
 SDX => Parity_Check:U1.Data
 SDX => ShiftRegister:U3.Sin
@@ -1300,9 +1301,11 @@ SCLK => Parity_Check:U1.CLK
 SCLK => Counter:U2.CLK
 SCLK => ShiftRegister:U3.CLK
 accept => SerialControl:UO.accept
+reset => counter_rst.IN1
 reset => SerialControl:UO.reset
-reset => ShiftRegister:U3.RESET
 MCLK => SerialControl:UO.clk
+DATA <= Dflag_signal.DB_MAX_OUTPUT_PORT_TYPE
+PARITY <= Pflag_signal.DB_MAX_OUTPUT_PORT_TYPE
 DXval <= SerialControl:UO.DXval
 D[0] <= ShiftRegister:U3.D[0]
 D[1] <= ShiftRegister:U3.D[1]
@@ -1315,208 +1318,79 @@ D[7] <= ShiftRegister:U3.D[7]
 D[8] <= ShiftRegister:U3.D[8]
 
 
-|SpaceInvaders|SerialLCDController:U2|SerialReceiver:U0|SerialControl:UO
-reset => CurrentState~3.DATAIN
-clk => CurrentState~1.DATAIN
-enRx => NextState.OUTPUTSELECT
-enRx => NextState.OUTPUTSELECT
-enRx => Selector0.IN2
-enRx => Selector1.IN1
-enRx => NextState.OUTPUTSELECT
-enRx => NextState.OUTPUTSELECT
-enRx => Selector2.IN1
-accept => Selector0.IN3
-accept => Selector3.IN2
-pFlag => NextState.OUTPUTSELECT
-pFlag => NextState.OUTPUTSELECT
-dFlag => NextState.DATAB
-dFlag => NextState.DATAB
-RXError => NextState.DATAB
-RXError => NextState.DATAB
+|SpaceInvaders|SLCDCvhd:U2|SerialReceiver:U0|SERIALCONTROL:UO
+enRx => Selector6.IN2
+enRx => Selector4.IN2
+accept => Selector6.IN3
+accept => Selector0.IN2
+CLK => CURRENT_STATE~1.DATAIN
+pFlag => GENERATENEXTSTATE.IN0
+pFlag => GENERATENEXTSTATE.IN0
+pFlag => NEXT_STATE.STATE_4.OUTPUTSELECT
+pFlag => NEXT_STATE.STATE_3.IN1
+pFlag => NEXT_STATE.STATE_1.OUTPUTSELECT
+pFlag => Selector2.IN1
+dFlag => Selector2.IN3
+dFlag => Selector4.IN3
+RXerror => GENERATENEXTSTATE.IN1
+RXerror => GENERATENEXTSTATE.IN1
+RESET => CURRENT_STATE~3.DATAIN
 wr <= wr.DB_MAX_OUTPUT_PORT_TYPE
 init <= init.DB_MAX_OUTPUT_PORT_TYPE
 DXval <= DXval.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SpaceInvaders|SerialLCDController:U2|SerialReceiver:U0|Parity_Check:U1
-CLK => FFD:U3.CLK
-Data => entry_signal.IN1
-init => FFD:U3.RESET
-Err <= FFD:U3.Q
+|SpaceInvaders|SLCDCvhd:U2|SerialReceiver:U0|Parity_Check:U1
+CLK => sr.CLK
+Data => next_sr.IN1
+init => sr.OUTPUTSELECT
+Err <= next_sr.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SpaceInvaders|SerialLCDController:U2|SerialReceiver:U0|Parity_Check:U1|FFD:U3
-CLK => Q~reg0.CLK
-RESET => Q~reg0.ACLR
-RESET => Q.IN0
-SET => Q.IN1
-D => Q~reg0.DATAIN
-EN => Q~reg0.ENA
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+|SpaceInvaders|SLCDCvhd:U2|SerialReceiver:U0|Counter:U2
+CLK => count_value[0].CLK
+CLK => count_value[1].CLK
+CLK => count_value[2].CLK
+CLK => count_value[3].CLK
+clr => count_value[0].ACLR
+clr => count_value[1].ACLR
+clr => count_value[2].ACLR
+clr => count_value[3].ACLR
+Q[0] <= count_value[0].DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= count_value[1].DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= count_value[2].DB_MAX_OUTPUT_PORT_TYPE
+Q[3] <= count_value[3].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SpaceInvaders|SerialLCDController:U2|SerialReceiver:U0|Counter:U2
-CLK => REG:U2.CLK
-clr => REG:U2.RESET
-Q[0] <= REG:U2.Q[0]
-Q[1] <= REG:U2.Q[1]
-Q[2] <= REG:U2.Q[2]
-Q[3] <= REG:U2.Q[3]
-
-
-|SpaceInvaders|SerialLCDController:U2|SerialReceiver:U0|Counter:U2|Somador:U1
-A[0] => FA:U1.A
-A[1] => FA:U2.A
-A[2] => FA:U3.A
-A[3] => FA:U4.A
-B[0] => FA:U1.B
-B[1] => FA:U2.B
-B[2] => FA:U3.B
-B[3] => FA:U4.B
-Cin => FA:U1.Cin
-R[0] <= FA:U1.R
-R[1] <= FA:U2.R
-R[2] <= FA:U3.R
-R[3] <= FA:U4.R
-Cout <= FA:U4.Cout
-
-
-|SpaceInvaders|SerialLCDController:U2|SerialReceiver:U0|Counter:U2|Somador:U1|FA:U1
-A => R.IN0
-A => Cout.IN0
-B => R.IN1
-B => Cout.IN1
-Cin => R.IN1
-Cin => Cout.IN1
-R <= R.DB_MAX_OUTPUT_PORT_TYPE
-Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|SpaceInvaders|SerialLCDController:U2|SerialReceiver:U0|Counter:U2|Somador:U1|FA:U2
-A => R.IN0
-A => Cout.IN0
-B => R.IN1
-B => Cout.IN1
-Cin => R.IN1
-Cin => Cout.IN1
-R <= R.DB_MAX_OUTPUT_PORT_TYPE
-Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|SpaceInvaders|SerialLCDController:U2|SerialReceiver:U0|Counter:U2|Somador:U1|FA:U3
-A => R.IN0
-A => Cout.IN0
-B => R.IN1
-B => Cout.IN1
-Cin => R.IN1
-Cin => Cout.IN1
-R <= R.DB_MAX_OUTPUT_PORT_TYPE
-Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|SpaceInvaders|SerialLCDController:U2|SerialReceiver:U0|Counter:U2|Somador:U1|FA:U4
-A => R.IN0
-A => Cout.IN0
-B => R.IN1
-B => Cout.IN1
-Cin => R.IN1
-Cin => Cout.IN1
-R <= R.DB_MAX_OUTPUT_PORT_TYPE
-Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|SpaceInvaders|SerialLCDController:U2|SerialReceiver:U0|Counter:U2|REG:U2
-CLK => FFD:U1.CLK
-CLK => FFD:U2.CLK
-CLK => FFD:U3.CLK
-CLK => FFD:U4.CLK
-D[0] => FFD:U1.D
-D[1] => FFD:U2.D
-D[2] => FFD:U3.D
-D[3] => FFD:U4.D
-CE => FFD:U1.EN
-CE => FFD:U2.EN
-CE => FFD:U3.EN
-CE => FFD:U4.EN
-RESET => FFD:U1.RESET
-RESET => FFD:U2.RESET
-RESET => FFD:U3.RESET
-RESET => FFD:U4.RESET
-Q[0] <= FFD:U1.Q
-Q[1] <= FFD:U2.Q
-Q[2] <= FFD:U3.Q
-Q[3] <= FFD:U4.Q
-
-
-|SpaceInvaders|SerialLCDController:U2|SerialReceiver:U0|Counter:U2|REG:U2|FFD:U1
-CLK => Q~reg0.CLK
-RESET => Q~reg0.ACLR
-RESET => Q.IN0
-SET => Q.IN1
-D => Q~reg0.DATAIN
-EN => Q~reg0.ENA
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|SpaceInvaders|SerialLCDController:U2|SerialReceiver:U0|Counter:U2|REG:U2|FFD:U2
-CLK => Q~reg0.CLK
-RESET => Q~reg0.ACLR
-RESET => Q.IN0
-SET => Q.IN1
-D => Q~reg0.DATAIN
-EN => Q~reg0.ENA
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|SpaceInvaders|SerialLCDController:U2|SerialReceiver:U0|Counter:U2|REG:U2|FFD:U3
-CLK => Q~reg0.CLK
-RESET => Q~reg0.ACLR
-RESET => Q.IN0
-SET => Q.IN1
-D => Q~reg0.DATAIN
-EN => Q~reg0.ENA
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|SpaceInvaders|SerialLCDController:U2|SerialReceiver:U0|Counter:U2|REG:U2|FFD:U4
-CLK => Q~reg0.CLK
-RESET => Q~reg0.ACLR
-RESET => Q.IN0
-SET => Q.IN1
-D => Q~reg0.DATAIN
-EN => Q~reg0.ENA
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|SpaceInvaders|SerialLCDController:U2|SerialReceiver:U0|ShiftRegister:U3
-CLK => FFD:Sc0.CLK
-CLK => FFD:Sc1.CLK
-CLK => FFD:Sc2.CLK
-CLK => FFD:Sc3.CLK
-CLK => FFD:Sc4.CLK
-CLK => FFD:Sc5.CLK
-CLK => FFD:Sc6.CLK
-CLK => FFD:Sc7.CLK
-CLK => FFD:Sc8.CLK
-RESET => FFD:Sc0.RESET
-RESET => FFD:Sc1.RESET
-RESET => FFD:Sc2.RESET
-RESET => FFD:Sc3.RESET
-RESET => FFD:Sc4.RESET
-RESET => FFD:Sc5.RESET
-RESET => FFD:Sc6.RESET
-RESET => FFD:Sc7.RESET
-RESET => FFD:Sc8.RESET
+|SpaceInvaders|SLCDCvhd:U2|SerialReceiver:U0|ShiftRegister:U3
+Clk => FFD:Sc0.Clk
+Clk => FFD:Sc1.Clk
+Clk => FFD:Sc2.Clk
+Clk => FFD:Sc3.Clk
+Clk => FFD:Sc4.Clk
+Clk => FFD:Sc5.Clk
+Clk => FFD:Sc6.Clk
+Clk => FFD:Sc7.Clk
+Clk => FFD:Sc8.Clk
+Reset => FFD:Sc0.Reset
+Reset => FFD:Sc1.Reset
+Reset => FFD:Sc2.Reset
+Reset => FFD:Sc3.Reset
+Reset => FFD:Sc4.Reset
+Reset => FFD:Sc5.Reset
+Reset => FFD:Sc6.Reset
+Reset => FFD:Sc7.Reset
+Reset => FFD:Sc8.Reset
 Sin => FFD:Sc0.D
-EN => FFD:Sc0.EN
-EN => FFD:Sc1.EN
-EN => FFD:Sc2.EN
-EN => FFD:Sc3.EN
-EN => FFD:Sc4.EN
-EN => FFD:Sc5.EN
-EN => FFD:Sc6.EN
-EN => FFD:Sc7.EN
-EN => FFD:Sc8.EN
+En => FFD:Sc0.En
+En => FFD:Sc1.En
+En => FFD:Sc2.En
+En => FFD:Sc3.En
+En => FFD:Sc4.En
+En => FFD:Sc5.En
+En => FFD:Sc6.En
+En => FFD:Sc7.En
+En => FFD:Sc8.En
 D[0] <= FFD:Sc8.Q
 D[1] <= FFD:Sc7.Q
 D[2] <= FFD:Sc6.Q
@@ -1528,7 +1402,7 @@ D[7] <= FFD:Sc1.Q
 D[8] <= FFD:Sc0.Q
 
 
-|SpaceInvaders|SerialLCDController:U2|SerialReceiver:U0|ShiftRegister:U3|FFD:Sc0
+|SpaceInvaders|SLCDCvhd:U2|SerialReceiver:U0|ShiftRegister:U3|FFD:Sc0
 CLK => Q~reg0.CLK
 RESET => Q~reg0.ACLR
 RESET => Q.IN0
@@ -1538,7 +1412,7 @@ EN => Q~reg0.ENA
 Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SpaceInvaders|SerialLCDController:U2|SerialReceiver:U0|ShiftRegister:U3|FFD:Sc1
+|SpaceInvaders|SLCDCvhd:U2|SerialReceiver:U0|ShiftRegister:U3|FFD:Sc1
 CLK => Q~reg0.CLK
 RESET => Q~reg0.ACLR
 RESET => Q.IN0
@@ -1548,7 +1422,7 @@ EN => Q~reg0.ENA
 Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SpaceInvaders|SerialLCDController:U2|SerialReceiver:U0|ShiftRegister:U3|FFD:Sc2
+|SpaceInvaders|SLCDCvhd:U2|SerialReceiver:U0|ShiftRegister:U3|FFD:Sc2
 CLK => Q~reg0.CLK
 RESET => Q~reg0.ACLR
 RESET => Q.IN0
@@ -1558,7 +1432,7 @@ EN => Q~reg0.ENA
 Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SpaceInvaders|SerialLCDController:U2|SerialReceiver:U0|ShiftRegister:U3|FFD:Sc3
+|SpaceInvaders|SLCDCvhd:U2|SerialReceiver:U0|ShiftRegister:U3|FFD:Sc3
 CLK => Q~reg0.CLK
 RESET => Q~reg0.ACLR
 RESET => Q.IN0
@@ -1568,7 +1442,7 @@ EN => Q~reg0.ENA
 Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SpaceInvaders|SerialLCDController:U2|SerialReceiver:U0|ShiftRegister:U3|FFD:Sc4
+|SpaceInvaders|SLCDCvhd:U2|SerialReceiver:U0|ShiftRegister:U3|FFD:Sc4
 CLK => Q~reg0.CLK
 RESET => Q~reg0.ACLR
 RESET => Q.IN0
@@ -1578,7 +1452,7 @@ EN => Q~reg0.ENA
 Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SpaceInvaders|SerialLCDController:U2|SerialReceiver:U0|ShiftRegister:U3|FFD:Sc5
+|SpaceInvaders|SLCDCvhd:U2|SerialReceiver:U0|ShiftRegister:U3|FFD:Sc5
 CLK => Q~reg0.CLK
 RESET => Q~reg0.ACLR
 RESET => Q.IN0
@@ -1588,7 +1462,7 @@ EN => Q~reg0.ENA
 Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SpaceInvaders|SerialLCDController:U2|SerialReceiver:U0|ShiftRegister:U3|FFD:Sc6
+|SpaceInvaders|SLCDCvhd:U2|SerialReceiver:U0|ShiftRegister:U3|FFD:Sc6
 CLK => Q~reg0.CLK
 RESET => Q~reg0.ACLR
 RESET => Q.IN0
@@ -1598,7 +1472,7 @@ EN => Q~reg0.ENA
 Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SpaceInvaders|SerialLCDController:U2|SerialReceiver:U0|ShiftRegister:U3|FFD:Sc7
+|SpaceInvaders|SLCDCvhd:U2|SerialReceiver:U0|ShiftRegister:U3|FFD:Sc7
 CLK => Q~reg0.CLK
 RESET => Q~reg0.ACLR
 RESET => Q.IN0
@@ -1608,7 +1482,7 @@ EN => Q~reg0.ENA
 Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SpaceInvaders|SerialLCDController:U2|SerialReceiver:U0|ShiftRegister:U3|FFD:Sc8
+|SpaceInvaders|SLCDCvhd:U2|SerialReceiver:U0|ShiftRegister:U3|FFD:Sc8
 CLK => Q~reg0.CLK
 RESET => Q~reg0.ACLR
 RESET => Q.IN0
@@ -1618,7 +1492,7 @@ EN => Q~reg0.ENA
 Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SpaceInvaders|SerialLCDController:U2|Dispatcher:U1
+|SpaceInvaders|SLCDCvhd:U2|Dispatcher:U1
 Clk => CurrentState~1.DATAIN
 Reset => CurrentState~3.DATAIN
 DXval => NextState.STATE_TRAMA_RECEBIDA.DATAB
@@ -1644,43 +1518,6 @@ Dout[6] <= Din[6].DB_MAX_OUTPUT_PORT_TYPE
 Dout[7] <= Din[7].DB_MAX_OUTPUT_PORT_TYPE
 Dout[8] <= Din[8].DB_MAX_OUTPUT_PORT_TYPE
 Done <= Done.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|SpaceInvaders|SerialLCDController:U2|CLKDIV:U2
-clk_in => tmp.CLK
-clk_in => count[0].CLK
-clk_in => count[1].CLK
-clk_in => count[2].CLK
-clk_in => count[3].CLK
-clk_in => count[4].CLK
-clk_in => count[5].CLK
-clk_in => count[6].CLK
-clk_in => count[7].CLK
-clk_in => count[8].CLK
-clk_in => count[9].CLK
-clk_in => count[10].CLK
-clk_in => count[11].CLK
-clk_in => count[12].CLK
-clk_in => count[13].CLK
-clk_in => count[14].CLK
-clk_in => count[15].CLK
-clk_in => count[16].CLK
-clk_in => count[17].CLK
-clk_in => count[18].CLK
-clk_in => count[19].CLK
-clk_in => count[20].CLK
-clk_in => count[21].CLK
-clk_in => count[22].CLK
-clk_in => count[23].CLK
-clk_in => count[24].CLK
-clk_in => count[25].CLK
-clk_in => count[26].CLK
-clk_in => count[27].CLK
-clk_in => count[28].CLK
-clk_in => count[29].CLK
-clk_in => count[30].CLK
-clk_in => count[31].CLK
-clk_out <= tmp.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |SpaceInvaders|SerialScoreController:U3
@@ -1722,177 +1559,48 @@ D[5] <= ShiftRegisterScore:U3.D[5]
 D[6] <= ShiftRegisterScore:U3.D[6]
 
 
-|SpaceInvaders|SerialScoreController:U3|SerialReceiverScore:U0|SerialControl:UO
-reset => CurrentState~3.DATAIN
-clk => CurrentState~1.DATAIN
-enRx => NextState.OUTPUTSELECT
-enRx => NextState.OUTPUTSELECT
-enRx => Selector0.IN2
-enRx => Selector1.IN1
-enRx => NextState.OUTPUTSELECT
-enRx => NextState.OUTPUTSELECT
-enRx => Selector2.IN1
-accept => Selector0.IN3
-accept => Selector3.IN2
-pFlag => NextState.OUTPUTSELECT
-pFlag => NextState.OUTPUTSELECT
-dFlag => NextState.DATAB
-dFlag => NextState.DATAB
-RXError => NextState.DATAB
-RXError => NextState.DATAB
+|SpaceInvaders|SerialScoreController:U3|SerialReceiverScore:U0|SERIALCONTROL:UO
+enRx => Selector6.IN2
+enRx => Selector4.IN2
+accept => Selector6.IN3
+accept => Selector0.IN2
+CLK => CURRENT_STATE~1.DATAIN
+pFlag => GENERATENEXTSTATE.IN0
+pFlag => GENERATENEXTSTATE.IN0
+pFlag => NEXT_STATE.STATE_4.OUTPUTSELECT
+pFlag => NEXT_STATE.STATE_3.IN1
+pFlag => NEXT_STATE.STATE_1.OUTPUTSELECT
+pFlag => Selector2.IN1
+dFlag => Selector2.IN3
+dFlag => Selector4.IN3
+RXerror => GENERATENEXTSTATE.IN1
+RXerror => GENERATENEXTSTATE.IN1
+RESET => CURRENT_STATE~3.DATAIN
 wr <= wr.DB_MAX_OUTPUT_PORT_TYPE
 init <= init.DB_MAX_OUTPUT_PORT_TYPE
 DXval <= DXval.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |SpaceInvaders|SerialScoreController:U3|SerialReceiverScore:U0|Parity_Check:U1
-CLK => FFD:U3.CLK
-Data => entry_signal.IN1
-init => FFD:U3.RESET
-Err <= FFD:U3.Q
-
-
-|SpaceInvaders|SerialScoreController:U3|SerialReceiverScore:U0|Parity_Check:U1|FFD:U3
-CLK => Q~reg0.CLK
-RESET => Q~reg0.ACLR
-RESET => Q.IN0
-SET => Q.IN1
-D => Q~reg0.DATAIN
-EN => Q~reg0.ENA
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+CLK => sr.CLK
+Data => next_sr.IN1
+init => sr.OUTPUTSELECT
+Err <= next_sr.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |SpaceInvaders|SerialScoreController:U3|SerialReceiverScore:U0|Counter:U2
-CLK => REG:U2.CLK
-clr => REG:U2.RESET
-Q[0] <= REG:U2.Q[0]
-Q[1] <= REG:U2.Q[1]
-Q[2] <= REG:U2.Q[2]
-Q[3] <= REG:U2.Q[3]
-
-
-|SpaceInvaders|SerialScoreController:U3|SerialReceiverScore:U0|Counter:U2|Somador:U1
-A[0] => FA:U1.A
-A[1] => FA:U2.A
-A[2] => FA:U3.A
-A[3] => FA:U4.A
-B[0] => FA:U1.B
-B[1] => FA:U2.B
-B[2] => FA:U3.B
-B[3] => FA:U4.B
-Cin => FA:U1.Cin
-R[0] <= FA:U1.R
-R[1] <= FA:U2.R
-R[2] <= FA:U3.R
-R[3] <= FA:U4.R
-Cout <= FA:U4.Cout
-
-
-|SpaceInvaders|SerialScoreController:U3|SerialReceiverScore:U0|Counter:U2|Somador:U1|FA:U1
-A => R.IN0
-A => Cout.IN0
-B => R.IN1
-B => Cout.IN1
-Cin => R.IN1
-Cin => Cout.IN1
-R <= R.DB_MAX_OUTPUT_PORT_TYPE
-Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|SpaceInvaders|SerialScoreController:U3|SerialReceiverScore:U0|Counter:U2|Somador:U1|FA:U2
-A => R.IN0
-A => Cout.IN0
-B => R.IN1
-B => Cout.IN1
-Cin => R.IN1
-Cin => Cout.IN1
-R <= R.DB_MAX_OUTPUT_PORT_TYPE
-Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|SpaceInvaders|SerialScoreController:U3|SerialReceiverScore:U0|Counter:U2|Somador:U1|FA:U3
-A => R.IN0
-A => Cout.IN0
-B => R.IN1
-B => Cout.IN1
-Cin => R.IN1
-Cin => Cout.IN1
-R <= R.DB_MAX_OUTPUT_PORT_TYPE
-Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|SpaceInvaders|SerialScoreController:U3|SerialReceiverScore:U0|Counter:U2|Somador:U1|FA:U4
-A => R.IN0
-A => Cout.IN0
-B => R.IN1
-B => Cout.IN1
-Cin => R.IN1
-Cin => Cout.IN1
-R <= R.DB_MAX_OUTPUT_PORT_TYPE
-Cout <= Cout.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|SpaceInvaders|SerialScoreController:U3|SerialReceiverScore:U0|Counter:U2|REG:U2
-CLK => FFD:U1.CLK
-CLK => FFD:U2.CLK
-CLK => FFD:U3.CLK
-CLK => FFD:U4.CLK
-D[0] => FFD:U1.D
-D[1] => FFD:U2.D
-D[2] => FFD:U3.D
-D[3] => FFD:U4.D
-CE => FFD:U1.EN
-CE => FFD:U2.EN
-CE => FFD:U3.EN
-CE => FFD:U4.EN
-RESET => FFD:U1.RESET
-RESET => FFD:U2.RESET
-RESET => FFD:U3.RESET
-RESET => FFD:U4.RESET
-Q[0] <= FFD:U1.Q
-Q[1] <= FFD:U2.Q
-Q[2] <= FFD:U3.Q
-Q[3] <= FFD:U4.Q
-
-
-|SpaceInvaders|SerialScoreController:U3|SerialReceiverScore:U0|Counter:U2|REG:U2|FFD:U1
-CLK => Q~reg0.CLK
-RESET => Q~reg0.ACLR
-RESET => Q.IN0
-SET => Q.IN1
-D => Q~reg0.DATAIN
-EN => Q~reg0.ENA
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|SpaceInvaders|SerialScoreController:U3|SerialReceiverScore:U0|Counter:U2|REG:U2|FFD:U2
-CLK => Q~reg0.CLK
-RESET => Q~reg0.ACLR
-RESET => Q.IN0
-SET => Q.IN1
-D => Q~reg0.DATAIN
-EN => Q~reg0.ENA
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|SpaceInvaders|SerialScoreController:U3|SerialReceiverScore:U0|Counter:U2|REG:U2|FFD:U3
-CLK => Q~reg0.CLK
-RESET => Q~reg0.ACLR
-RESET => Q.IN0
-SET => Q.IN1
-D => Q~reg0.DATAIN
-EN => Q~reg0.ENA
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|SpaceInvaders|SerialScoreController:U3|SerialReceiverScore:U0|Counter:U2|REG:U2|FFD:U4
-CLK => Q~reg0.CLK
-RESET => Q~reg0.ACLR
-RESET => Q.IN0
-SET => Q.IN1
-D => Q~reg0.DATAIN
-EN => Q~reg0.ENA
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+CLK => count_value[0].CLK
+CLK => count_value[1].CLK
+CLK => count_value[2].CLK
+CLK => count_value[3].CLK
+clr => count_value[0].ACLR
+clr => count_value[1].ACLR
+clr => count_value[2].ACLR
+clr => count_value[3].ACLR
+Q[0] <= count_value[0].DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= count_value[1].DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= count_value[2].DB_MAX_OUTPUT_PORT_TYPE
+Q[3] <= count_value[3].DB_MAX_OUTPUT_PORT_TYPE
 
 
 |SpaceInvaders|SerialScoreController:U3|SerialReceiverScore:U0|ShiftRegisterScore:U3
@@ -1918,13 +1626,13 @@ EN => FFD:Sc3.EN
 EN => FFD:Sc4.EN
 EN => FFD:Sc5.EN
 EN => FFD:Sc6.EN
-D[0] <= FFD:Sc6.Q
-D[1] <= FFD:Sc5.Q
-D[2] <= FFD:Sc4.Q
+D[0] <= FFD:Sc0.Q
+D[1] <= FFD:Sc1.Q
+D[2] <= FFD:Sc2.Q
 D[3] <= FFD:Sc3.Q
-D[4] <= FFD:Sc2.Q
-D[5] <= FFD:Sc1.Q
-D[6] <= FFD:Sc0.Q
+D[4] <= FFD:Sc4.Q
+D[5] <= FFD:Sc5.Q
+D[6] <= FFD:Sc6.Q
 
 
 |SpaceInvaders|SerialScoreController:U3|SerialReceiverScore:U0|ShiftRegisterScore:U3|FFD:Sc0

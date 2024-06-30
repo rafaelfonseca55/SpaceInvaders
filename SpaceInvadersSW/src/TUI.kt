@@ -18,6 +18,15 @@ object TUI{
     //Lê a tecla do keyboard. Se ocorreu timeout, ele retorna ausência de tecla
     fun read(timeout: Long = TIMEOUT) = KBD.waitKey(timeout)
 
+    fun acceptCoin(): Boolean {
+        if (HAL.isBit(COIN_MASK)) {
+            HAL.clearBits(COIN_MASK)
+            HAL.setBits(COIN_ACCEPT)
+            return true
+        }
+        return false
+    }
+
     //Lê do keyboard uma tecla e escreve-a no LCD
     fun writeFromKeyboard() {
         val key = read()

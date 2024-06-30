@@ -1,7 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity SerialLCDController is 
+entity SLCDCvhd is 
 	port
 	(
 		-- Input ports
@@ -15,9 +15,9 @@ entity SerialLCDController is
 		Dout     	: out std_logic_vector(8 downto 0);
 		WrL	 	: out std_logic
 	);
-end SerialLCDController;
+end SLCDCvhd;
 
-architecture structural of SerialLCDController is
+architecture structural of SLCDCvhd is
 
 component SerialReceiver is 
 	port (
@@ -59,17 +59,17 @@ component ClkDiv is
 	);
 end component;
 
-signal Done_X, Dxval_X, Clk_X, Busy_X	: std_logic;
+signal Done_X, Dxval_X	: std_logic;
 signal Din_X 									: std_logic_vector(8 downto 0);
 
 begin
 
-U0: SerialReceiver 			port map (MClk => Clk_X, SDX => SDX, SClk => SClk, SS => LCDsel, Accept => Done_X, Reset => Reset, 
+U0: SerialReceiver 			port map (MClk => MClk, SDX => SDX, SClk => SClk, SS => LCDsel, Accept => Done_X, Reset => Reset, 
 												 D => Din_X, DXval => Dxval_X);
 													
-U1: Dispatcher      		port map (Clk => Clk_X, Reset => Reset, Dxval => Dxval_X, Din => Din_X, 
+U1: Dispatcher      		port map (Clk => MClk, Reset => Reset, Dxval => Dxval_X, Din => Din_X, 
 												 WrL => WrL, Dout => Dout, Done => Done_X);
 												 
-U2: ClkDiv  	generic map(15) port map (Clk_in => MClk, Clk_out => Clk_X);												 
+--U2: ClkDiv  	generic map(15) port map (Clk_in => MClk, Clk_out => Clk_X);												 
 
 end structural;

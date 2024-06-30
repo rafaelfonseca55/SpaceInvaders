@@ -17,44 +17,33 @@ object SerialEmitter {
     }
 
     fun send(addr: Destination, data: Int, size: Int) {
-        Time.sleep(1)
         if (addr == Destination.LCD) HAL.clearBits(nLCDsel_MASK)
         else HAL.clearBits(nSDCsel_MASK)
-        Thread.sleep(1)
 
         val dataTx = data
         var accum = 0
 
         for (i in 0..size-1) { // Loop agora executa 'size' vezes
-            Thread.sleep(1)
 
             if (dataTx.and(1.shl(i)) != 0) {
                 HAL.setBits(SDX_MASK)
-                Thread.sleep(1)
                 accum++
             } else {
                 HAL.clearBits(SDX_MASK)
-                Thread.sleep(1)
             }
             HAL.setBits(SCLK_MASK)
-            Thread.sleep(1)
             HAL.clearBits(SCLK_MASK)
         }
 
         if (accum % 2 == 0) {
             HAL.clearBits(SDX_MASK)
-            Thread.sleep(1)
         } else {
             HAL.setBits(SDX_MASK)
-            Thread.sleep(1)
         }
 
         HAL.setBits(SCLK_MASK)
-        Thread.sleep(1)
         HAL.clearBits(SCLK_MASK)
-        Thread.sleep(1)
         HAL.setBits(nLCDsel_MASK.or(nSDCsel_MASK))
-        Thread.sleep(1)
     }
 }
 

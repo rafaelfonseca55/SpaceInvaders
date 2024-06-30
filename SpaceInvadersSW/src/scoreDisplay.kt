@@ -16,6 +16,7 @@ object ScoreDisplay {
     }
 
     fun setScore(value: Int) {
+        if (value < 0 || value > 999999) throw IllegalArgumentException("Invalid score value")
         val valor = value.toString().padStart(6, '0').reversed()
         for (i in valor.indices) {
             val digit = valor[i].digitToInt()

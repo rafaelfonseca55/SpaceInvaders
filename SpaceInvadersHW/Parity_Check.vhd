@@ -14,7 +14,7 @@ end Parity_Check;
 
 architecture Structure of Parity_Check is
 
-signal sr, next_sr : std_logic := '0';
+signal sr : std_logic := '0';
 
 begin
 
@@ -24,12 +24,10 @@ begin
             if init = '1' then
                 sr <= '0';
             else
-                sr <= next_sr;
+                sr <= sr xor Data;
             end if;
         end if;
-    end process;
-
-    next_sr <= sr xor Data;  
+    end process;  
     
-    Err <= next_sr;
+    Err <= sr;
 end Structure;
