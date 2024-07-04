@@ -1,3 +1,4 @@
+import isel.leic.utils.Time
 
 // Envia tramas para os diferentes módulos Serial Receiver.
 object SerialEmitter {
@@ -9,7 +10,6 @@ object SerialEmitter {
 
     // Inicia a classe
     fun init() {
-        HAL.init()
         HAL.init()
         HAL.clearBits(SDX_MASK)
         HAL.setBits(nLCDsel_MASK.or(nSDCsel_MASK))
@@ -41,6 +41,7 @@ object SerialEmitter {
         HAL.setBits(SCLK_MASK)
         HAL.clearBits(SCLK_MASK)
         HAL.setBits(nLCDsel_MASK.or(nSDCsel_MASK))
+        Time.sleep(2)
     }
 }
 

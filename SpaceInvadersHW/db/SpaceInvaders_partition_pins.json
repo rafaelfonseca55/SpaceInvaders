@@ -224,11 +224,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "Mclk",
+					"name" : "reset",
 					"strict" : false
 				},
 				{
-					"name" : "reset",
+					"name" : "Mclk",
 					"strict" : false
 				},
 				{

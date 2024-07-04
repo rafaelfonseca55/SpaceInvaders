@@ -1,0 +1,55 @@
+transcript on
+if {[file exists rtl_work]} {
+	vdel -lib rtl_work -all
+}
+vlib rtl_work
+vmap work rtl_work
+
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/scoreDisplay.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/reg_4bit.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/dec_3_8.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/dec2hex.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/ShiftRegister.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/SerialControl.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/RingBufferMux.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/RingBufferControl.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/RingBuffer.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/RAM.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/MemoryAddressControl.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/CounterBuffer.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/OutputRegister.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/OutputBuffer.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/BufferControl.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/UsbPort.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/FFD.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/FA.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/Somador.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/Decoder.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/REG.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/Key_Decode.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/Key_Scan.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/Key_Control.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/MUX.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/Counter_KeyScan.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/CLKDIV.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/Keyboard_Reader.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/SpaceInvaders.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/SerialReceiver.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/Parity_Check.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/Counter.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/Dispatcher.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/SLCDCvhd.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/SerialReceiverScore.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/ShiftRegisterScore.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/ScoreDispatcher.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/SerialScoreController.vhd}
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/CounterLimit.vhd}
+
+vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/Key_Decode_tb.vhd}
+
+vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs="+acc"  Key_Decode_tb
+
+add wave *
+view structure
+view signals
+run -all

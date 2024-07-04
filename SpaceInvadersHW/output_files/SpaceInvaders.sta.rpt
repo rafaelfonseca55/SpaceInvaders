@@ -1,5 +1,5 @@
 Timing Analyzer report for SpaceInvaders
-Fri Jun 28 18:44:51 2024
+Mon Jul 01 19:16:56 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -94,12 +94,13 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.16        ;
+; Average used               ; 1.15        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   5.3%      ;
+;     Processor 2            ;   5.2%      ;
+;     Processors 3-4         ;   5.1%      ;
 +----------------------------+-------------+
 
 
@@ -117,7 +118,7 @@ https://fpgasoftware.intel.com/eula.
 +------------+-----------------+---------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name          ; Note ;
 +------------+-----------------+---------------------+------+
-; 153.85 MHz ; 153.85 MHz      ; altera_reserved_tck ;      ;
+; 136.31 MHz ; 136.31 MHz      ; altera_reserved_tck ;      ;
 +------------+-----------------+---------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -127,7 +128,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------+--------+---------------+
 ; Clock               ; Slack  ; End Point TNS ;
 +---------------------+--------+---------------+
-; altera_reserved_tck ; 46.750 ; 0.000         ;
+; altera_reserved_tck ; 46.332 ; 0.000         ;
 +---------------------+--------+---------------+
 
 
@@ -145,7 +146,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------+--------+---------------+
 ; Clock               ; Slack  ; End Point TNS ;
 +---------------------+--------+---------------+
-; altera_reserved_tck ; 95.945 ; 0.000         ;
+; altera_reserved_tck ; 96.418 ; 0.000         ;
 +---------------------+--------+---------------+
 
 
@@ -154,7 +155,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------+-------+---------------+
 ; Clock               ; Slack ; End Point TNS ;
 +---------------------+-------+---------------+
-; altera_reserved_tck ; 0.871 ; 0.000         ;
+; altera_reserved_tck ; 0.853 ; 0.000         ;
 +---------------------+-------+---------------+
 
 
@@ -163,7 +164,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------+--------+--------------------+
 ; Clock               ; Slack  ; End Point TNS      ;
 +---------------------+--------+--------------------+
-; altera_reserved_tck ; 49.576 ; 0.000              ;
+; altera_reserved_tck ; 49.578 ; 0.000              ;
 +---------------------+--------+--------------------+
 
 
@@ -174,7 +175,7 @@ The design MTBF is not calculated because there are no specified synchronizers i
 Number of Synchronizer Chains Found: 1
 Shortest Synchronizer Chain: 5 Registers
 Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-Worst Case Available Settling Time: 344.285 ns
+Worst Case Available Settling Time: 344.135 ns
 
 
 
@@ -184,7 +185,7 @@ Worst Case Available Settling Time: 344.285 ns
 +------------+-----------------+---------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name          ; Note ;
 +------------+-----------------+---------------------+------+
-; 169.78 MHz ; 169.78 MHz      ; altera_reserved_tck ;      ;
+; 150.97 MHz ; 150.97 MHz      ; altera_reserved_tck ;      ;
 +------------+-----------------+---------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -194,7 +195,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------+--------+---------------+
 ; Clock               ; Slack  ; End Point TNS ;
 +---------------------+--------+---------------+
-; altera_reserved_tck ; 47.055 ; 0.000         ;
+; altera_reserved_tck ; 46.688 ; 0.000         ;
 +---------------------+--------+---------------+
 
 
@@ -212,7 +213,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------+--------+---------------+
 ; Clock               ; Slack  ; End Point TNS ;
 +---------------------+--------+---------------+
-; altera_reserved_tck ; 96.330 ; 0.000         ;
+; altera_reserved_tck ; 96.754 ; 0.000         ;
 +---------------------+--------+---------------+
 
 
@@ -221,7 +222,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------+-------+---------------+
 ; Clock               ; Slack ; End Point TNS ;
 +---------------------+-------+---------------+
-; altera_reserved_tck ; 0.800 ; 0.000         ;
+; altera_reserved_tck ; 0.783 ; 0.000         ;
 +---------------------+-------+---------------+
 
 
@@ -230,7 +231,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------+--------+-------------------+
 ; Clock               ; Slack  ; End Point TNS     ;
 +---------------------+--------+-------------------+
-; altera_reserved_tck ; 49.600 ; 0.000             ;
+; altera_reserved_tck ; 49.602 ; 0.000             ;
 +---------------------+--------+-------------------+
 
 
@@ -241,7 +242,7 @@ The design MTBF is not calculated because there are no specified synchronizers i
 Number of Synchronizer Chains Found: 1
 Shortest Synchronizer Chain: 5 Registers
 Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-Worst Case Available Settling Time: 344.794 ns
+Worst Case Available Settling Time: 344.667 ns
 
 
 
@@ -251,7 +252,7 @@ Worst Case Available Settling Time: 344.794 ns
 +---------------------+--------+---------------+
 ; Clock               ; Slack  ; End Point TNS ;
 +---------------------+--------+---------------+
-; altera_reserved_tck ; 48.678 ; 0.000         ;
+; altera_reserved_tck ; 48.481 ; 0.000         ;
 +---------------------+--------+---------------+
 
 
@@ -269,7 +270,7 @@ Worst Case Available Settling Time: 344.794 ns
 +---------------------+--------+---------------+
 ; Clock               ; Slack  ; End Point TNS ;
 +---------------------+--------+---------------+
-; altera_reserved_tck ; 97.840 ; 0.000         ;
+; altera_reserved_tck ; 98.111 ; 0.000         ;
 +---------------------+--------+---------------+
 
 
@@ -278,7 +279,7 @@ Worst Case Available Settling Time: 344.794 ns
 +---------------------+-------+---------------+
 ; Clock               ; Slack ; End Point TNS ;
 +---------------------+-------+---------------+
-; altera_reserved_tck ; 0.413 ; 0.000         ;
+; altera_reserved_tck ; 0.403 ; 0.000         ;
 +---------------------+-------+---------------+
 
 
@@ -287,7 +288,7 @@ Worst Case Available Settling Time: 344.794 ns
 +---------------------+--------+-------------------+
 ; Clock               ; Slack  ; End Point TNS     ;
 +---------------------+--------+-------------------+
-; altera_reserved_tck ; 49.425 ; 0.000             ;
+; altera_reserved_tck ; 49.421 ; 0.000             ;
 +---------------------+--------+-------------------+
 
 
@@ -298,7 +299,7 @@ The design MTBF is not calculated because there are no specified synchronizers i
 Number of Synchronizer Chains Found: 1
 Shortest Synchronizer Chain: 5 Registers
 Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-Worst Case Available Settling Time: 347.608 ns
+Worst Case Available Settling Time: 347.512 ns
 
 
 
@@ -308,8 +309,8 @@ Worst Case Available Settling Time: 347.608 ns
 +----------------------+--------+-------+----------+---------+---------------------+
 ; Clock                ; Setup  ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +----------------------+--------+-------+----------+---------+---------------------+
-; Worst-case Slack     ; 46.750 ; 0.147 ; 95.945   ; 0.413   ; 49.425              ;
-;  altera_reserved_tck ; 46.750 ; 0.147 ; 95.945   ; 0.413   ; 49.425              ;
+; Worst-case Slack     ; 46.332 ; 0.147 ; 96.418   ; 0.403   ; 49.421              ;
+;  altera_reserved_tck ; 46.332 ; 0.147 ; 96.418   ; 0.403   ; 49.421              ;
 ; Design-wide TNS      ; 0.0    ; 0.0   ; 0.0      ; 0.0     ; 0.0                 ;
 ;  altera_reserved_tck ; 0.000  ; 0.000 ; 0.000    ; 0.000   ; 0.000               ;
 +----------------------+--------+-------+----------+---------+---------------------+
@@ -334,6 +335,7 @@ Worst Case Available Settling Time: 347.608 ns
 ; LCDDout[7]          ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; LCDDout[8]          ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; e                   ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; accept              ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; SHEX0[0]            ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; SHEX0[1]            ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
 ; SHEX0[2]            ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
@@ -392,8 +394,10 @@ Worst Case Available Settling Time: 347.608 ns
 ; Pin                 ; I/O Standard          ; 10-90 Rise Time ; 90-10 Fall Time ;
 +---------------------+-----------------------+-----------------+-----------------+
 ; ack                 ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
-; Mclk                ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; Coin                ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; M                   ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
 ; reset               ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
+; Mclk                ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
 ; Lines[2]            ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
 ; Lines[1]            ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
 ; Lines[0]            ; 2.5 V                 ; 2000 ps         ; 2000 ps         ;
@@ -427,6 +431,7 @@ Worst Case Available Settling Time: 347.608 ns
 ; LCDDout[7]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.17e-08 V                   ; 2.42 V              ; -0.0607 V           ; 0.271 V                              ; 0.095 V                              ; 2.93e-10 s                  ; 3.92e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.17e-08 V                  ; 2.42 V             ; -0.0607 V          ; 0.271 V                             ; 0.095 V                             ; 2.93e-10 s                 ; 3.92e-10 s                 ; No                        ; Yes                       ;
 ; LCDDout[8]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.17e-08 V                   ; 2.42 V              ; -0.0619 V           ; 0.272 V                              ; 0.096 V                              ; 2.93e-10 s                  ; 3.92e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.17e-08 V                  ; 2.42 V             ; -0.0619 V          ; 0.272 V                             ; 0.096 V                             ; 2.93e-10 s                 ; 3.92e-10 s                 ; No                        ; Yes                       ;
 ; e                   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.17e-08 V                   ; 2.42 V              ; -0.0607 V           ; 0.271 V                              ; 0.095 V                              ; 2.93e-10 s                  ; 3.92e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.17e-08 V                  ; 2.42 V             ; -0.0607 V          ; 0.271 V                             ; 0.095 V                             ; 2.93e-10 s                 ; 3.92e-10 s                 ; No                        ; Yes                       ;
+; accept              ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.17e-08 V                   ; 2.42 V              ; -0.0619 V           ; 0.272 V                              ; 0.096 V                              ; 2.93e-10 s                  ; 3.92e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.17e-08 V                  ; 2.42 V             ; -0.0619 V          ; 0.272 V                             ; 0.096 V                             ; 2.93e-10 s                 ; 3.92e-10 s                 ; No                        ; Yes                       ;
 ; SHEX0[0]            ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.17e-08 V                   ; 2.42 V              ; -0.0607 V           ; 0.271 V                              ; 0.095 V                              ; 2.93e-10 s                  ; 3.92e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.17e-08 V                  ; 2.42 V             ; -0.0607 V          ; 0.271 V                             ; 0.095 V                             ; 2.93e-10 s                 ; 3.92e-10 s                 ; No                        ; Yes                       ;
 ; SHEX0[1]            ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.17e-08 V                   ; 2.42 V              ; -0.0619 V           ; 0.272 V                              ; 0.096 V                              ; 2.93e-10 s                  ; 3.92e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.17e-08 V                  ; 2.42 V             ; -0.0619 V          ; 0.272 V                             ; 0.096 V                             ; 2.93e-10 s                 ; 3.92e-10 s                 ; No                        ; Yes                       ;
 ; SHEX0[2]            ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.17e-08 V                   ; 2.42 V              ; -0.0619 V           ; 0.272 V                              ; 0.096 V                              ; 2.93e-10 s                  ; 3.92e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.17e-08 V                  ; 2.42 V             ; -0.0619 V          ; 0.272 V                             ; 0.096 V                             ; 2.93e-10 s                 ; 3.92e-10 s                 ; No                        ; Yes                       ;
@@ -498,6 +503,7 @@ Worst Case Available Settling Time: 347.608 ns
 ; LCDDout[7]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.79e-06 V                   ; 2.38 V              ; -0.041 V            ; 0.145 V                              ; 0.14 V                               ; 4.54e-10 s                  ; 4.3e-10 s                   ; No                         ; Yes                        ; 2.32 V                      ; 1.79e-06 V                  ; 2.38 V             ; -0.041 V           ; 0.145 V                             ; 0.14 V                              ; 4.54e-10 s                 ; 4.3e-10 s                  ; No                        ; Yes                       ;
 ; LCDDout[8]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.79e-06 V                   ; 2.38 V              ; -0.0389 V           ; 0.145 V                              ; 0.139 V                              ; 4.54e-10 s                  ; 4.3e-10 s                   ; No                         ; Yes                        ; 2.32 V                      ; 1.79e-06 V                  ; 2.38 V             ; -0.0389 V          ; 0.145 V                             ; 0.139 V                             ; 4.54e-10 s                 ; 4.3e-10 s                  ; No                        ; Yes                       ;
 ; e                   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.79e-06 V                   ; 2.38 V              ; -0.041 V            ; 0.145 V                              ; 0.14 V                               ; 4.54e-10 s                  ; 4.3e-10 s                   ; No                         ; Yes                        ; 2.32 V                      ; 1.79e-06 V                  ; 2.38 V             ; -0.041 V           ; 0.145 V                             ; 0.14 V                              ; 4.54e-10 s                 ; 4.3e-10 s                  ; No                        ; Yes                       ;
+; accept              ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.79e-06 V                   ; 2.38 V              ; -0.0389 V           ; 0.145 V                              ; 0.139 V                              ; 4.54e-10 s                  ; 4.3e-10 s                   ; No                         ; Yes                        ; 2.32 V                      ; 1.79e-06 V                  ; 2.38 V             ; -0.0389 V          ; 0.145 V                             ; 0.139 V                             ; 4.54e-10 s                 ; 4.3e-10 s                  ; No                        ; Yes                       ;
 ; SHEX0[0]            ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.79e-06 V                   ; 2.38 V              ; -0.041 V            ; 0.145 V                              ; 0.14 V                               ; 4.54e-10 s                  ; 4.3e-10 s                   ; No                         ; Yes                        ; 2.32 V                      ; 1.79e-06 V                  ; 2.38 V             ; -0.041 V           ; 0.145 V                             ; 0.14 V                              ; 4.54e-10 s                 ; 4.3e-10 s                  ; No                        ; Yes                       ;
 ; SHEX0[1]            ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.79e-06 V                   ; 2.38 V              ; -0.0389 V           ; 0.145 V                              ; 0.139 V                              ; 4.54e-10 s                  ; 4.3e-10 s                   ; No                         ; Yes                        ; 2.32 V                      ; 1.79e-06 V                  ; 2.38 V             ; -0.0389 V          ; 0.145 V                             ; 0.139 V                             ; 4.54e-10 s                 ; 4.3e-10 s                  ; No                        ; Yes                       ;
 ; SHEX0[2]            ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.79e-06 V                   ; 2.38 V              ; -0.0389 V           ; 0.145 V                              ; 0.139 V                              ; 4.54e-10 s                  ; 4.3e-10 s                   ; No                         ; Yes                        ; 2.32 V                      ; 1.79e-06 V                  ; 2.38 V             ; -0.0389 V          ; 0.145 V                             ; 0.139 V                             ; 4.54e-10 s                 ; 4.3e-10 s                  ; No                        ; Yes                       ;
@@ -569,6 +575,7 @@ Worst Case Available Settling Time: 347.608 ns
 ; LCDDout[7]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.94e-08 V                   ; 2.78 V              ; -0.0444 V           ; 0.25 V                               ; 0.107 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.94e-08 V                  ; 2.78 V             ; -0.0444 V          ; 0.25 V                              ; 0.107 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
 ; LCDDout[8]          ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.78 V              ; -0.0452 V           ; 0.248 V                              ; 0.108 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.78 V             ; -0.0452 V          ; 0.248 V                             ; 0.108 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
 ; e                   ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.94e-08 V                   ; 2.78 V              ; -0.0444 V           ; 0.25 V                               ; 0.107 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.94e-08 V                  ; 2.78 V             ; -0.0444 V          ; 0.25 V                              ; 0.107 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
+; accept              ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.78 V              ; -0.0452 V           ; 0.248 V                              ; 0.108 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.78 V             ; -0.0452 V          ; 0.248 V                             ; 0.108 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
 ; SHEX0[0]            ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.94e-08 V                   ; 2.78 V              ; -0.0444 V           ; 0.25 V                               ; 0.107 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.94e-08 V                  ; 2.78 V             ; -0.0444 V          ; 0.25 V                              ; 0.107 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
 ; SHEX0[1]            ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.78 V              ; -0.0452 V           ; 0.248 V                              ; 0.108 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.78 V             ; -0.0452 V          ; 0.248 V                             ; 0.108 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
 ; SHEX0[2]            ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.78 V              ; -0.0452 V           ; 0.248 V                              ; 0.108 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.78 V             ; -0.0452 V          ; 0.248 V                             ; 0.108 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
@@ -679,11 +686,11 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; Property                        ; Setup ; Hold ;
 +---------------------------------+-------+------+
 ; Illegal Clocks                  ; 0     ; 0    ;
-; Unconstrained Clocks            ; 5     ; 5    ;
-; Unconstrained Input Ports       ; 7     ; 7    ;
-; Unconstrained Input Port Paths  ; 110   ; 110  ;
-; Unconstrained Output Ports      ; 56    ; 56   ;
-; Unconstrained Output Port Paths ; 227   ; 227  ;
+; Unconstrained Clocks            ; 4     ; 4    ;
+; Unconstrained Input Ports       ; 9     ; 9    ;
+; Unconstrained Input Port Paths  ; 77    ; 77   ;
+; Unconstrained Output Ports      ; 57    ; 57   ;
+; Unconstrained Output Port Paths ; 229   ; 229  ;
 +---------------------------------+-------+------+
 
 
@@ -692,10 +699,9 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+------+---------------+
 ; Target                                                                                                                                                                                                                                                                                                                         ; Clock               ; Type ; Status        ;
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+------+---------------+
-; Keyboard_Reader:U0|OutputBuffer:U2|BufferControl:U0|CurrentState.STATE_RECEIVING                                                                                                                                                                                                                                               ;                     ; Base ; Unconstrained ;
-; Keyboard_Reader:U0|RingBuffer:U1|MemoryAddressControl:U1|CounterLimit:U3|Count[0]                                                                                                                                                                                                                                              ;                     ; Base ; Unconstrained ;
+; Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|CLKDIV:U3|tmp                                                                                                                                                                                                                                                                     ;                     ; Base ; Unconstrained ;
 ; Mclk                                                                                                                                                                                                                                                                                                                           ;                     ; Base ; Unconstrained ;
-; SerialScoreController:U3|ScoreDispatcher:U1|CurrentState.STATE_WAITING                                                                                                                                                                                                                                                         ;                     ; Base ; Unconstrained ;
+; SerialScoreController:U3|ScoreDispatcher:U1|CurrentState.state_bit_0                                                                                                                                                                                                                                                           ;                     ; Base ; Unconstrained ;
 ; altera_reserved_tck                                                                                                                                                                                                                                                                                                            ; altera_reserved_tck ; Base ; Constrained   ;
 ; sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][4] ;                     ; Base ; Unconstrained ;
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+------+---------------+
@@ -706,10 +712,12 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +---------------------+--------------------------------------------------------------------------------------+
 ; Input Port          ; Comment                                                                              ;
 +---------------------+--------------------------------------------------------------------------------------+
+; Coin                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; Lines[0]            ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; Lines[1]            ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; Lines[2]            ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; Lines[3]            ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; M                   ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; altera_reserved_tdi ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; altera_reserved_tms ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; reset               ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
@@ -775,6 +783,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; SHEX5[4]            ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; SHEX5[5]            ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; SHEX5[6]            ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; accept              ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; altera_reserved_tdo ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; e                   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +---------------------+---------------------------------------------------------------------------------------+
@@ -785,10 +794,12 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +---------------------+--------------------------------------------------------------------------------------+
 ; Input Port          ; Comment                                                                              ;
 +---------------------+--------------------------------------------------------------------------------------+
+; Coin                ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; Lines[0]            ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; Lines[1]            ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; Lines[2]            ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; Lines[3]            ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; M                   ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; altera_reserved_tdi ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; altera_reserved_tms ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; reset               ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
@@ -854,6 +865,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; SHEX5[4]            ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; SHEX5[5]            ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; SHEX5[6]            ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; accept              ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; altera_reserved_tdo ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; e                   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +---------------------+---------------------------------------------------------------------------------------+
@@ -865,29 +877,26 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Fri Jun 28 18:44:49 2024
+    Info: Processing started: Mon Jul 01 19:16:54 2024
 Info: Command: quartus_sta SpaceInvaders -c SpaceInvaders
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
-Warning (335093): The Timing Analyzer is analyzing 32 combinational loops as latches. For more details, run the Check Timing command in the Timing Analyzer or view the "User-Specified and Inferred Latches" table in the Analysis & Synthesis report.
 Info (332164): Evaluating HDL-embedded SDC commands
     Info (332165): Entity sld_hub
         Info (332166): create_clock -name altera_reserved_tck [get_ports {altera_reserved_tck}] -period 10MHz   
         Info (332166): set_clock_groups -asynchronous -group {altera_reserved_tck}
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'SpaceInvaders.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Warning (332060): Node: Mclk was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register Keyboard_Reader:U0|RingBuffer:U1|MemoryAddressControl:U1|CounterLimit:U3|Count[0] is being clocked by Mclk
-Warning (332060): Node: Keyboard_Reader:U0|OutputBuffer:U2|BufferControl:U0|CurrentState.STATE_RECEIVING was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register Keyboard_Reader:U0|OutputBuffer:U2|OutputRegister:U1|D_X[1] is being clocked by Keyboard_Reader:U0|OutputBuffer:U2|BufferControl:U0|CurrentState.STATE_RECEIVING
-Warning (332060): Node: Keyboard_Reader:U0|RingBuffer:U1|MemoryAddressControl:U1|CounterLimit:U3|Count[0] was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Latch Keyboard_Reader:U0|RingBuffer:U1|RAM:U2|ram~13 is being clocked by Keyboard_Reader:U0|RingBuffer:U1|MemoryAddressControl:U1|CounterLimit:U3|Count[0]
+    Info (13166): Register Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|CLKDIV:U3|count[0] is being clocked by Mclk
+Warning (332060): Node: Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|CLKDIV:U3|tmp was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|Counter_KeyScan:U2|REG:U3|FFD:U3|Q is being clocked by Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|CLKDIV:U3|tmp
 Warning (332060): Node: sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][4] was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register SLCDCvhd:U2|SerialReceiver:U0|ShiftRegister:U3|FFD:Sc8|Q is being clocked by sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][4]
-Warning (332060): Node: SerialScoreController:U3|ScoreDispatcher:U1|CurrentState.STATE_WAITING was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register scoreDisplay:U4|reg_4bit:\circuit_gen:0:out_reg|FFD:u3|Q is being clocked by SerialScoreController:U3|ScoreDispatcher:U1|CurrentState.STATE_WAITING
+Warning (332060): Node: SerialScoreController:U3|ScoreDispatcher:U1|CurrentState.state_bit_0 was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register scoreDisplay:U4|reg_4bit:\circuit_gen:0:out_reg|FFD:u3|Q is being clocked by SerialScoreController:U3|ScoreDispatcher:U1|CurrentState.state_bit_0
 Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
     Info (332098): Cell: altera_internal_jtag  from: tck  to: tckutap
 Critical Warning (332168): The following clock transfers have no clock uncertainty assignment. For more accurate results, apply clock uncertainty assignments or use the derive_clock_uncertainty command.
@@ -896,127 +905,123 @@ Critical Warning (332168): The following clock transfers have no clock uncertain
 Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1200mV 85C Model
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
-Info (332146): Worst-case setup slack is 46.750
+Info (332146): Worst-case setup slack is 46.332
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    46.750               0.000 altera_reserved_tck 
+    Info (332119):    46.332               0.000 altera_reserved_tck 
 Info (332146): Worst-case hold slack is 0.323
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):     0.323               0.000 altera_reserved_tck 
-Info (332146): Worst-case recovery slack is 95.945
+Info (332146): Worst-case recovery slack is 96.418
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    95.945               0.000 altera_reserved_tck 
-Info (332146): Worst-case removal slack is 0.871
+    Info (332119):    96.418               0.000 altera_reserved_tck 
+Info (332146): Worst-case removal slack is 0.853
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.871               0.000 altera_reserved_tck 
-Info (332146): Worst-case minimum pulse width slack is 49.576
+    Info (332119):     0.853               0.000 altera_reserved_tck 
+Info (332146): Worst-case minimum pulse width slack is 49.578
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    49.576               0.000 altera_reserved_tck 
+    Info (332119):    49.578               0.000 altera_reserved_tck 
 Info (332114): Report Metastability: Found 1 synchronizer chains.
     Info (332114): The design MTBF is not calculated because there are no specified synchronizers in the design.
     Info (332114): Number of Synchronizer Chains Found: 1
     Info (332114): Shortest Synchronizer Chain: 5 Registers
     Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-    Info (332114): Worst Case Available Settling Time: 344.285 ns
+    Info (332114): Worst Case Available Settling Time: 344.135 ns
     Info (332114): 
 Info: Analyzing Slow 1200mV 0C Model
 Info (334003): Started post-fitting delay annotation
 Warning (334000): Timing characteristics of device 10M50DAF484C6GES are preliminary
 Info (334004): Delay annotation completed successfully
 Warning (332060): Node: Mclk was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register Keyboard_Reader:U0|RingBuffer:U1|MemoryAddressControl:U1|CounterLimit:U3|Count[0] is being clocked by Mclk
-Warning (332060): Node: Keyboard_Reader:U0|OutputBuffer:U2|BufferControl:U0|CurrentState.STATE_RECEIVING was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register Keyboard_Reader:U0|OutputBuffer:U2|OutputRegister:U1|D_X[1] is being clocked by Keyboard_Reader:U0|OutputBuffer:U2|BufferControl:U0|CurrentState.STATE_RECEIVING
-Warning (332060): Node: Keyboard_Reader:U0|RingBuffer:U1|MemoryAddressControl:U1|CounterLimit:U3|Count[0] was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Latch Keyboard_Reader:U0|RingBuffer:U1|RAM:U2|ram~13 is being clocked by Keyboard_Reader:U0|RingBuffer:U1|MemoryAddressControl:U1|CounterLimit:U3|Count[0]
+    Info (13166): Register Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|CLKDIV:U3|count[0] is being clocked by Mclk
+Warning (332060): Node: Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|CLKDIV:U3|tmp was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|Counter_KeyScan:U2|REG:U3|FFD:U3|Q is being clocked by Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|CLKDIV:U3|tmp
 Warning (332060): Node: sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][4] was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register SLCDCvhd:U2|SerialReceiver:U0|ShiftRegister:U3|FFD:Sc8|Q is being clocked by sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][4]
-Warning (332060): Node: SerialScoreController:U3|ScoreDispatcher:U1|CurrentState.STATE_WAITING was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register scoreDisplay:U4|reg_4bit:\circuit_gen:0:out_reg|FFD:u3|Q is being clocked by SerialScoreController:U3|ScoreDispatcher:U1|CurrentState.STATE_WAITING
+Warning (332060): Node: SerialScoreController:U3|ScoreDispatcher:U1|CurrentState.state_bit_0 was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register scoreDisplay:U4|reg_4bit:\circuit_gen:0:out_reg|FFD:u3|Q is being clocked by SerialScoreController:U3|ScoreDispatcher:U1|CurrentState.state_bit_0
 Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
     Info (332098): Cell: altera_internal_jtag  from: tck  to: tckutap
 Critical Warning (332168): The following clock transfers have no clock uncertainty assignment. For more accurate results, apply clock uncertainty assignments or use the derive_clock_uncertainty command.
     Critical Warning (332169): From altera_reserved_tck (Rise) to altera_reserved_tck (Rise) (setup and hold)
     Critical Warning (332169): From altera_reserved_tck (Rise) to altera_reserved_tck (Fall) (setup and hold)
-Info (332146): Worst-case setup slack is 47.055
+Info (332146): Worst-case setup slack is 46.688
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    47.055               0.000 altera_reserved_tck 
+    Info (332119):    46.688               0.000 altera_reserved_tck 
 Info (332146): Worst-case hold slack is 0.293
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):     0.293               0.000 altera_reserved_tck 
-Info (332146): Worst-case recovery slack is 96.330
+Info (332146): Worst-case recovery slack is 96.754
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    96.330               0.000 altera_reserved_tck 
-Info (332146): Worst-case removal slack is 0.800
+    Info (332119):    96.754               0.000 altera_reserved_tck 
+Info (332146): Worst-case removal slack is 0.783
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.800               0.000 altera_reserved_tck 
-Info (332146): Worst-case minimum pulse width slack is 49.600
+    Info (332119):     0.783               0.000 altera_reserved_tck 
+Info (332146): Worst-case minimum pulse width slack is 49.602
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    49.600               0.000 altera_reserved_tck 
+    Info (332119):    49.602               0.000 altera_reserved_tck 
 Info (332114): Report Metastability: Found 1 synchronizer chains.
     Info (332114): The design MTBF is not calculated because there are no specified synchronizers in the design.
     Info (332114): Number of Synchronizer Chains Found: 1
     Info (332114): Shortest Synchronizer Chain: 5 Registers
     Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-    Info (332114): Worst Case Available Settling Time: 344.794 ns
+    Info (332114): Worst Case Available Settling Time: 344.667 ns
     Info (332114): 
 Info: Analyzing Fast 1200mV 0C Model
 Warning (332060): Node: Mclk was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register Keyboard_Reader:U0|RingBuffer:U1|MemoryAddressControl:U1|CounterLimit:U3|Count[0] is being clocked by Mclk
-Warning (332060): Node: Keyboard_Reader:U0|OutputBuffer:U2|BufferControl:U0|CurrentState.STATE_RECEIVING was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register Keyboard_Reader:U0|OutputBuffer:U2|OutputRegister:U1|D_X[1] is being clocked by Keyboard_Reader:U0|OutputBuffer:U2|BufferControl:U0|CurrentState.STATE_RECEIVING
-Warning (332060): Node: Keyboard_Reader:U0|RingBuffer:U1|MemoryAddressControl:U1|CounterLimit:U3|Count[0] was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Latch Keyboard_Reader:U0|RingBuffer:U1|RAM:U2|ram~13 is being clocked by Keyboard_Reader:U0|RingBuffer:U1|MemoryAddressControl:U1|CounterLimit:U3|Count[0]
+    Info (13166): Register Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|CLKDIV:U3|count[0] is being clocked by Mclk
+Warning (332060): Node: Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|CLKDIV:U3|tmp was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|Counter_KeyScan:U2|REG:U3|FFD:U3|Q is being clocked by Keyboard_Reader:U0|Key_Decode:U0|Key_Scan:U0|CLKDIV:U3|tmp
 Warning (332060): Node: sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][4] was determined to be a clock but was found without an associated clock assignment.
     Info (13166): Register SLCDCvhd:U2|SerialReceiver:U0|ShiftRegister:U3|FFD:Sc8|Q is being clocked by sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|irf_reg[1][4]
-Warning (332060): Node: SerialScoreController:U3|ScoreDispatcher:U1|CurrentState.STATE_WAITING was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register scoreDisplay:U4|reg_4bit:\circuit_gen:0:out_reg|FFD:u3|Q is being clocked by SerialScoreController:U3|ScoreDispatcher:U1|CurrentState.STATE_WAITING
+Warning (332060): Node: SerialScoreController:U3|ScoreDispatcher:U1|CurrentState.state_bit_0 was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register scoreDisplay:U4|reg_4bit:\circuit_gen:0:out_reg|FFD:u3|Q is being clocked by SerialScoreController:U3|ScoreDispatcher:U1|CurrentState.state_bit_0
 Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
     Info (332098): Cell: altera_internal_jtag  from: tck  to: tckutap
 Critical Warning (332168): The following clock transfers have no clock uncertainty assignment. For more accurate results, apply clock uncertainty assignments or use the derive_clock_uncertainty command.
     Critical Warning (332169): From altera_reserved_tck (Rise) to altera_reserved_tck (Rise) (setup and hold)
     Critical Warning (332169): From altera_reserved_tck (Rise) to altera_reserved_tck (Fall) (setup and hold)
-Info (332146): Worst-case setup slack is 48.678
+Info (332146): Worst-case setup slack is 48.481
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    48.678               0.000 altera_reserved_tck 
+    Info (332119):    48.481               0.000 altera_reserved_tck 
 Info (332146): Worst-case hold slack is 0.147
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):     0.147               0.000 altera_reserved_tck 
-Info (332146): Worst-case recovery slack is 97.840
+Info (332146): Worst-case recovery slack is 98.111
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    97.840               0.000 altera_reserved_tck 
-Info (332146): Worst-case removal slack is 0.413
+    Info (332119):    98.111               0.000 altera_reserved_tck 
+Info (332146): Worst-case removal slack is 0.403
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.413               0.000 altera_reserved_tck 
-Info (332146): Worst-case minimum pulse width slack is 49.425
+    Info (332119):     0.403               0.000 altera_reserved_tck 
+Info (332146): Worst-case minimum pulse width slack is 49.421
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    49.425               0.000 altera_reserved_tck 
+    Info (332119):    49.421               0.000 altera_reserved_tck 
 Info (332114): Report Metastability: Found 1 synchronizer chains.
     Info (332114): The design MTBF is not calculated because there are no specified synchronizers in the design.
     Info (332114): Number of Synchronizer Chains Found: 1
     Info (332114): Shortest Synchronizer Chain: 5 Registers
     Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-    Info (332114): Worst Case Available Settling Time: 347.608 ns
+    Info (332114): Worst Case Available Settling Time: 347.512 ns
     Info (332114): 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
-Info: Quartus Prime Timing Analyzer was successful. 0 errors, 28 warnings
-    Info: Peak virtual memory: 4832 megabytes
-    Info: Processing ended: Fri Jun 28 18:44:51 2024
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 24 warnings
+    Info: Peak virtual memory: 4826 megabytes
+    Info: Processing ended: Mon Jul 01 19:16:56 2024
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 

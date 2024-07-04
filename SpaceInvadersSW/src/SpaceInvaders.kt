@@ -3,7 +3,7 @@ import kotlin.random.Random
 
 object SpaceInvaders {
     const val MAX_ALIENS_ON_SCREEN = 3
-    const val ALIEN_MOVE_DELAY = 800L
+    const val ALIEN_MOVE_DELAY = 1200L
     private const val NONE = 0
 
     var aliensKilled = 0
@@ -14,6 +14,7 @@ object SpaceInvaders {
 
     fun init() {
         TUI.init()
+        ScoreDisplay.init()
         //clearStatisticsFile()
     }
 
@@ -48,22 +49,61 @@ object SpaceInvaders {
         Thread.sleep(5)
     }
 
+    fun showInitialScreenM() {
+        TUI.write("Maintenance", 0, TUI.Location.CENTER)
+        TUI.write("5-Off | #-Stats", 1, TUI.Location.CENTER)
+        /*val spaceship = intArrayOf(
+            0x1E, 0x18, 0x1C, 0x1F, 0x1C, 0x18, 0x1E, 0x00
+        )
+        val effects = intArrayOf(
+            0x1F,
+            0x1F,
+            0x15,
+            0x1F,
+            0x1F,
+            0x11,
+            0x11,
+            0x00
+        )
+
+        LCD.cursor(1, 1)
+        LCD.write("Game")
+        LCD.createChar(0, spaceship)
+        LCD.createChar(3, effects)
+        LCD.cursor(1, 6)
+        LCD.writeDATA(0x00)
+        LCD.cursor(1, 9)
+        LCD.writeDATA(0x03)
+        LCD.cursor(1, 11)
+        LCD.writeDATA(0x03)
+        LCD.cursor(1,14)
+        LCD.write("M")
+        Thread.sleep(5)*/
+    }
+
+    fun resetScores() {
+        aliensKilled = 0
+        ScoreDisplay.setScore(aliensKilled)
+    }
+
     fun startUp() {
         aliensKilled = 0
         ScoreDisplay.setScore(aliensKilled)
+        TUI.clear()
         showInitialScreen()
-
+        var startTime: Long
         // Main menu loop
-        while (true) {
-            var startTime = System.currentTimeMillis()
+            startTime = System.currentTimeMillis()
             while (true) {
+                showInitialScreen()
                 val key = KBD.getKey()
                 if (TUI.acceptCoin()) {
-                    coins++
+                    println("Coin Accepted")
+                    coins += 2
                     totalCoins++
                     updateCoinsDisplay()
                 }
-                if ((System.currentTimeMillis() - startTime).toInt() == 10000) {
+                if ((System.currentTimeMillis() - startTime).toInt() >= 10000 && !HAL.isBit(M_MASK)) {
                     Statistics.showStatistics("Highscores", "SIG_scores.txt")
                     startTime = System.currentTimeMillis()
                 }
@@ -73,35 +113,46 @@ object SpaceInvaders {
                         Thread.sleep(500)
                         startGame()
                         TUI.clear()
-                        startUp()
+                        resetScores()
+                        showInitialScreen()
                     }
                 }
                 if (HAL.isBit(M_MASK)) {
-                    var startTime1 = System.currentTimeMillis()
-                    while (true) {
+                    TUI.clear()
+                    showInitialScreenM()
+                }
+                while (HAL.isBit(M_MASK)) {
                         var key = KBD.getKey()
 
-                        if ((System.currentTimeMillis() - startTime1).toInt() == 5000) {
+                        if (key == '1') {
                             TUI.clear()
                             Thread.sleep(500)
                             startGame()
                             TUI.clear()
-                            startUp()
-                            startTime1 = System.currentTimeMillis()
+                            showInitialScreenM()
                         }
 
                         if (key == '5') {
-                            M.turnOff()
+                            TUI.clear()
+                            TUI.write("Are you sure?", 0, TUI.Location.CENTER)
+                            TUI.write("5-Yes  Other-no", 1, TUI.Location.CENTER)
+                            key = KBD.waitKey(10000)
+                                if (key == '5') {
+                                    M.turnOff()
+                                    return
+                                } else {
+                                    TUI.clear()
+                                    showInitialScreenM()
+                                }
                         }
 
                         if (key == '#') {
-                            val resetStartTime = System.currentTimeMillis()
-                            while ((System.currentTimeMillis() - resetStartTime) < 3000) {
-                                key = KBD.getKey()
-                                if (key == '*') break
-                            }
-
-                            if (key == '*') { // Reset game statistics
+                            Statistics.showGameStatistics()
+                            key = KBD.waitKey(20000)
+                            if (key == '0') {
+                                TUI.clear()
+                                showInitialScreenM()
+                            } else if (key == '*') { // Reset game statistics
                                 Statistics.resetStatisticsFile()
                                 totalCoins = 0
                                 gameCount = 0
@@ -110,19 +161,19 @@ object SpaceInvaders {
                                 TUI.write("Statistics", 1, TUI.Location.CENTER)
                                 Thread.sleep(3000)
                                 TUI.clear()
-                                showInitialScreen()
-                            } else // Show game statistics
-                                Statistics.showGameStatistics()
+                                showInitialScreenM()
+                            }
                         }
-                    }
                 }
             }
-        }
+
     }
 
     fun startGame() {
-        coins--
-        gameCount++
+        if (!HAL.isBit(M_MASK)) {
+            coins--
+            gameCount++
+        }
         aliensKilled = 0 // Reset score for new game
 
         var gameOver = false
@@ -178,12 +229,13 @@ object SpaceInvaders {
                     Thread.sleep(700)
                     TUI.clear()
                     println("Game Over reached") // Log for debugging
+                    if (HAL.isBit(M_MASK)) return
                     if (Statistics.isHighscore(aliensKilled)) {
                         println("Entered player name") // Log for debugging
                         Statistics.enterPlayerName()
                         Statistics.saveScoreToFileOrdered()
-                        Statistics.saveGameStatistics()
                     }
+                    Statistics.saveGameStatistics()
                     TUI.clear()
                     break
 
@@ -195,12 +247,6 @@ object SpaceInvaders {
             }
 
             activeAliens.removeAll(aliensToRemove)
-
-            if (foundClosestAlien) {
-                TUI.write(closestAlienNumber.toString(), spaceshipY, TUI.Location.LEFT)
-            } else {
-                TUI.write(" ", spaceshipY, TUI.Location.LEFT)
-            }
 
             val key = KBD.getKey()
             if (key == '*') {
@@ -215,30 +261,22 @@ object SpaceInvaders {
                 LCD.writeDATA(0x00)
             } else if (key != NONE.toChar()) {
                 if (key.isDigit()) {
+                    TUI.write(key.toString(), spaceshipY, TUI.Location.LEFT)
                     alienNumberToKill = key.toString().toInt()
                 } else if (key == '#' && alienNumberToKill != null) {
-                    val alienToKill = activeAliens.find { it.third == alienNumberToKill && it.second == spaceshipY }
-                    if (alienToKill != null) {
-                        LCD.cursor(alienToKill.second, alienToKill.first)
-                        LCD.write(" ")
-                        aliensKilled++
-                        activeAliens.remove(alienToKill)
-
-                        if (alienToKill.first == closestAlienX && alienToKill.second == spaceshipY) {
-                            closestAlienX = Int.MAX_VALUE
-                            closestAlienNumber = NONE
-                            for (alien in activeAliens) {
-                                if (alien.first < closestAlienX && alien.second == spaceshipY) {
-                                    closestAlienX = alien.first
-                                    closestAlienNumber = alien.third
-                                }
-                            }
-                            TUI.write(closestAlienNumber.toString(), spaceshipY, TUI.Location.LEFT)
+                    val iterator = activeAliens.iterator()
+                    while (iterator.hasNext()) {
+                        val alien = iterator.next()
+                        if (alien.third == alienNumberToKill && alien.second == spaceshipY && closestAlienX == alien.first) { //Kill
+                            LCD.cursor(alien.second, alien.first)
+                            LCD.write(" ")
+                            aliensKilled++
+                            ScoreDisplay.setScore(aliensKilled)
+                            iterator.remove()
+                            break // Exit after kill
                         }
-
-                        ScoreDisplay.setScore(aliensKilled)
                     }
-                    alienNumberToKill = null
+                    alienNumberToKill = null //Reset alienNumberToKill
                 }
             }
 
@@ -256,9 +294,6 @@ object SpaceInvaders {
 }
 
 fun main() {
-
-
-
     SpaceInvaders.init()
     SpaceInvaders.startUp()
 }

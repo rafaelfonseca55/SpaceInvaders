@@ -1,5 +1,5 @@
 Flow report for SpaceInvaders
-Fri Jun 28 18:44:53 2024
+Mon Jul 01 19:16:58 2024
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -41,18 +41,18 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Fri Jun 28 18:44:53 2024       ;
+; Flow Status                        ; Successful - Mon Jul 01 19:16:58 2024       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; SpaceInvaders                               ;
 ; Top-level Entity Name              ; SpaceInvaders                               ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M50DAF484C6GES                            ;
 ; Timing Models                      ; Preliminary                                 ;
-; Total logic elements               ; 428 / 49,760 ( < 1 % )                      ;
-;     Total combinational functions  ; 386 / 49,760 ( < 1 % )                      ;
-;     Dedicated logic registers      ; 206 / 49,760 ( < 1 % )                      ;
-; Total registers                    ; 206                                         ;
-; Total pins                         ; 69 / 360 ( 19 % )                           ;
+; Total logic elements               ; 371 / 49,760 ( < 1 % )                      ;
+;     Total combinational functions  ; 339 / 49,760 ( < 1 % )                      ;
+;     Dedicated logic registers      ; 208 / 49,760 ( < 1 % )                      ;
+; Total registers                    ; 208                                         ;
+; Total pins                         ; 72 / 360 ( 20 % )                           ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 1,677,312 ( 0 % )                       ;
 ; Embedded Multiplier 9-bit elements ; 0 / 288 ( 0 % )                             ;
@@ -67,7 +67,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/28/2024 18:44:19 ;
+; Start date & time ; 07/01/2024 19:16:23 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; SpaceInvaders       ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                      ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +--------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID                ; 92966081917446.171959665911980         ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID                ; 92966081917446.171985778216020         ; --            ; --          ; --                                ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; Key_Decode_tb                     ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; KeyControl_tb                     ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; Key_Scan_tb                       ;
@@ -109,6 +109,8 @@ https://fpgasoftware.intel.com/eula.
 ; POWER_BOARD_THERMAL_MODEL            ; None (CONSERVATIVE)                    ; --            ; --          ; --                                ;
 ; POWER_PRESET_COOLING_SOLUTION        ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --                                ;
 ; PROJECT_OUTPUT_DIRECTORY             ; output_files                           ; --            ; --          ; --                                ;
+; SAFE_STATE_MACHINE                   ; On                                     ; Off           ; --          ; --                                ;
+; STATE_MACHINE_PROCESSING             ; Gray                                   ; Auto          ; --          ; --                                ;
 +--------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 
 
@@ -117,12 +119,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:17     ; 1.0                     ; 4799 MB             ; 00:00:20                           ;
-; Fitter               ; 00:00:07     ; 1.1                     ; 5654 MB             ; 00:00:06                           ;
-; Assembler            ; 00:00:03     ; 1.0                     ; 4693 MB             ; 00:00:02                           ;
-; Timing Analyzer      ; 00:00:02     ; 1.2                     ; 4832 MB             ; 00:00:02                           ;
+; Analysis & Synthesis ; 00:00:18     ; 1.0                     ; 4794 MB             ; 00:00:21                           ;
+; Fitter               ; 00:00:07     ; 1.1                     ; 5653 MB             ; 00:00:06                           ;
+; Assembler            ; 00:00:03     ; 1.0                     ; 4692 MB             ; 00:00:03                           ;
+; Timing Analyzer      ; 00:00:02     ; 1.2                     ; 4826 MB             ; 00:00:02                           ;
 ; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4648 MB             ; 00:00:01                           ;
-; Total                ; 00:00:30     ; --                      ; --                  ; 00:00:31                           ;
+; Total                ; 00:00:31     ; --                      ; --                  ; 00:00:33                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

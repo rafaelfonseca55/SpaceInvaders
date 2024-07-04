@@ -6,11 +6,14 @@ entity SpaceInvaders is
 	 Mclk : in std_logic;
     reset : in std_logic;
     ack : in std_logic;
+	 Coin : in std_logic;
+	 M : in std_logic;
     Lines : in std_logic_vector(3 downTo 0);
     Columns : out std_logic_vector(2 downTo 0);
     Dval : out std_logic;
 	 LCDDout : out std_logic_vector(8 downTo 0);
 	 e : out std_logic;
+	 accept : out std_logic;
 	 SHEX0	: out std_logic_vector(7 downto 0);
 	 SHEX1	: out std_logic_vector(7 downto 0);
 	 SHEX2	: out std_logic_vector(7 downto 0);
@@ -112,6 +115,8 @@ begin
     U1: UsbPort port map(
 		inputPort(3 downTo 0) => d_signal, 
 		inputPort(4) => Dval_signal,
+		inputPort(6) => coin,
+		inputPort(7) => M,
 		outputPort => outputPort_signal);
 		
 	 U2: SLCDCvhd port map(
@@ -149,5 +154,7 @@ begin
 	 LCDDout <= outputLCD;
     
     ack_signal <= outputPort_signal(7);
-
+	 
+	 accept <= outputPort_signal(6); 
+	 
 end Structure;

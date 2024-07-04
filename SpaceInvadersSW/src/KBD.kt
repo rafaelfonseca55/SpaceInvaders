@@ -17,8 +17,10 @@ object KBD { // Ler teclas. Métodos retornam ‘0’..’9’,’#’,’*’ o
             return NONE.toChar()
         }
         val key = HAL.readBits(I0_3_MASK)
+
         while (HAL.isBit(DVAL_MASK)) { HAL.setBits(ACK_MASK) }
         HAL.clearBits(ACK_MASK)
+        println("Key pressed: ${arrayTeclas[key]}")
         return arrayTeclas[key]
     }
 

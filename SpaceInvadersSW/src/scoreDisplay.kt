@@ -1,3 +1,5 @@
+import isel.leic.utils.Time
+
 object ScoreDisplay {
 
     private const val CMD_UPDATE_DIGIT_0 = 0b000
@@ -13,6 +15,8 @@ object ScoreDisplay {
 
     fun init() {
         SerialEmitter.init()
+        off(true)
+        setScore(0)
     }
 
     fun setScore(value: Int) {
@@ -65,5 +69,11 @@ object ScoreDisplay {
 fun main() {
     ScoreDisplay.init()
     ScoreDisplay.off(true) // Turn on the display
-    ScoreDisplay.setScore(141311) // Set the score to display all 1s from D0 to D5
+    //ScoreDisplay.setScore(141311) // Set the score to display all 1s from D0 to D5
+    var i = 0
+    while (true) {
+        ScoreDisplay.setScore(i)
+        i++
+        Time.sleep(50)
+    }
 }

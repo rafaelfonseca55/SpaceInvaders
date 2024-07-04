@@ -12,23 +12,375 @@
 # 
 # vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/scoreDisplay.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:45:02 on Jun 28,2024
+# Start time: 12:41:44 on Jul 01,2024
 # vcom -reportprogress 300 -93 -work work C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/scoreDisplay.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity scoreDisplay
 # -- Compiling architecture structural of scoreDisplay
-# End time: 18:45:02 on Jun 28,2024, Elapsed time: 0:00:00
+# End time: 12:41:44 on Jul 01,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/reg_4bit.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 18:45:02 on Jun 28,2024
+# Start time: 12:41:44 on Jul 01,2024
 # vcom -reportprogress 300 -93 -work work C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/reg_4bit.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity reg_4bit
 # -- Compiling architecture reg_4bit_arch of reg_4bit
-# End time: 18:45:02 on Jun 28,2024, Elapsed time: 0:00:00
+# End time: 12:41:44 on Jul 01,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/dec_3_8.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 12:41:44 on Jul 01,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/dec_3_8.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity dec_3_8
+# -- Compiling architecture structural of dec_3_8
+# End time: 12:41:44 on Jul 01,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/dec2hex.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 12:41:44 on Jul 01,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/dec2hex.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity dec2hex
+# -- Compiling architecture structural of dec2hex
+# End time: 12:41:44 on Jul 01,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/ShiftRegister.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 12:41:44 on Jul 01,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/ShiftRegister.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ShiftRegister
+# -- Compiling architecture logicFunction of ShiftRegister
+# End time: 12:41:44 on Jul 01,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/SerialControl.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 12:41:44 on Jul 01,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/SerialControl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity SERIALCONTROL
+# -- Compiling architecture behavioral of SERIALCONTROL
+# End time: 12:41:44 on Jul 01,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/RingBufferMux.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 12:41:44 on Jul 01,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/RingBufferMux.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity RingBufferMux
+# -- Compiling architecture structural of RingBufferMux
+# End time: 12:41:45 on Jul 01,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/RingBufferControl.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 12:41:45 on Jul 01,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/RingBufferControl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity RingBufferControl
+# -- Compiling architecture behavioral of RingBufferControl
+# End time: 12:41:45 on Jul 01,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/RingBuffer.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 12:41:45 on Jul 01,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/RingBuffer.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity RingBuffer
+# -- Compiling architecture structural of RingBuffer
+# End time: 12:41:45 on Jul 01,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/RAM.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 12:41:45 on Jul 01,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/RAM.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity RAM
+# -- Compiling architecture behavioral of RAM
+# End time: 12:41:45 on Jul 01,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/MemoryAddressControl.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 12:41:45 on Jul 01,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/MemoryAddressControl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity MemoryAddressControl
+# -- Compiling architecture structural of MemoryAddressControl
+# End time: 12:41:45 on Jul 01,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/CounterBuffer.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 12:41:45 on Jul 01,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/CounterBuffer.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity CounterBuffer
+# -- Compiling architecture behavioral of CounterBuffer
+# End time: 12:41:45 on Jul 01,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/OutputRegister.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 12:41:45 on Jul 01,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/OutputRegister.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity OutputRegister
+# -- Compiling architecture behavioral of OutputRegister
+# End time: 12:41:45 on Jul 01,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/OutputBuffer.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 12:41:45 on Jul 01,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/OutputBuffer.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity OutputBuffer
+# -- Compiling architecture structural of OutputBuffer
+# End time: 12:41:45 on Jul 01,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/BufferControl.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 12:41:45 on Jul 01,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/BufferControl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity BufferControl
+# -- Compiling architecture behavioral of BufferControl
+# End time: 12:41:45 on Jul 01,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/UsbPort.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 12:41:45 on Jul 01,2024
+# vcom -reportprogress 300 -93 -work work C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/UsbPort.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity UsbPort
+# -- Compiling architecture bdf_type of UsbPort
+# ** Error: C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/UsbPort.vhd(90): (vcom-1035) Formal port "tdo" has OPEN or no actual associated with it.
+# ** Note: C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/UsbPort.vhd(92): VHDL Compiler exiting
+# End time: 12:41:46 on Jul 01,2024, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
+# ** Error: C:/quartusprime/modelsim_ase/win32aloem/vcom failed.
+# Error in macro ./SpaceInvaders_run_msim_rtl_vhdl.do line 23
+# C:/quartusprime/modelsim_ase/win32aloem/vcom failed.
+#     while executing
+# "vcom -93 -work work {C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/UsbPort.vhd}"
+vsim work.memoryaddresscontrol
+# vsim work.memoryaddresscontrol 
+# Start time: 12:42:00 on Jul 01,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.memoryaddresscontrol(structural)
+# Loading work.ringbuffermux(structural)
+# Loading ieee.numeric_std(body)
+# Loading work.counterbuffer(behavioral)
+# ** Warning: (vsim-3473) Component instance "U3 : CounterLimit" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /memoryaddresscontrol File: C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/MemoryAddressControl.vhd
+# ** Warning: (vsim-3473) Component instance "U4 : CounterLimit" is not bound.
+#    Time: 0 ps  Iteration: 0  Instance: /memoryaddresscontrol File: C:/Users/fonseca/Documents/GitHub/SpaceInvaders/SpaceInvadersHW/MemoryAddressControl.vhd
+add wave -position insertpoint  \
+sim:/memoryaddresscontrol/Clk \
+sim:/memoryaddresscontrol/PutNGet \
+sim:/memoryaddresscontrol/IncPut \
+sim:/memoryaddresscontrol/IncGet \
+sim:/memoryaddresscontrol/Reset \
+sim:/memoryaddresscontrol/D \
+sim:/memoryaddresscontrol/Full \
+sim:/memoryaddresscontrol/Empty \
+sim:/memoryaddresscontrol/O_Buffer_X \
+sim:/memoryaddresscontrol/O_Put_X \
+sim:/memoryaddresscontrol/O_Get_X \
+sim:/memoryaddresscontrol/O_Put_Dummy_X \
+sim:/memoryaddresscontrol/O_Get_Dummy_X \
+sim:/memoryaddresscontrol/Ce_X \
+sim:/memoryaddresscontrol/UpDown_X
+force -freeze sim:/memoryaddresscontrol/Clk 1 0, 0 {50 ps} -r 100
+force -freeze sim:/memoryaddresscontrol/PutNGet 1 0
+force -freeze sim:/memoryaddresscontrol/IncPut 1 0
+force -freeze sim:/memoryaddresscontrol/IncGet 0 0
+force -freeze sim:/memoryaddresscontrol/Reset 1 0
+run
+run
+run
+force -freeze sim:/memoryaddresscontrol/Reset 0 0
+run
+run
+run
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 700 ps  Iteration: 1  Instance: /memoryaddresscontrol/U1
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 800 ps  Iteration: 1  Instance: /memoryaddresscontrol/U1
+force -freeze sim:/memoryaddresscontrol/Reset 1 0
+run
+run
+force -freeze sim:/memoryaddresscontrol/O_Put_X 000 0
+run
+force -freeze sim:/memoryaddresscontrol/Reset 0 0
+run
+run
+run
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 1500 ps  Iteration: 1  Instance: /memoryaddresscontrol/U1
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 1600 ps  Iteration: 1  Instance: /memoryaddresscontrol/U1
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 1700 ps  Iteration: 1  Instance: /memoryaddresscontrol/U1
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 1800 ps  Iteration: 1  Instance: /memoryaddresscontrol/U1
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 1900 ps  Iteration: 1  Instance: /memoryaddresscontrol/U1
+force -freeze sim:/memoryaddresscontrol/O_Get_X 000 0
+force -freeze sim:/memoryaddresscontrol/Reset 1 0
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+force -freeze sim:/memoryaddresscontrol/Reset 0 0
+run
+run
+run
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 4 ns  Iteration: 1  Instance: /memoryaddresscontrol/U1
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 4100 ps  Iteration: 1  Instance: /memoryaddresscontrol/U1
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 4200 ps  Iteration: 1  Instance: /memoryaddresscontrol/U1
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 4300 ps  Iteration: 1  Instance: /memoryaddresscontrol/U1
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 4400 ps  Iteration: 1  Instance: /memoryaddresscontrol/U1
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 4500 ps  Iteration: 1  Instance: /memoryaddresscontrol/U1
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 4600 ps  Iteration: 1  Instance: /memoryaddresscontrol/U1
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 4700 ps  Iteration: 1  Instance: /memoryaddresscontrol/U1
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 4800 ps  Iteration: 1  Instance: /memoryaddresscontrol/U1
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 4900 ps  Iteration: 1  Instance: /memoryaddresscontrol/U1
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 5 ns  Iteration: 1  Instance: /memoryaddresscontrol/U1
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 5100 ps  Iteration: 1  Instance: /memoryaddresscontrol/U1
+force -freeze sim:/memoryaddresscontrol/IncPut 0 0
+force -freeze sim:/memoryaddresscontrol/IncGet 1 0
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 5200 ps  Iteration: 1  Instance: /memoryaddresscontrol/U1
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 5300 ps  Iteration: 1  Instance: /memoryaddresscontrol/U1
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 5400 ps  Iteration: 1  Instance: /memoryaddresscontrol/U1
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 5500 ps  Iteration: 1  Instance: /memoryaddresscontrol/U1
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 5600 ps  Iteration: 1  Instance: /memoryaddresscontrol/U1
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 5700 ps  Iteration: 1  Instance: /memoryaddresscontrol/U1
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 5800 ps  Iteration: 1  Instance: /memoryaddresscontrol/U1
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 5900 ps  Iteration: 1  Instance: /memoryaddresscontrol/U1
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 6 ns  Iteration: 1  Instance: /memoryaddresscontrol/U1
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 6100 ps  Iteration: 1  Instance: /memoryaddresscontrol/U1
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 6200 ps  Iteration: 1  Instance: /memoryaddresscontrol/U1
+force -freeze sim:/memoryaddresscontrol/PutNGet 0 0
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 7100 ps  Iteration: 1  Instance: /memoryaddresscontrol/U1
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 7200 ps  Iteration: 1  Instance: /memoryaddresscontrol/U1
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 7300 ps  Iteration: 1  Instance: /memoryaddresscontrol/U1
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 7400 ps  Iteration: 1  Instance: /memoryaddresscontrol/U1
+# End time: 12:53:42 on Jul 01,2024, Elapsed time: 0:11:42
+# Errors: 0, Warnings: 36

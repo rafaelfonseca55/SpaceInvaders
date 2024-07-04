@@ -36,6 +36,12 @@ BEGIN
     Sc5 : FFD port map (CLK => CLK, D => R(4), RESET => RESET, SET => '0', EN => EN, Q => R(5));
     Sc6 : FFD port map (CLK => CLK, D => R(5), RESET => RESET, SET => '0', EN => EN, Q => R(6));
 
-    D <= R;
+    D(0) <= R(6);
+	 D(1) <= R(5);
+	 D(2) <= R(4);
+	 D(3) <= R(3);
+	 D(4) <= R(2);
+	 D(5) <= R(1);
+	 D(6) <= R(0);
 
 END logicFunction;

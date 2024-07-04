@@ -77,6 +77,7 @@ U2 : Counter port map ( CLK=>SCLK , clr=>s1 , Q=>s4);
 
 U3 : ShiftRegisterScore port map (En =>s3,CLK=>SCLK,Sin=>SDX,RESET=>reset,D=>D); 
 
-Dflag_signal <= S4(3) and not s4(2) and s4(1) and not s4(0);
-PFlag_signal <= s4(3) and not s4(2) and s4(1) and s4(0);
+Pflag_signal <= s4(3) and not s4(2) and not s4(1) and not s4(0) and not SCLK;
+Dflag_signal <= not s4(3) and s4(2) and s4(1) and s4(0) and not SCLK;
+
 end Structure;

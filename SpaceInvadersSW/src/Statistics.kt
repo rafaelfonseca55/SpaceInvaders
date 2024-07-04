@@ -67,17 +67,14 @@ object Statistics {
             val totalCoins = lines.getOrNull(1)?.toIntOrNull() ?: 0
 
             TUI.write("Total games: $totalGames", 1, TUI.Location.LEFT)
-            Thread.sleep(3000)
+            Thread.sleep(1500)
             TUI.clearLine(1)
             TUI.write("Total coins: $totalCoins", 1, TUI.Location.LEFT)
-            Thread.sleep(3000)
+            Thread.sleep(1500)
         } else {
             TUI.write("No statistics yet", 1, TUI.Location.CENTER)
             Thread.sleep(3000)
         }
-
-        TUI.clear()
-        showInitialScreen()
     }
 
     fun enterPlayerName() {
@@ -152,7 +149,6 @@ object Statistics {
             playerName += char
         }
         TUI.write(playerName, 1, TUI.Location.LEFT) // Update TUI immediately
-        println("Updated player name: $playerName") // Log for debugging
     }
 
      fun isHighscore(score: Int): Boolean {

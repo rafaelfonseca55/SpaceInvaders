@@ -20,12 +20,10 @@ begin
 
     process(CLK)
     begin
-        if rising_edge(CLK) then
-            if init = '1' then
-                sr <= '0';
-            else
-                sr <= sr xor Data;
-            end if;
+	 if init = '1' then
+		sr <= '0';
+		elsif rising_edge(CLK) then
+             sr <= sr xor Data;
         end if;
     end process;  
     
