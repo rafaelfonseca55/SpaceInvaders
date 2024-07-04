@@ -24,6 +24,3 @@ This project was developed as part of the Laboratory of Computers and Informatic
 -  **Score Display**: The Score Display module manages the transmission of data to the six 7-segment displays.
 -  **Statistics**: This module offers various functions for storing game statistics on a local device.
 -  **M**: Responsible for the Maintenance functionalities.
-
-## TO DO:
-- **Testing**: Keyboard Reader yet to be tested.
