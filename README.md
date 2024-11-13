@@ -1,7 +1,7 @@
 # Class 24D - Group 8
-      Guilherme Esteves 48313;
-      Rafael Fonseca 48354;
-      Pedro Correia 47264.
+      Guilherme Esteves 48313 - A48313@alunos.isel.pt;
+      Rafael Fonseca 48354 - A48354@alunos.isel.pt;
+      Pedro Correia 47264 - A47264@alunos.isel.pt.
 
 # About this project
 
